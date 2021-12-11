@@ -132,17 +132,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1059606601317756511}
-        m_MethodName: Add
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1059606601317756504}
         m_MethodName: SetClip
         m_Mode: 5
@@ -152,6 +141,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: destroy
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1059606601317756511}
+        m_MethodName: Add
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1059606601317756509
@@ -176,11 +176,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1059606601317756497}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9656c8260af14535aa60411cf1c649f5, type: 3}
+  m_Script: {fileID: 11500000, guid: f0ac2661ebee14d49af78873936e0a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: Coin
-  _count: 10
+  _numCoins: 10
 --- !u!114 &1059606601317756504
 MonoBehaviour:
   m_ObjectHideFlags: 0

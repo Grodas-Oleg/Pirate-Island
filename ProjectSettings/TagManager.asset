@@ -57,6 +57,3 @@ TagManager:
   - name: Creatures
     uniqueID: 1673521467
     locked: 0
-  - name: Props
-    uniqueID: 3305164517
-    locked: 0

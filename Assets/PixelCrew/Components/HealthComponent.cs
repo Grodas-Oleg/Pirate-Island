@@ -1,5 +1,4 @@
 ﻿using System;
-using PixelCrew.Model;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,8 +11,7 @@ namespace PixelCrew.Components
         [SerializeField] private UnityEvent _onHeal;
         [SerializeField] private UnityEvent _onDie;
         [SerializeField] private HealthChangeEvent _onChange;
-        
-        private GameSession _session;
+
         public void ApplyDamage(int changeValue)
         {
             if (_health <= 0) return;

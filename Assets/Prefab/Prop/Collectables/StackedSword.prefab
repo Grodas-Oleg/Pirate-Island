@@ -16,12 +16,8 @@ GameObject:
   - component: {fileID: 3254612517874439030}
   - component: {fileID: -3710775916309315995}
   - component: {fileID: 592216931242896917}
-<<<<<<< Updated upstream
   - component: {fileID: 1341556613257600278}
   m_Layer: 0
-=======
-  m_Layer: 15
->>>>>>> Stashed changes
   m_Name: StackedSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +183,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 592216931242896917}
-        m_MethodName: Add
+        m_MethodName: ArmHero
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -208,6 +204,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1341556613257600278}
+        m_MethodName: ProjectilePickUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &592216931242896917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,8 +224,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 184260941868772573}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9656c8260af14535aa60411cf1c649f5, type: 3}
+  m_Script: {fileID: 11500000, guid: e3dd2bf5876f644a283c078357439201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: Sword
-  _count: 1
+--- !u!114 &1341556613257600278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184260941868772573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddb8786f2d1843ceb67edc97e008f7df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

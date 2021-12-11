@@ -104,11 +104,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1059606601317756511, guid: 183f3169945ae475e8eb2500219b95f3,
         type: 3}
-      propertyPath: _count
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1059606601317756511, guid: 183f3169945ae475e8eb2500219b95f3,
-        type: 3}
       propertyPath: _numCoins
       value: 10
       objectReference: {fileID: 0}
