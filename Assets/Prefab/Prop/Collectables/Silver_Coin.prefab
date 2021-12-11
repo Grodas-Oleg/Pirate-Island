@@ -94,7 +94,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059606601317756497}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -143,7 +143,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1059606601317756511}
         m_MethodName: Add
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -161,10 +161,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1059606601317756497}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0ac2661ebee14d49af78873936e0a11, type: 3}
+  m_Script: {fileID: 11500000, guid: 9656c8260af14535aa60411cf1c649f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _numCoins: 1
+  _id: Coin
+  _count: 1
 --- !u!114 &8650581498863334445
 MonoBehaviour:
   m_ObjectHideFlags: 0
