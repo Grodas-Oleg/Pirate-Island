@@ -15,7 +15,9 @@ GameObject:
   - component: {fileID: 1059606601317756511}
   - component: {fileID: 8650581498863334445}
   - component: {fileID: 1059606601317756504}
-  m_Layer: 0
+  - component: {fileID: 7069101073280701299}
+  - component: {fileID: 3702549538025340351}
+  m_Layer: 15
   m_Name: Silver_Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,6 +118,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -143,7 +148,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1059606601317756511}
         m_MethodName: Add
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -161,10 +166,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1059606601317756497}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0ac2661ebee14d49af78873936e0a11, type: 3}
+  m_Script: {fileID: 11500000, guid: 9656c8260af14535aa60411cf1c649f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _numCoins: 1
+  _id: Coin
+  _count: 1
 --- !u!114 &8650581498863334445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,3 +231,39 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!50 &7069101073280701299
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059606601317756497}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &3702549538025340351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059606601317756497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a278770fa9cd454986d48a900e41e1e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frequency: 6
+  _amplitude: 0.1
+  _randomize: 1

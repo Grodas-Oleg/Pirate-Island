@@ -38,7 +38,7 @@ namespace PixelCrew.Components
                     }
                 }
             }
-            
+
             _onDropCalculated?.Invoke(itemsToDrop);
         }
 
@@ -48,10 +48,10 @@ namespace PixelCrew.Components
             public GameObject Drop;
             [Range(0f, 100f)] public float Probability;
         }
+    }
 
-        [Serializable]
-        public class DropEvent : UnityEvent<GameObject[]>
-        {
-        }
+    [Serializable]
+    public class DropEvent : UnityEvent<GameObject[]>
+    {
     }
 }

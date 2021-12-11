@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 1059606601317756508}
   - component: {fileID: 1059606601317756499}
   - component: {fileID: 1059606601317756498}
-  - component: {fileID: 1059606601317756511}
   - component: {fileID: 8650581498863334445}
   - component: {fileID: 1059606601317756504}
   - component: {fileID: 4223549451749357011}
   - component: {fileID: -2051234450825019122}
-  m_Layer: 0
+  - component: {fileID: 3112680939622366029}
+  m_Layer: 15
   m_Name: SilverCoinParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1279956429
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2322180950842035098, guid: 939200df091644b189b57c67699b5d38,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -104,19 +104,6 @@ CircleCollider2D:
   m_Offset: {x: 0.010480881, y: 0.020961404}
   serializedVersion: 2
   m_Radius: 0.17663574
---- !u!114 &1059606601317756511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1059606601317756497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0ac2661ebee14d49af78873936e0a11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _numCoins: 1
 --- !u!114 &8650581498863334445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,9 +181,9 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &-2051234450825019122
 MonoBehaviour:
@@ -226,9 +213,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1059606601317756511}
+      - m_Target: {fileID: 3112680939622366029}
         m_MethodName: Add
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -248,3 +235,17 @@ MonoBehaviour:
           m_StringArgument: destroy
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3112680939622366029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059606601317756497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9656c8260af14535aa60411cf1c649f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Coin
+  _count: 1

@@ -107,5 +107,10 @@ PrefabInstance:
       propertyPath: _numCoins
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3112680939622366029, guid: 183f3169945ae475e8eb2500219b95f3,
+        type: 3}
+      propertyPath: _count
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 183f3169945ae475e8eb2500219b95f3, type: 3}

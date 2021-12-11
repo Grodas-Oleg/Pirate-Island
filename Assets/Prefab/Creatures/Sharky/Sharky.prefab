@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2191689596064160223}
   - component: {fileID: 4104425611846458196}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: MissPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,6 +90,85 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 6417313836895281770}
   _prefab: {fileID: 184260941868772573, guid: c903e0c2aea7e4d24b7cdefcb8dadc2e, type: 3}
+--- !u!1 &2715629140933806069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5000148986330491034}
+  m_Layer: 0
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5000148986330491034
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2715629140933806069}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.322, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6458246592436804371}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2886211151648914450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6458246592436804371}
+  - component: {fileID: 4167631688282415284}
+  m_Layer: 0
+  m_Name: PatrolGroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6458246592436804371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2886211151648914450}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.403, y: -0.369, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5000148986330491034}
+  m_Father: {fileID: 6604685115016147723}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4167631688282415284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2886211151648914450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3039b9a245c8424e94064aaedb207e32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layer:
+    serializedVersion: 2
+    m_Bits: 0
+  _isTochingLayer: 0
+  _target: {fileID: 5000148986330491034}
 --- !u!1 &6604685113957586249
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +272,8 @@ GameObject:
   - component: {fileID: 5579477902398068515}
   - component: {fileID: 6604685114791682669}
   - component: {fileID: 2374698531548143417}
-  m_Layer: 0
+  - component: {fileID: 1862896905}
+  m_Layer: 16
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +315,7 @@ MonoBehaviour:
   _onOverlap:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5579477902398068515}
+      - m_Target: {fileID: 1862896905}
         m_MethodName: ApplyDamage
         m_Mode: 0
         m_Arguments:
@@ -274,7 +354,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.004095793, y: 0}
   serializedVersion: 2
-  m_Radius: 0.2009995
+  m_Radius: 0.2
 --- !u!114 &2374698531548143417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,6 +371,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   _isTochingLayer: 0
+--- !u!114 &1862896905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6604685114791682657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 039ca686d5f97403a89b3f6bbb6d8799, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _value: -1
 --- !u!1 &6604685115016147725
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,8 +401,8 @@ GameObject:
   - component: {fileID: 1013021409267742315}
   - component: {fileID: 5970328060605476116}
   - component: {fileID: 2937744350256266142}
-  - component: {fileID: 255313747}
   - component: {fileID: 1314373695}
+  - component: {fileID: 1989817174819524721}
   m_Layer: 0
   m_Name: Sharky
   m_TagString: Enemy
@@ -335,6 +428,7 @@ Transform:
   - {fileID: 7655613496385202117}
   - {fileID: 6604685114791682670}
   - {fileID: 267095554667734615}
+  - {fileID: 6458246592436804371}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -596,22 +690,6 @@ MonoBehaviour:
   _alarmDelay: 0.5
   _attckCooldown: 1
   _missHeroCooldown: 0.5
---- !u!114 &255313747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6604685115016147725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05b7f20495b84c9ebef8ff61910fdf54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _points:
-  - {fileID: 0}
-  - {fileID: 0}
-  _trashhold: 0.2
 --- !u!60 &1314373695
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -647,6 +725,21 @@ PolygonCollider2D:
       - {x: 0.40759134, y: -0.14942932}
       - {x: 0.40710258, y: 0.19060445}
       - {x: 0.18523335, y: 0.31824708}
+--- !u!114 &1989817174819524721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6604685115016147725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce40b36461a944099e1470d036cbb1b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _groundCheck: {fileID: 0}
+  _direction: 0
+  _creature: {fileID: 5970328060605476116}
 --- !u!1 &7257079251524928636
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,7 +751,7 @@ GameObject:
   - component: {fileID: 7655613496385202117}
   - component: {fileID: 4269568612149169848}
   - component: {fileID: 897859836670152519}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -723,7 +816,7 @@ GameObject:
   - component: {fileID: 2332519523688663895}
   - component: {fileID: 98440733006892505}
   - component: {fileID: 1828860835836576412}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Vision
   m_TagString: Untagged
   m_Icon: {fileID: 0}

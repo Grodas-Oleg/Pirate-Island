@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 4303671582627960153}
   - component: {fileID: 4303671582627960154}
   - component: {fileID: 4303671582627960151}
-  m_Layer: 10
+  - component: {fileID: -7602027820959470365}
+  m_Layer: 15
   m_Name: HealthPotion
   m_TagString: Heal
   m_Icon: {fileID: 0}
@@ -129,6 +130,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -154,12 +158,12 @@ MonoBehaviour:
           m_StringArgument: destroy
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4303671582627960150}
-        m_MethodName: ApplyDamage
-        m_Mode: 2
+      - m_Target: {fileID: -7602027820959470365}
+        m_MethodName: Add
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -228,3 +232,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 4303671582627960156}
+--- !u!114 &-7602027820959470365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4303671582627960156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9656c8260af14535aa60411cf1c649f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Potion
+  _count: 1

@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using PixelCrew.Components;
+using PixelCrew.Components.ColliderBased;
+using PixelCrew.Components.GoBased;
 using UnityEngine;
 
 namespace PixelCrew.Creatures
@@ -23,7 +25,7 @@ namespace PixelCrew.Creatures
         protected Animator Animator;
         protected bool IsGrounded;
         private bool _isJumping;
-        private bool _isDashing = false;
+        protected bool _isDashing = false;
         private float _dashDelay = 0.5f;
         private bool _xDirection;
 
@@ -147,11 +149,8 @@ namespace PixelCrew.Creatures
             _isDashing = true;
             Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, 0f);
             Rigidbody.AddForce(new Vector2(_dashDistance * direction, 0f), ForceMode2D.Impulse);
-            float gravity = Rigidbody.gravityScale;
-            Rigidbody.gravityScale = 0;
             yield return new WaitForSeconds(.2f);
             _isDashing = false;
-            Rigidbody.gravityScale = gravity;
         }
 
         public virtual void Attack()
