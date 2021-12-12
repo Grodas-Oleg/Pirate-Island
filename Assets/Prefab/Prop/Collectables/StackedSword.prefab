@@ -16,8 +16,7 @@ GameObject:
   - component: {fileID: 3254612517874439030}
   - component: {fileID: -3710775916309315995}
   - component: {fileID: 2946231710561473860}
-  - component: {fileID: 4097107595843042266}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: StackedSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,18 +217,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: Sword
   _count: 1
---- !u!114 &4097107595843042266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 184260941868772573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a278770fa9cd454986d48a900e41e1e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _frequency: 6
-  _amplitude: 0.1
-  _randomize: 1

@@ -46,6 +46,11 @@ namespace PixelCrew.Components.Health
         {
         }
 
+        private void OnDestroy()
+        {
+            _onDie.RemoveAllListeners();
+        }
+
         public void SetHealth(int health)
         {
             _health = health;
