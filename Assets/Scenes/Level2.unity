@@ -5628,6 +5628,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1105496019, guid: 54b62fe4564d543369c21ef22bed753e, type: 3}
+      propertyPath: m_TagString
+      value: SFXAudioSource
+      objectReference: {fileID: 0}
     - target: {fileID: 6604685115016147720, guid: 54b62fe4564d543369c21ef22bed753e,
         type: 3}
       propertyPath: _superThrowDelay

@@ -27,14 +27,6 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""SaySomething"",
-                    ""type"": ""Button"",
-                    ""id"": ""96653add-8077-45df-b464-678637122f45"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""eb9d742c-c42d-4854-8cda-3b89462afd09"",
@@ -188,17 +180,6 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c9245348-dd70-411c-863b-46c4e09b7f11"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SaySomething"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""ad526613-d40f-43ce-9dff-2e5dfa709845"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
@@ -260,7 +241,6 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         // Hero
         m_Hero = asset.FindActionMap("Hero", throwIfNotFound: true);
         m_Hero_Movement = m_Hero.FindAction("Movement", throwIfNotFound: true);
-        m_Hero_SaySomething = m_Hero.FindAction("SaySomething", throwIfNotFound: true);
         m_Hero_Interact = m_Hero.FindAction("Interact", throwIfNotFound: true);
         m_Hero_Dash = m_Hero.FindAction("Dash", throwIfNotFound: true);
         m_Hero_Attack = m_Hero.FindAction("Attack", throwIfNotFound: true);
@@ -316,7 +296,6 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Hero;
     private IHeroActions m_HeroActionsCallbackInterface;
     private readonly InputAction m_Hero_Movement;
-    private readonly InputAction m_Hero_SaySomething;
     private readonly InputAction m_Hero_Interact;
     private readonly InputAction m_Hero_Dash;
     private readonly InputAction m_Hero_Attack;
@@ -327,7 +306,6 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         private @HeroInputAction m_Wrapper;
         public HeroActions(@HeroInputAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Hero_Movement;
-        public InputAction @SaySomething => m_Wrapper.m_Hero_SaySomething;
         public InputAction @Interact => m_Wrapper.m_Hero_Interact;
         public InputAction @Dash => m_Wrapper.m_Hero_Dash;
         public InputAction @Attack => m_Wrapper.m_Hero_Attack;
@@ -345,9 +323,6 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @Movement.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnMovement;
-                @SaySomething.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnSaySomething;
-                @SaySomething.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnSaySomething;
-                @SaySomething.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnSaySomething;
                 @Interact.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnInteract;
@@ -370,9 +345,6 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
-                @SaySomething.started += instance.OnSaySomething;
-                @SaySomething.performed += instance.OnSaySomething;
-                @SaySomething.canceled += instance.OnSaySomething;
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
@@ -395,7 +367,6 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     public interface IHeroActions
     {
         void OnMovement(InputAction.CallbackContext context);
-        void OnSaySomething(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
