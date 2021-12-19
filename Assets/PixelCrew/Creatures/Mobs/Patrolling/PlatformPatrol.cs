@@ -8,7 +8,7 @@ namespace PixelCrew.Creatures.Mobs.Patrolling
     {
         [SerializeField] private LayerCheck _groundCheck;
         [SerializeField] private LayerCheck _obstacleCheck;
-        [SerializeField] private int _direction;
+        [SerializeField] private int _direction = 1;
         [SerializeField] private Creature _creature;
         public override IEnumerator DoPatrol()
         {

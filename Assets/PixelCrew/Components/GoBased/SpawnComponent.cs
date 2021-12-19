@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using PixelCrew.Utils;
+using UnityEngine;
 
 namespace PixelCrew.Components.GoBased
 {
@@ -10,7 +11,7 @@ namespace PixelCrew.Components.GoBased
         [ContextMenu("Spawn")]
         public void Spawn()
         {
-            var instanse = Instantiate(_prefab, _target.position, Quaternion.identity);
+            var instanse = SpawnUtils.Spawn(_prefab, _target.position);
             
             var scale = _target.lossyScale;
             instanse.transform.localScale = scale;

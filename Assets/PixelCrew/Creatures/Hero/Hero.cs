@@ -53,7 +53,7 @@ namespace PixelCrew.Creatures.Hero
             _health = GetComponent<HealthComponent>();
             _session.Data.Inventory.OnChanged += OnInventoryChanged;
 
-            _health.SetHealth(_session.Data.HP);
+            _health.SetHealth(_session.Data.HP.Value);
             UpdateHeroWeapon();
         }
 
@@ -70,7 +70,7 @@ namespace PixelCrew.Creatures.Hero
 
         public void OnHealthChanged(int currentHealth)
         {
-            _session.Data.HP = currentHealth;
+            _session.Data.HP.Value = currentHealth;
         }
 
         protected override void Update()
@@ -82,6 +82,7 @@ namespace PixelCrew.Creatures.Hero
             {
                 _isOnWall = true;
                 Rigidbody.gravityScale = 0;
+                Direction.y = 0;
             }
             else
             {
@@ -89,7 +90,7 @@ namespace PixelCrew.Creatures.Hero
                 Rigidbody.gravityScale = _defaultGravityScale;
             }
 
-            if (_isDashing || _isOnWall)
+            if (IsDashing || _isOnWall)
             {
                 Rigidbody.gravityScale = 0;
             }
@@ -138,8 +139,8 @@ namespace PixelCrew.Creatures.Hero
             var numCoinsToDispose = Mathf.Min(CoinsCount, 5);
             _session.Data.Inventory.Remove("Coin", numCoinsToDispose);
 
-            // _hitDrop.SetCount(numCoinsToDispose);
-            // _hitDrop.CalculateDrop();
+            _hitDrop.SetCount(numCoinsToDispose);
+            _hitDrop.CalculateDrop();
         }
 
         public void Interact()
@@ -163,7 +164,14 @@ namespace PixelCrew.Creatures.Hero
         public override void Attack()
         {
             if (SwordsCount <= 0) return;
+
             base.Attack();
+        }
+
+        protected override void MakeAttack()
+        {
+            base.MakeAttack();
+            Sounds.Play("Melee");
         }
 
         private void UpdateHeroWeapon()

@@ -1,6 +1,7 @@
 ﻿using System;
 using PixelCrew.Model.Data;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace PixelCrew.Model
 {
@@ -8,10 +9,12 @@ namespace PixelCrew.Model
     {
         [SerializeField] private PlayerData _data;
         public PlayerData Data => _data;
-        private PlayerData _save;   
+        private PlayerData _save;
 
         private void Awake()
         {
+            LoadHud();
+
             if (IsSessionExit())
             {
                 Destroy(gameObject);
@@ -21,6 +24,11 @@ namespace PixelCrew.Model
                 Save();
                 DontDestroyOnLoad(this);
             }
+        }
+
+        private void LoadHud()
+        {
+            SceneManager.LoadScene("Hud", LoadSceneMode.Additive);
         }
 
         private bool IsSessionExit()

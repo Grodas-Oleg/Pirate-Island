@@ -48,6 +48,11 @@ namespace PixelCrew.Components
             public GameObject Drop;
             [Range(0f, 100f)] public float Probability;
         }
+        
+        public void SetCount(int count)
+        {
+            _count = count;
+        }
     }
 
     [Serializable]

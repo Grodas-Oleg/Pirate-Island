@@ -20,15 +20,15 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: ac24f47a87b024466a5ce19b0b857a43, type: 3}
+      value: {fileID: 21300000, guid: 5721ed7f2443446f68de419c49fbbbea, type: 3}
     - time: 0.1
-      value: {fileID: 21300000, guid: 996abc597367f4f3f8d2e42eb76d99b3, type: 3}
+      value: {fileID: 21300000, guid: 65bf29e04c82f49339e0bf67aee43100, type: 3}
     - time: 0.2
-      value: {fileID: 21300000, guid: 7d85f3c279c8342198ee387379d93071, type: 3}
+      value: {fileID: 21300000, guid: d5c64f4b1812b433887ae3e7e08eb0ed, type: 3}
     - time: 0.3
-      value: {fileID: 21300000, guid: d7af201d6dbfa4437ae4eb2838f88a8b, type: 3}
+      value: {fileID: 21300000, guid: 057dc4d75702c423088b281d196e3c80, type: 3}
     - time: 0.4
-      value: {fileID: 21300000, guid: 89b16d8c67d80452e941a4e17759d222, type: 3}
+      value: {fileID: 21300000, guid: 1eb711d6792dc4f1db7cff8c62d79b07, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,11 +48,11 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: ac24f47a87b024466a5ce19b0b857a43, type: 3}
-    - {fileID: 21300000, guid: 996abc597367f4f3f8d2e42eb76d99b3, type: 3}
-    - {fileID: 21300000, guid: 7d85f3c279c8342198ee387379d93071, type: 3}
-    - {fileID: 21300000, guid: d7af201d6dbfa4437ae4eb2838f88a8b, type: 3}
-    - {fileID: 21300000, guid: 89b16d8c67d80452e941a4e17759d222, type: 3}
+    - {fileID: 21300000, guid: 5721ed7f2443446f68de419c49fbbbea, type: 3}
+    - {fileID: 21300000, guid: 65bf29e04c82f49339e0bf67aee43100, type: 3}
+    - {fileID: 21300000, guid: d5c64f4b1812b433887ae3e7e08eb0ed, type: 3}
+    - {fileID: 21300000, guid: 057dc4d75702c423088b281d196e3c80, type: 3}
+    - {fileID: 21300000, guid: 1eb711d6792dc4f1db7cff8c62d79b07, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -77,4 +77,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.3
+    functionName: MakeAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

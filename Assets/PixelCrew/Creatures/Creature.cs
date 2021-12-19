@@ -2,6 +2,7 @@
 using PixelCrew.Components.Audio;
 using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.GoBased;
+using PixelCrew.Utils;
 using UnityEngine;
 
 namespace PixelCrew.Creatures
@@ -13,6 +14,8 @@ namespace PixelCrew.Creatures
         [SerializeField] protected float _jumpSpeed;
         [SerializeField] private float _damageVelocity;
         [SerializeField] private float _dashDistance;
+        [SerializeField] protected Cooldown _dashDelay;
+
 
         [Header("Checkers")] [SerializeField] protected LayerMask _groundLayer;
         [SerializeField] private LayerCheck _groundCheck;
@@ -25,8 +28,7 @@ namespace PixelCrew.Creatures
         protected PlaySoundsComponent Sounds;
         protected bool IsGrounded;
         private bool _isJumping;
-        protected bool _isDashing = false;
-        private float _dashDelay = 0.5f;
+        protected bool IsDashing = false;
         private bool _xDirection;
 
         private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
@@ -34,7 +36,7 @@ namespace PixelCrew.Creatures
         private static readonly int VerticalVelocity = Animator.StringToHash("vertical-velocity");
         private static readonly int Hit = Animator.StringToHash("hit");
         private static readonly int IsAttack = Animator.StringToHash("attack");
-        private static readonly int IsDashing = Animator.StringToHash("is-dashing");
+        private static readonly int Dashing = Animator.StringToHash("is-dashing");
 
         protected virtual void Awake()
         {
@@ -57,22 +59,20 @@ namespace PixelCrew.Creatures
         {
             var xVelocity = Direction.x * _speed;
             var yVelocity = CalculateYVelocity();
-
-            if (_dashDelay > 0f) _dashDelay -= Time.deltaTime;
-
-            if (!_isDashing) Rigidbody.velocity = new Vector2(xVelocity, yVelocity);
+            
+            if (!IsDashing) Rigidbody.velocity = new Vector2(xVelocity, yVelocity);
 
             Animator.SetBool(IsRunning, Direction.x != 0);
             Animator.SetBool(IsGroundKey, IsGrounded);
             Animator.SetFloat(VerticalVelocity, Rigidbody.velocity.y);
-            Animator.SetBool(IsDashing, _isDashing);
+            Animator.SetBool(Dashing, IsDashing);
 
             UpdateSpriteDirection(Direction);
         }
 
         protected virtual float CalculateYVelocity()
         {
-            var yVelosity = Rigidbody.velocity.y;
+            var yVelocity = Rigidbody.velocity.y;
             var _isJumpPressing = Direction.y > 0;
 
             if (IsGrounded)
@@ -85,14 +85,14 @@ namespace PixelCrew.Creatures
                 _isJumping = true;
 
                 var isFalling = Rigidbody.velocity.y <= 0.001f;
-                yVelosity = isFalling ? CalculateJumpVelocity(yVelosity) : yVelosity;
+                yVelocity = isFalling ? CalculateJumpVelocity(yVelocity) : yVelocity;
             }
             else if (Rigidbody.velocity.y > 0 && _isJumping)
             {
-                yVelosity *= 0.5f;
+                yVelocity *= 0.5f;
             }
 
-            return yVelosity;
+            return yVelocity;
         }
 
         protected virtual float CalculateJumpVelocity(float yVeloсity)
@@ -136,7 +136,7 @@ namespace PixelCrew.Creatures
 
         public void Dash()
         {
-            if (_dashDelay <= 0)
+            if (_dashDelay.IsReady)
             {
                 if (_xDirection)
                 {
@@ -147,18 +147,18 @@ namespace PixelCrew.Creatures
                     StartCoroutine(Dash(-1f));
                 }
 
-                _dashDelay = 1f;
+                _dashDelay.Reset();
             }
         }
 
         IEnumerator Dash(float direction)
         {
-            _isDashing = true;
+            IsDashing = true;
             Sounds.Play("Dash");
             Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, 0f);
             Rigidbody.AddForce(new Vector2(_dashDistance * direction, 0f), ForceMode2D.Impulse);
             yield return new WaitForSeconds(.2f);
-            _isDashing = false;
+            IsDashing = false;
         }
 
         public virtual void Attack()
@@ -166,11 +166,10 @@ namespace PixelCrew.Creatures
             Animator.SetTrigger(IsAttack);
         }
 
-        public void MakeAttack()
+        protected virtual void MakeAttack()
         {
             _particles.Spawn("Slash");
             _attackRange.Check();
-            Sounds.Play("Melee");
         }
     }
 }

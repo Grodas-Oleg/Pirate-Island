@@ -15,11 +15,11 @@ namespace PixelCrew.Creatures.Mobs
 
         [Header("Range")] [SerializeField] private Cooldown _rangeCooldown;
         [SerializeField] private SpawnComponent _rangeAttack;
-        private Animator _animator;
 
         private static readonly int Melee = Animator.StringToHash("melee");
         private static readonly int Range = Animator.StringToHash("range");
 
+        private Animator _animator;
 
         private void Awake()
         {

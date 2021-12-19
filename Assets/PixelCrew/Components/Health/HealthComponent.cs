@@ -7,7 +7,7 @@ namespace PixelCrew.Components.Health
 {
     public class HealthComponent : MonoBehaviour
     {
-        [SerializeField] private int _health;
+        [SerializeField] public int _health;
         [SerializeField] private UnityEvent _onDamage;
         [SerializeField] private UnityEvent _onHeal;
         [SerializeField] public UnityEvent _onDie;

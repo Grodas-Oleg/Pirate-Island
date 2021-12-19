@@ -10,8 +10,9 @@ namespace PixelCrew.Components.Audio
 
         public void Play()
         {
-            if (_source == null) _source = AudioUtils.FindSfxSource();
-            
+            if (_source == null)
+                _source = AudioUtils.FindSfxSource();
+
             _source.PlayOneShot(_clip);
         }
     }

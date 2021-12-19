@@ -2,12 +2,12 @@ using UnityEngine;
 
 namespace PixelCrew.Utils
 {
-    public class AudioUtils
+    public static class AudioUtils
     {
-        public const string SFXSourceTag = "SFXAudioSource";
+        public const string SfxSourceTag = "SFXAudioSource";
         public static AudioSource FindSfxSource()
         {
-            return GameObject.FindWithTag(SFXSourceTag).GetComponent<AudioSource>();
+            return GameObject.FindWithTag(SfxSourceTag).GetComponent<AudioSource>();
         }
     }
 }

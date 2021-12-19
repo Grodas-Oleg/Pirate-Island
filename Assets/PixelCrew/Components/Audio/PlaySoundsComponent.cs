@@ -6,8 +6,10 @@ namespace PixelCrew.Components.Audio
 {
     public class PlaySoundsComponent : MonoBehaviour
     {
-        [SerializeField] private AudioSource _source;
+        public const string SfxSourceTag = "SfxAudioSource";
+
         [SerializeField] private AudioData[] _sounds;
+        private AudioSource _source;
 
         public void Play(string id)
         {
