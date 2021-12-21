@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using PixelCrew.Model;
-using PixelCrew.Model.Data;
 using PixelCrew.Utils.Disposables;
 using UnityEngine;
 
@@ -11,8 +10,7 @@ namespace PixelCrew.UI.HUD.QuickInventory
         [SerializeField] private Transform _container;
         [SerializeField] private InventoryItemWidget _prefab;
 
-        private CompositeDisposable _trash => new CompositeDisposable();
-        // private readonly CompositeDisposable _trash => new CompositeDisposable();
+        private readonly CompositeDisposable _trash = new CompositeDisposable();
 
         private GameSession _session;
         private List<InventoryItemWidget> _createdItem = new List<InventoryItemWidget>();
@@ -48,6 +46,11 @@ namespace PixelCrew.UI.HUD.QuickInventory
             {
                 _createdItem[i].gameObject.SetActive(false);
             }
+        }
+
+        private void OnDestroy()
+        {
+            _trash.Dispose();
         }
     }
 }
