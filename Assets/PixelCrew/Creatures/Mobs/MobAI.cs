@@ -15,8 +15,10 @@ namespace PixelCrew.Creatures.Mobs
         [SerializeField] private float attackCooldown = 1f;
         [SerializeField] private float missHeroCooldown = 0.5f;
 
+        [SerializeField] public float _horizontalTrashold = 0.2f;
+
         private Coroutine _current;
-        private GameObject _target;
+        public GameObject _target;
 
         private static readonly int IsDeadKey = Animator.StringToHash("is-dead");
 

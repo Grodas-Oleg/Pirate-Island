@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEngine;
 
 namespace PixelCrew.Creatures.Mobs
 {
@@ -16,7 +17,11 @@ namespace PixelCrew.Creatures.Mobs
                 {
                     if (vision.IsTouchingLayer)
                     {
-                        SetDirectionToTarget();
+                        var horizontalDelta = Mathf.Abs(_target.transform.position.x - transform.position.x);
+                        if (horizontalDelta <= _horizontalTrashold)
+                            Creature.SetDirection(Vector2.zero);
+                        else
+                            SetDirectionToTarget();
                     }
                     else
                     {

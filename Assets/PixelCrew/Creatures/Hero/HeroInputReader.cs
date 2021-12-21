@@ -50,11 +50,11 @@ namespace PixelCrew.Creatures.Hero
             }
         }
 
-        public void OnUse(InputAction.CallbackContext context)
+        public void OnNextItem(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
-                _hero.Use();
+                _hero.NextItem();
             }
         }
     }

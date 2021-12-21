@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1087797018}
   - component: {fileID: 1087797019}
   m_Layer: 0
-  m_Name: ThrowSwordPosition
+  m_Name: ThrowPosition
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -473,7 +473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039ca686d5f97403a89b3f6bbb6d8799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _value: -1
+  _value: -10
 --- !u!1 &6604685114997779491
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,6 +706,7 @@ MonoBehaviour:
     _value: 1
   _superThrowParticles: 3
   _superThrowDelay: 0.2
+  _throwSpawner: {fileID: 1087797019}
   _hitDrop: {fileID: 1390284390}
 --- !u!114 &6604685115016147766
 MonoBehaviour:
@@ -811,7 +812,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6604685115016147721}
-        m_MethodName: OnUse
+        m_MethodName: OnNextItem
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -838,7 +839,7 @@ Animator:
   m_GameObject: {fileID: 6604685115016147725}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 55b233396329047ce8fa211d6a1a98c4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 818489d14172543918e38a5bdecdbb65, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -859,7 +860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e27af91caffb479aaf9e79ecdd64196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 5
+  _health: 100
   _onDamage:
     m_PersistentCalls:
       m_Calls:
@@ -891,7 +892,7 @@ MonoBehaviour:
   _onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1941696586}
+      - m_Target: {fileID: 0}
         m_MethodName: Reload
         m_Mode: 1
         m_Arguments:

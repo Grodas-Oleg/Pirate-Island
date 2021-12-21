@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Interactable
   - SFXAudioSource
+  - HudCanvas
   layers:
   - Default
   - TransparentFX

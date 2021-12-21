@@ -11,7 +11,9 @@ namespace PixelCrew.Components.Health
         [SerializeField] private UnityEvent _onDamage;
         [SerializeField] private UnityEvent _onHeal;
         [SerializeField] public UnityEvent _onDie;
-        [SerializeField] private HealthChangeEvent _onChange;
+        [SerializeField] public HealthChangeEvent _onChange;
+
+        public int Health => _health;
         
         private GameSession _session;
         public void ApplyDamage(int changeValue)

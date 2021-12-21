@@ -34,7 +34,11 @@ namespace PixelCrew.Creatures.Mobs
                 }
                 else
                 {
-                    SetDirectionToTarget();
+                    var horizontalDelta = Mathf.Abs(_target.transform.position.x - transform.position.x);
+                    if (horizontalDelta <= _horizontalTrashold)
+                        Creature.SetDirection(Vector2.zero);
+                    else
+                        SetDirectionToTarget();
                 }
 
                 yield return null;

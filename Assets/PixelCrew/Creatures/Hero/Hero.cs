@@ -1,8 +1,10 @@
 using System.Collections;
 using PixelCrew.Components;
 using PixelCrew.Components.ColliderBased;
+using PixelCrew.Components.GoBased;
 using PixelCrew.Components.Health;
 using PixelCrew.Model;
+using PixelCrew.Model.Definitions;
 using PixelCrew.Utils;
 using UnityEditor.Animations;
 using UnityEngine;
@@ -22,6 +24,7 @@ namespace PixelCrew.Creatures.Hero
 
         [SerializeField] private int _superThrowParticles;
         [SerializeField] private float _superThrowDelay;
+        [SerializeField] private SpawnComponent _throwSpawner;
 
         [SerializeField] private ProbabilityDropComponent _hitDrop;
 
@@ -34,9 +37,21 @@ namespace PixelCrew.Creatures.Hero
         private float _defaultGravityScale;
         private bool _superThrow;
 
+        private const string SwordId = "Sword";
         private int CoinsCount => _session.Data.Inventory.Count("Coin");
-        private int SwordsCount => _session.Data.Inventory.Count("Sword");
-        private int PotionsCount => _session.Data.Inventory.Count("Potion");
+        private int SwordsCount => _session.Data.Inventory.Count(SwordId);
+        private string SelectedItemId => _session.QuickInventory.SelectedItem.Id;
+
+        private bool CanThrow
+        {
+            get
+            {
+                if (SelectedItemId == SwordId)
+                    return SwordsCount > 1;
+                var def = DefsFacade.I.Items.Get(SelectedItemId);
+                return def.HasTag(ItemTag.Throwable);
+            }
+        }
 
         private GameSession _session;
         private HealthComponent _health;
@@ -183,7 +198,9 @@ namespace PixelCrew.Creatures.Hero
         {
             if (_superThrow)
             {
-                var numThrows = Mathf.Min(_superThrowParticles, SwordsCount - 1);
+                var throwableCount = _session.Data.Inventory.Count(SelectedItemId);
+                var possibleCount = SelectedItemId == SwordId ? throwableCount - 1 : throwableCount;
+                var numThrows = Mathf.Min(_superThrowParticles, possibleCount);
                 StartCoroutine(DoSuperThrow(numThrows));
             }
             else
@@ -206,8 +223,12 @@ namespace PixelCrew.Creatures.Hero
         private void ThrowAndRemoveFromInventory()
         {
             Sounds.Play("Range");
-            _particles.Spawn("Throw");
-            _session.Data.Inventory.Remove("Sword", 1);
+            var throwableId = _session.QuickInventory.SelectedItem.Id;
+            var throwableDef = DefsFacade.I.ThrowableItems.Get(throwableId);
+            _throwSpawner.SetPrefab(throwableDef.Projectile);
+            _throwSpawner.Spawn();
+
+            _session.Data.Inventory.Remove(throwableId, 1);
         }
 
         public void StartThrowing()
@@ -217,7 +238,7 @@ namespace PixelCrew.Creatures.Hero
 
         public void PerformThrowing()
         {
-            if (!_throwCooldown.IsReady || SwordsCount <= 1) return;
+            if (!_throwCooldown.IsReady || !CanThrow) return;
 
             if (_superThrowCooldown.IsReady) _superThrow = true;
 
@@ -225,15 +246,25 @@ namespace PixelCrew.Creatures.Hero
             _throwCooldown.Reset();
         }
 
-        public void Use()
+        // public void Use()
+        // {
+        //     var usableId = _session.QuickInventory.SelectedItem.Id;
+        //     var usableDef = DefsFacade.I.Items.Get(usableId);
+        //     if (usableDef.HasTag(ItemTag.Usable))
+        //     {
+        //         Animator.SetTrigger(IsHeal);
+        //         Sounds.Play("Use");
+        //         // _session.QuickInventory.SelectedItem
+        //
+        //         var health = GetComponent<HealthComponent>();
+        //         health.ApplyDamage(5);
+        //         _session.Data.Inventory.Remove(usableId, 1);
+        //     }
+        // }
+
+        public void NextItem()
         {
-            if (PotionsCount > 0)
-            {
-                Sounds.Play("Use");
-                Animator.SetTrigger(IsHeal);
-                _health.ApplyDamage(5);
-                _session.Data.Inventory.Remove("Potion", 1);
-            }
+            _session.QuickInventory.SetNextItem();
         }
     }
 }

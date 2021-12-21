@@ -46,7 +46,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Use",
+                    "name": "NextItem",
                     "type": "Button",
                     "id": "05ff5dd7-86b9-4fb9-a8c3-8d3a294ab818",
                     "expectedControlType": "Button",
@@ -212,11 +212,11 @@
                 {
                     "name": "",
                     "id": "d3bf5df2-1796-410f-8c78-0e68baaa606a",
-                    "path": "<Keyboard>/o",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Use",
+                    "action": "NextItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
