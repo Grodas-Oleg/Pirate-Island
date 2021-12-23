@@ -57,7 +57,7 @@ namespace PixelCrew.Creatures
 
         protected virtual void FixedUpdate()
         {
-            var xVelocity = Direction.x * _speed;
+            var xVelocity = Direction.x * CalculateSpeed();
             var yVelocity = CalculateYVelocity();
             
             if (!IsDashing) Rigidbody.velocity = new Vector2(xVelocity, yVelocity);
@@ -68,6 +68,11 @@ namespace PixelCrew.Creatures
             Animator.SetBool(Dashing, IsDashing);
 
             UpdateSpriteDirection(Direction);
+        }
+
+        protected virtual float CalculateSpeed()
+        {
+            return _speed;
         }
 
         protected virtual float CalculateYVelocity()

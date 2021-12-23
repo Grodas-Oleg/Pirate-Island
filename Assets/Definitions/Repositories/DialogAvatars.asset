@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c50ef578f9de4da8815582edb4fde4cf, type: 3}
+  m_Name: DialogAvatars
+  m_EditorClassIdentifier: 
+  _collection:
+  - _id: None
+    _icon: {fileID: -6288512792030432889, guid: 939200df091644b189b57c67699b5d38,
+      type: 3}
+  - _id: Hero
+    _icon: {fileID: 21300000, guid: b4d2b6c6fd127431e8d997cd619aafa5, type: 3}
+  - _id: Crabby
+    _icon: {fileID: 21300000, guid: be9bf6d415ad24426bf8e1f4e0db191b, type: 3}
+  - _id: Sharky
+    _icon: {fileID: 21300000, guid: 111eed453044647e1b8c959f0dd7b710, type: 3}

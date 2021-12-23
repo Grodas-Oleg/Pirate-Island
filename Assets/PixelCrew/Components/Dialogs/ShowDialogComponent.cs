@@ -1,6 +1,7 @@
 using System;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Repositories.Dialog;
 using PixelCrew.UI.HUD.Dialogs;
 using UnityEngine;
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using PixelCrew.Model.Data;
+using PixelCrew.Model.Definitions;
 using PixelCrew.Utils;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,7 @@ namespace PixelCrew.UI.HUD.Dialogs
 {
     public class DialogBoxController : MonoBehaviour
     {
+        [SerializeField] private Image _avatar;
         [SerializeField] private Text _text;
         [SerializeField] private GameObject _container;
         [SerializeField] private Animator _animator;
@@ -36,7 +38,7 @@ namespace PixelCrew.UI.HUD.Dialogs
             _data = data;
             _currentSentence = 0;
             _text.text = string.Empty;
-
+            _avatar.sprite = DefsFacade.I.Avatar.Get(data.Id).Icon;
             _container.SetActive(true);
             _sfxSource.PlayOneShot(_open);
             _animator.SetBool(IsOpen, true);
