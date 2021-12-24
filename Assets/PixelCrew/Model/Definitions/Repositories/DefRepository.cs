@@ -1,3 +1,4 @@
+using PixelCrew.Model.Data;
 using UnityEngine;
 
 namespace PixelCrew.Model.Definitions.Repositories

@@ -3,7 +3,7 @@ using PixelCrew.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace PixelCrew.UI.PauseMenu
+namespace PixelCrew.UI.Windows.PauseMenu
 {
     public class PauseMenuWindow : AnimatedWindow
     {

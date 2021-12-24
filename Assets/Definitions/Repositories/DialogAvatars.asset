@@ -17,8 +17,8 @@ MonoBehaviour:
     _icon: {fileID: -6288512792030432889, guid: 939200df091644b189b57c67699b5d38,
       type: 3}
   - _id: Hero
-    _icon: {fileID: 21300000, guid: b4d2b6c6fd127431e8d997cd619aafa5, type: 3}
+    _icon: {fileID: 21300000, guid: 80050c429e3c545d0a4dd9094c229076, type: 3}
   - _id: Crabby
-    _icon: {fileID: 21300000, guid: be9bf6d415ad24426bf8e1f4e0db191b, type: 3}
+    _icon: {fileID: 21300000, guid: 42dfce910584843c08aedcd7160636b8, type: 3}
   - _id: Sharky
-    _icon: {fileID: 21300000, guid: 111eed453044647e1b8c959f0dd7b710, type: 3}
+    _icon: {fileID: 21300000, guid: c8bc501fba26444b089a6a1762e65d80, type: 3}

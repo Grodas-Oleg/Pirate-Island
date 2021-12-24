@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 4303671582627960151}
   - component: {fileID: -7602027820959470365}
   - component: {fileID: 8356619056972568544}
+  - component: {fileID: 8144119143558700182}
+  - component: {fileID: 4289593767618560438}
   m_Layer: 15
   m_Name: MediumHealthPotion
   m_TagString: Heal
@@ -271,3 +273,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clip: {fileID: 8300000, guid: 94e67aa62a89947f5ab9ad9835710ef2, type: 3}
+--- !u!114 &8144119143558700182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4303671582627960156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a278770fa9cd454986d48a900e41e1e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frequency: 4
+  _amplitude: 0.1
+  _randomize: 0
+--- !u!50 &4289593767618560438
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4303671582627960156}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 5

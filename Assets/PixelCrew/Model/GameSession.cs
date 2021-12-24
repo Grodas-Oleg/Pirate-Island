@@ -10,7 +10,7 @@ namespace PixelCrew.Model
         [SerializeField] private PlayerData _data;
         public PlayerData Data => _data;
         private PlayerData _save;
-        
+
         private readonly CompositeDisposable _trash = new CompositeDisposable();
         public QuickInventoryModel QuickInventory { get; private set; } //public access with private modification
 
@@ -60,6 +60,9 @@ namespace PixelCrew.Model
         public void LoadLastSave()
         {
             _data = _save.Clone();
+
+            _trash.Dispose();
+            InitModels();
         }
 
         private void OnDestroy()

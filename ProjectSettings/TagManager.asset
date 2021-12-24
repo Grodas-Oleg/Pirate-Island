@@ -10,6 +10,8 @@ TagManager:
   - Interactable
   - SFXAudioSource
   - HudCanvas
+  - SimpleDialog
+  - PersonalizedDialog
   layers:
   - Default
   - TransparentFX

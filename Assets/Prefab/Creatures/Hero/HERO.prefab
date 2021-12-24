@@ -797,7 +797,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6604685115016147721}
-        m_MethodName: OnThrow
+        m_MethodName: OnUse
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

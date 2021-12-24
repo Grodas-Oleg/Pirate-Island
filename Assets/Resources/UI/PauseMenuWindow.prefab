@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 7413969776262570030}
   - component: {fileID: 7413969776262570028}
   - component: {fileID: 7413969776262570029}
+  - component: {fileID: 1402998063408489728}
   m_Layer: 5
   m_Name: NormalText
   m_TagString: Untagged
@@ -297,6 +298,20 @@ MonoBehaviour:
   m_Text: 'EXIT
 
 '
+--- !u!114 &1402998063408489728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7413969776262570031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 128516b12f084d2585f5bc0cfe24c561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_exit
+  _capitalize: 1
 --- !u!1 &7413969776497794449
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,6 +535,7 @@ GameObject:
   - component: {fileID: 7413969776712574047}
   - component: {fileID: 7413969776712574045}
   - component: {fileID: 7413969776712574046}
+  - component: {fileID: 3447287730538052811}
   m_Layer: 5
   m_Name: NormalText
   m_TagString: Untagged
@@ -589,6 +605,20 @@ MonoBehaviour:
   m_Text: 'OPTIONS
 
 '
+--- !u!114 &3447287730538052811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7413969776712573984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 128516b12f084d2585f5bc0cfe24c561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_option
+  _capitalize: 1
 --- !u!1 &7413969776714861105
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,6 +868,7 @@ GameObject:
   - component: {fileID: 7413969776943401508}
   - component: {fileID: 7413969776943401506}
   - component: {fileID: 7413969776943401507}
+  - component: {fileID: 102114925772769133}
   m_Layer: 5
   m_Name: Pressed Text
   m_TagString: Untagged
@@ -907,6 +938,20 @@ MonoBehaviour:
   m_Text: 'EXIT
 
 '
+--- !u!114 &102114925772769133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7413969776943401509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 128516b12f084d2585f5bc0cfe24c561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_exit
+  _capitalize: 1
 --- !u!1 &7413969777125244044
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,6 +963,7 @@ GameObject:
   - component: {fileID: 7413969777125244043}
   - component: {fileID: 7413969777125244041}
   - component: {fileID: 7413969777125244042}
+  - component: {fileID: 3604399830746887814}
   m_Layer: 5
   m_Name: Pressed Text
   m_TagString: Untagged
@@ -987,6 +1033,20 @@ MonoBehaviour:
   m_Text: 'RESTART
 
 '
+--- !u!114 &3604399830746887814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7413969777125244044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 128516b12f084d2585f5bc0cfe24c561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_restart
+  _capitalize: 1
 --- !u!1 &7413969777187360991
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,6 +1058,7 @@ GameObject:
   - component: {fileID: 7413969777187360990}
   - component: {fileID: 7413969777187360988}
   - component: {fileID: 7413969777187360989}
+  - component: {fileID: 1004927142425656266}
   m_Layer: 5
   m_Name: Pressed Text
   m_TagString: Untagged
@@ -1065,6 +1126,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: OPTIONS
+--- !u!114 &1004927142425656266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7413969777187360991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 128516b12f084d2585f5bc0cfe24c561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_option
+  _capitalize: 1
 --- !u!1 &7413969777230304828
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,6 +1151,7 @@ GameObject:
   - component: {fileID: 7413969777230304827}
   - component: {fileID: 7413969777230304825}
   - component: {fileID: 7413969777230304826}
+  - component: {fileID: 2280708099608752984}
   m_Layer: 5
   m_Name: NormalText
   m_TagString: Untagged
@@ -1145,6 +1221,20 @@ MonoBehaviour:
   m_Text: 'RESTART
 
 '
+--- !u!114 &2280708099608752984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7413969777230304828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 128516b12f084d2585f5bc0cfe24c561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_restart
+  _capitalize: 1
 --- !u!1 &7413969777849099084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,6 +1329,7 @@ GameObject:
   - component: {fileID: 7413969777951930460}
   - component: {fileID: 7413969777951930458}
   - component: {fileID: 7413969777951930459}
+  - component: {fileID: 1707263106681184795}
   m_Layer: 5
   m_Name: Header
   m_TagString: Untagged
@@ -1306,6 +1397,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Pause Menu
+--- !u!114 &1707263106681184795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7413969777951930461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 128516b12f084d2585f5bc0cfe24c561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: pause_menu_title
+  _capitalize: 1
 --- !u!1 &7413969778146790700
 GameObject:
   m_ObjectHideFlags: 0

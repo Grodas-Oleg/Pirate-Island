@@ -198,6 +198,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   _isTochingLayer: 0
+  _onCollide:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2578937468523227184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,7 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e27af91caffb479aaf9e79ecdd64196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 2
+  _health: 10
   _onDamage:
     m_PersistentCalls:
       m_Calls:
@@ -571,7 +574,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9acd294791cb4700b023135028739c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _source: {fileID: 5025743009681492804}
   _sounds:
   - _id: Hit
     _clip: {fileID: 8300000, guid: a231f9b1510294920ab6ba3dfdffa704, type: 3}

@@ -1,16 +1,15 @@
 using System.Collections;
+using PixelCrew.Creatures.Hero;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Utils;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 namespace PixelCrew.UI.HUD.Dialogs
 {
     public class DialogBoxController : MonoBehaviour
     {
-        [SerializeField] private Image _avatar;
-        [SerializeField] private Text _text;
         [SerializeField] private GameObject _container;
         [SerializeField] private Animator _animator;
 
@@ -20,16 +19,21 @@ namespace PixelCrew.UI.HUD.Dialogs
         [SerializeField] private AudioClip _open;
         [SerializeField] private AudioClip _close;
 
+        [Space] [SerializeField] protected DialogContent _content;
+
         private static readonly int IsOpen = Animator.StringToHash("IsOpen");
 
         private DialogData _data;
         private int _currentSentence;
         private AudioSource _sfxSource;
         private Coroutine _typingRoutine;
+        private GameObject _hero;
+
+        protected Sentence CurreSentence => _data.Sentences[_currentSentence];
 
         private void Start()
         {
-            // _animator = GetComponent<Animator>();
+            _hero = GameObject.FindWithTag("Player");
             _sfxSource = AudioUtils.FindSfxSource();
         }
 
@@ -37,8 +41,8 @@ namespace PixelCrew.UI.HUD.Dialogs
         {
             _data = data;
             _currentSentence = 0;
-            _text.text = string.Empty;
-            _avatar.sprite = DefsFacade.I.Avatar.Get(data.Id).Icon;
+            CurrentContent.Text.text = string.Empty;
+            _hero.GetComponent<PlayerInput>().actions.Disable();
             _container.SetActive(true);
             _sfxSource.PlayOneShot(_open);
             _animator.SetBool(IsOpen, true);
@@ -46,11 +50,13 @@ namespace PixelCrew.UI.HUD.Dialogs
 
         private IEnumerator TypeDialogText()
         {
-            _text.text = string.Empty;
-            var sentence = _data.Sentences[_currentSentence];
-            foreach (var letter in sentence)
+            CurrentContent.Text.text = string.Empty;
+            var sentence = CurreSentence;
+            var avatar = DefsFacade.I.Avatar.Get(sentence.Icon).Icon;
+            CurrentContent.TrySetIcon(avatar);
+            foreach (var letter in sentence.Value)
             {
-                _text.text += letter;
+                CurrentContent.Text.text += letter;
                 _sfxSource.PlayOneShot(_typing);
                 yield return new WaitForSeconds(_textSpeed);
             }
@@ -58,12 +64,14 @@ namespace PixelCrew.UI.HUD.Dialogs
             _typingRoutine = null;
         }
 
+        protected virtual DialogContent CurrentContent => _content;
+
         public void OnSkip()
         {
             if (_typingRoutine == null) return;
 
             StopTypeAnimation();
-            _text.text = _data.Sentences[_currentSentence];
+            CurrentContent.Text.text = _data.Sentences[_currentSentence].Value;
         }
 
         public void OnContinue()
@@ -86,6 +94,7 @@ namespace PixelCrew.UI.HUD.Dialogs
         {
             _animator.SetBool(IsOpen, false);
             _sfxSource.PlayOneShot(_close);
+            _hero.GetComponent<PlayerInput>().actions.Enable();
         }
 
         private void StopTypeAnimation()
@@ -95,7 +104,7 @@ namespace PixelCrew.UI.HUD.Dialogs
             _typingRoutine = null;
         }
 
-        private void OnStartDialogAnimation()
+        protected virtual void OnStartDialogAnimation()
         {
             _typingRoutine = StartCoroutine(TypeDialogText());
         }

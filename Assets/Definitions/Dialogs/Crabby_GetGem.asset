@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Crabby_GetGem
   m_EditorClassIdentifier: 
   _data:
-    _sentences:
-    - Get me a Green Gem...
-    - And I will show you the miracle!
+    _sentences: []
+    _type: 0

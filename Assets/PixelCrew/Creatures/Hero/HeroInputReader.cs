@@ -5,7 +5,7 @@ namespace PixelCrew.Creatures.Hero
 {
     public class HeroInputReader : MonoBehaviour
     {
-        [SerializeField] private Creatures.Hero.Hero _hero;
+        [SerializeField] private Hero _hero;
 
         public void OnMovement(InputAction.CallbackContext context)
         {
