@@ -50,6 +50,7 @@ namespace PixelCrew.Creatures.Hero
             {
                 if (SelectedItemId == SwordId)
                     return SwordsCount > 1;
+                
                 var def = DefsFacade.I.Items.Get(SelectedItemId);
                 return def.HasTag(ItemTag.Throwable);
             }
@@ -256,7 +257,7 @@ namespace PixelCrew.Creatures.Hero
                     _session.Data.HP.Value += (int) potion.Value;
                     break;
                 case Effect.SpeedUp:
-                    _speedUpCooldown.Value = _speedUpCooldown.TimeLast + potion.Time;
+                    _speedUpCooldown.Value = _speedUpCooldown.TimeLasts + potion.Time;
                     _additionalSpeed = Mathf.Max(potion.Value, _additionalSpeed);
                     _speedUpCooldown.Reset();
                     break;

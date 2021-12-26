@@ -1,4 +1,7 @@
-﻿using PixelCrew.Model.Data;
+﻿using System.Collections.Generic;
+using System.Linq;
+using PixelCrew.Components.LevelManagement;
+using PixelCrew.Model.Data;
 using PixelCrew.Utils.Disposables;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,18 +11,22 @@ namespace PixelCrew.Model
     public class GameSession : MonoBehaviour
     {
         [SerializeField] private PlayerData _data;
+        [SerializeField] private string _defaultCheckpoint;
+
         public PlayerData Data => _data;
         private PlayerData _save;
 
         private readonly CompositeDisposable _trash = new CompositeDisposable();
         public QuickInventoryModel QuickInventory { get; private set; } //public access with private modification
 
+        private List<string> _checkpoints = new List<string>();
+
         private void Awake()
         {
-            LoadHud();
-
-            if (IsSessionExit())
+            var existSession = GetExistSession();
+            if (existSession != null)
             {
+                existSession.StartSession(_defaultCheckpoint);
                 Destroy(gameObject);
             }
             else
@@ -27,6 +34,28 @@ namespace PixelCrew.Model
                 Save();
                 InitModels();
                 DontDestroyOnLoad(this);
+                StartSession(_defaultCheckpoint);
+            }
+        }
+
+        private void StartSession(string defaultCheckpoint)
+        {
+            SetChecked(defaultCheckpoint);
+            LoadHud();
+            SpawnHero();
+        }
+
+        private void SpawnHero()
+        {
+            var checkpoints = FindObjectsOfType<CheckPointComponent>();
+            var lastCheckPoint = _checkpoints.Last();
+            foreach (var checkPoint in checkpoints)
+            {
+                if (checkPoint.Id == lastCheckPoint)
+                {
+                    checkPoint.SpawnHero();
+                    break;
+                }
             }
         }
 
@@ -41,15 +70,15 @@ namespace PixelCrew.Model
             SceneManager.LoadScene("Hud", LoadSceneMode.Additive);
         }
 
-        private bool IsSessionExit()
+        private GameSession GetExistSession()
         {
             var sessions = FindObjectsOfType<GameSession>();
             foreach (var gameSession in sessions)
             {
-                if (gameSession != this) return true;
+                if (gameSession != this) return gameSession;
             }
 
-            return false;
+            return null;
         }
 
         public void Save()
@@ -63,6 +92,20 @@ namespace PixelCrew.Model
 
             _trash.Dispose();
             InitModels();
+        }
+
+        public bool IsChecked(string id)
+        {
+            return _checkpoints.Contains(id);
+        }
+
+        public void SetChecked(string id)
+        {
+            if (!_checkpoints.Contains(id))
+            {
+                Save();
+                _checkpoints.Add(id);
+            }
         }
 
         private void OnDestroy()

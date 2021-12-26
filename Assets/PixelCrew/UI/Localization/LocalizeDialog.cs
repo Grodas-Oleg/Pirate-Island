@@ -1,4 +1,4 @@
-using PixelCrew.Model.Data;
+using PixelCrew.Components.Dialogs;
 using PixelCrew.Model.Definitions.Localization;
 using UnityEngine;
 
@@ -6,21 +6,20 @@ namespace PixelCrew.UI.Localization
 {
     public class LocalizeDialog : AbstractLocalizeComponent
     {
-        [SerializeField] private string _key;
-        private Sentence[] _sentences;
+        [SerializeField] private string[] _keys;
+        private ShowDialogComponent _sentences;
         protected override void Awake()
         {
-            _sentences = gameObject.GetComponent<Sentence[]>();
+            _sentences = gameObject.GetComponent<ShowDialogComponent>();
             base.Awake();
         }
 
         protected override void Localize()
         {
-            var localized = LocalizationManager.I.Localize(_key);
-
-            foreach (var sentence in _sentences)
+            var sentences =_sentences.Data.Sentences;
+            foreach (var key in _keys)
             {
-                // sentence.Value = localized;
+                var localize = LocalizationManager.I.Localize(key);
             }
         }
     }

@@ -36,3 +36,5 @@ MonoBehaviour:
     Value: "Continue\r"
   - Key: sider_music
     Value: 'music:'
+  - Key: text_translate
+    Value: Test
