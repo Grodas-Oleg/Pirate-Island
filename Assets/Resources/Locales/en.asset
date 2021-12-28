@@ -35,6 +35,75 @@ MonoBehaviour:
   - Key: button_continue
     Value: "Continue\r"
   - Key: sider_music
-    Value: 'music:'
-  - Key: text_translate
-    Value: Test
+    Value: "music:\r"
+  - Key: perk_price_text
+    Value: "Price:\r"
+  - Key: perk_buy_text
+    Value: "buy\r"
+  - Key: perk_use_text
+    Value: "use\r"
+  - Key: double_jump_perk_info
+    Value: "Allows you to double jump\r"
+  - Key: super_throw_perk_info
+    Value: "Allows you to super throw. Fires 3 swords in a row. The last sword always
+      remains. Select the sword in quick inventory and hold U.\r"
+  - Key: shield_perk_info
+    Value: "Allows to use a shield that makes the hero invulnerable for a short time\r"
+  - Key: start_dialog_text_1
+    Value: "Another island where I can find some treasures...\r"
+  - Key: start_dialog_text_2
+    Value: "I need to look around.\r"
+  - Key: guide_potion_text_1
+    Value: "What's this? Health potion? ..\r"
+  - Key: guide_potion_text_2
+    Value: "I just need some heal.\r"
+  - Key: guide_potion_text_3
+    Value: "Select a potion in the quick inventory and use it by pressing U (small
+      health potion restores 25hp)\r"
+  - Key: guide_switch_door_text_1
+    Value: "I need to find how to open the door to go further\r"
+  - Key: crabby_perk_text_1
+    Value: "Hey! Hey! Looks like you're new to this island...\r"
+  - Key: crabby_perk_text_2
+    Value: "I am a master crab. I can teach you different things for a small amount.You
+      can't get through here without a double jump!\r"
+  - Key: text_yes
+    Value: "Oh sure!\r"
+  - Key: text_no
+    Value: "No, not now\r"
+  - Key: guide_switch_use_text_1
+    Value: "Use the helm?\r"
+  - Key: guide_sword_text_1
+    Value: "What's this? Sword?!!!\r"
+  - Key: guide_sword_text_2
+    Value: "Oh yeah! I can't wait to destroy something!\r"
+  - Key: guide_sword_text_3
+    Value: "Press J to hit\r"
+  - Key: guide_destructive_barrel_text_1
+    Value: "Looks like there is something behind these barrels ...\r"
+  - Key: guide_destructive_barrel_text_2
+    Value: "I'll try my sword on them\r"
+  - Key: sharky_start_text_1
+    Value: "Who are you? What are you doing here?\r"
+  - Key: sharky_start_text_2
+    Value: "None of your business, toothy!\r"
+  - Key: sharky_start_text_3
+    Value: "You will die!\r"
+  - Key: guide_move_barrel_text_1
+    Value: "I need to get higher to get a better look...\r"
+  - Key: guide_move_barrel_text_2
+    Value: "I'll try to move this barrel.\r"
+  - Key: guide_palm_platform_text_1
+    Value: "Maybe I can jump on this palm tree...\r"
+  - Key: guide_palm_platform_text_2
+    Value: "This way I can look around even better.\r"
+  - Key: guide_portal_text_1
+    Value: "Ugh, it wasn't easy! It's full of traps ...\r"
+  - Key: guide_portal_text_2
+    Value: "It seems to be a portal. Or another trap!\r"
+  - Key: guide_portal_text_3
+    Value: "I'll try to push the barrel first...\r"
+  - Key: guide_loked_door_text_1
+    Value: "(Sign on the door) Haha! You can't get in! ...\r"
+  - Key: guide_loked_door_text_2
+    Value: The key is hidden in a safe place, you will not find it!

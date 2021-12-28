@@ -22,3 +22,6 @@ MonoBehaviour:
     _icon: {fileID: 21300000, guid: 42dfce910584843c08aedcd7160636b8, type: 3}
   - _id: Sharky
     _icon: {fileID: 21300000, guid: c8bc501fba26444b089a6a1762e65d80, type: 3}
+  All:
+  - _id: 123
+    _icon: {fileID: 0}

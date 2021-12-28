@@ -130,7 +130,7 @@ namespace PixelCrew.Creatures.Hero
 
         protected override float CalculateJumpVelocity(float yVeloсity)
         {
-            if (!IsGrounded && _allowDoubleJump)
+            if (!IsGrounded && _allowDoubleJump && _session.PerksModel.IsDoubleJumpSupported &&!_isOnWall)
             {
                 _allowDoubleJump = false;
                 DoJumpVFX();
@@ -199,8 +199,9 @@ namespace PixelCrew.Creatures.Hero
 
         public void OnDoThrow()
         {
-            if (_superThrow)
+            if (_superThrow && _session.PerksModel.IsSuperThrowSupported)
             {
+                _session.PerksModel.Cooldown.Reset();
                 var throwableCount = _session.Data.Inventory.Count(SelectedItemId);
                 var possibleCount = SelectedItemId == SwordId ? throwableCount - 1 : throwableCount;
                 var numThrows = Mathf.Min(_superThrowParticles, possibleCount);
@@ -257,7 +258,7 @@ namespace PixelCrew.Creatures.Hero
                     _session.Data.HP.Value += (int) potion.Value;
                     break;
                 case Effect.SpeedUp:
-                    _speedUpCooldown.Value = _speedUpCooldown.TimeLasts + potion.Time;
+                    _speedUpCooldown.Value = _speedUpCooldown.RemainingTime + potion.Time;
                     _additionalSpeed = Mathf.Max(potion.Value, _additionalSpeed);
                     _speedUpCooldown.Reset();
                     break;

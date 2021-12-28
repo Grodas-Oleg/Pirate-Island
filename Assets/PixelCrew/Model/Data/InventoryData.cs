@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Repositories;
 using PixelCrew.Model.Definitions.Repositories.Items;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace PixelCrew.Model.Data
 {
@@ -22,7 +24,7 @@ namespace PixelCrew.Model.Data
 
             var itemDef = DefsFacade.I.Items.Get(id);
             if (itemDef.IsVoid) return;
-            
+
             if (itemDef.HasTag(ItemTag.Stackable))
             {
                 AddToStack(id, value);
@@ -31,6 +33,7 @@ namespace PixelCrew.Model.Data
             {
                 AddNonStack(id, value);
             }
+
             OnChanged?.Invoke(id, Count(id));
         }
 
@@ -41,9 +44,10 @@ namespace PixelCrew.Model.Data
             {
                 var itemDef = DefsFacade.I.Items.Get(item.Id);
                 var isAllRequirementsMet = tags.All(x => itemDef.HasTag(x));
-                if(isAllRequirementsMet)
+                if (isAllRequirementsMet)
                     retValue.Add(item);
             }
+
             return retValue.ToArray();
         }
 
@@ -133,6 +137,26 @@ namespace PixelCrew.Model.Data
             }
 
             return count;
+        }
+
+        public bool IsEnough(params ItemWithCount[] items)
+        {
+            var joined = new Dictionary<string, int>();
+            foreach (var item in items)
+            {
+                if (joined.ContainsKey(item.ItemId))
+                    joined[item.ItemId] += item.Count;
+                else
+                    joined.Add(item.ItemId, item.Count);
+            }
+
+            foreach (var kvp in joined)
+            {
+                var count = Count(kvp.Key);
+                if (count < kvp.Value) return false;
+            }
+
+            return true;
         }
     }
 

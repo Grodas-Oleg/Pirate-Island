@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace PixelCrew.GoBased
+namespace PixelCrew.Components.GoBased
 {
     public class RandomSpawner : MonoBehaviour
     {

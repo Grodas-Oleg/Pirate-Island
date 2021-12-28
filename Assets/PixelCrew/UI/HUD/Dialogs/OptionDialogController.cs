@@ -1,4 +1,5 @@
 using System;
+using PixelCrew.Model.Definitions.Localization;
 using PixelCrew.UI.Widgets;
 using UnityEngine;
 using UnityEngine.Events;
@@ -38,14 +39,18 @@ namespace PixelCrew.UI.HUD.Dialogs
     [Serializable]
     public class OptionDialogData
     {
-        public string DialogText;
+        public string _dialogText;
         public OptionData[] Options;
+
+        public string DialogText => LocalizationManager.I.Localize(_dialogText);
     }
 
     [Serializable]
     public class OptionData
     {
-        public string Text;
+        public string _text;
         public UnityEvent OnSelect;
+        
+        public string Text => LocalizationManager.I.Localize(_text);
     }
 }

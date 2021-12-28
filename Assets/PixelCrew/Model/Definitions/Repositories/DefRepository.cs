@@ -1,4 +1,4 @@
-using PixelCrew.Model.Data;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace PixelCrew.Model.Definitions.Repositories
@@ -11,7 +11,7 @@ namespace PixelCrew.Model.Definitions.Repositories
         {
             if (string.IsNullOrEmpty(id))
                 return default;
-            
+
             foreach (var itemDef in _collection)
             {
                 if (itemDef.Id == id)
@@ -20,5 +20,7 @@ namespace PixelCrew.Model.Definitions.Repositories
 
             return default;
         }
+
+        public TDefType[] All => new List<TDefType>(_collection).ToArray();
     }
 }
