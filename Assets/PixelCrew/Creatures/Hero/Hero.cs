@@ -5,6 +5,7 @@ using PixelCrew.Components.GoBased;
 using PixelCrew.Components.Health;
 using PixelCrew.Model;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Player;
 using PixelCrew.Model.Definitions.Repositories;
 using PixelCrew.Model.Definitions.Repositories.Items;
 using PixelCrew.Utils;
@@ -50,7 +51,7 @@ namespace PixelCrew.Creatures.Hero
             {
                 if (SelectedItemId == SwordId)
                     return SwordsCount > 1;
-                
+
                 var def = DefsFacade.I.Items.Get(SelectedItemId);
                 return def.HasTag(ItemTag.Throwable);
             }
@@ -70,9 +71,23 @@ namespace PixelCrew.Creatures.Hero
             _session = FindObjectOfType<GameSession>();
             _health = GetComponent<HealthComponent>();
             _session.Data.Inventory.OnChanged += OnInventoryChanged;
+            _session.StatsModel.OnUpgrade += OnHeroUpgraded;
 
             _health.SetHealth(_session.Data.HP.Value);
+
             UpdateHeroWeapon();
+        }
+
+        private void OnHeroUpgraded(StatId statId)
+        {
+            switch (statId)
+            {
+                case StatId.Hp:
+                    var health = (int) _session.StatsModel.GetValue(statId);
+                    _session.Data.HP.Value = health;
+                    _health.SetHealth(health);
+                    break;
+            }
         }
 
         private void OnDestroy()
@@ -130,7 +145,7 @@ namespace PixelCrew.Creatures.Hero
 
         protected override float CalculateJumpVelocity(float yVeloсity)
         {
-            if (!IsGrounded && _allowDoubleJump && _session.PerksModel.IsDoubleJumpSupported &&!_isOnWall)
+            if (!IsGrounded && _allowDoubleJump && _session.PerksModel.IsDoubleJumpSupported && !_isOnWall)
             {
                 _allowDoubleJump = false;
                 DoJumpVFX();
@@ -177,7 +192,6 @@ namespace PixelCrew.Creatures.Hero
                 }
             }
         }
-
 
         public override void Attack()
         {
@@ -255,7 +269,8 @@ namespace PixelCrew.Creatures.Hero
             switch (potion.Effect)
             {
                 case Effect.AddHp:
-                    _session.Data.HP.Value += (int) potion.Value;
+                    var health = _session.Data.HP.Value += (int) potion.Value;
+                    _health.SetHealth(health);
                     break;
                 case Effect.SpeedUp:
                     _speedUpCooldown.Value = _speedUpCooldown.RemainingTime + potion.Time;
@@ -275,7 +290,8 @@ namespace PixelCrew.Creatures.Hero
             if (_speedUpCooldown.IsReady)
                 _additionalSpeed = 0f;
 
-            return base.CalculateSpeed() + _additionalSpeed;
+            var defaultSpeed = _session.StatsModel.GetValue(StatId.Speed);
+            return defaultSpeed + _additionalSpeed;
         }
 
         private bool IsSelectedItem(ItemTag tag)

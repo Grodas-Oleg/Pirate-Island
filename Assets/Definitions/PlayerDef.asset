@@ -14,3 +14,104 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inventorySize: 10
   _maxHealth: 100
+  _stats:
+  - _name: stat_damage_text
+    _id: 4
+    _icon: {fileID: 21300000, guid: a1fc52e60e96b4e6a96b395030eb1931, type: 3}
+    _levels:
+    - _value: 10
+      price:
+        _itemId: Coin
+        count: 0
+    - _value: 20
+      price:
+        _itemId: Coin
+        count: 10
+    - _value: 30
+      price:
+        _itemId: Coin
+        count: 50
+    - _value: 40
+      price:
+        _itemId: Coin
+        count: 100
+  - _name: stat_range_damage_text
+    _id: 2
+    _icon: {fileID: 21300000, guid: 48eebd53231304f91b1f662b36af469e, type: 3}
+    _levels:
+    - _value: 10
+      price:
+        _itemId: Coin
+        count: 0
+    - _value: 15
+      price:
+        _itemId: Coin
+        count: 10
+    - _value: 20
+      price:
+        _itemId: Coin
+        count: 20
+    - _value: 25
+      price:
+        _itemId: Coin
+        count: 30
+    - _value: 30
+      price:
+        _itemId: Coin
+        count: 50
+  - _name: stat_health_text
+    _id: 0
+    _icon: {fileID: 21300000, guid: b1ae89eeb06614ef58c64e9a9f7ecee5, type: 3}
+    _levels:
+    - _value: 50
+      price:
+        _itemId: Coin
+        count: 0
+    - _value: 100
+      price:
+        _itemId: Coin
+        count: 10
+    - _value: 200
+      price:
+        _itemId: Coin
+        count: 50
+    - _value: 400
+      price:
+        _itemId: Coin
+        count: 100
+  - _name: stat_speed_text
+    _id: 1
+    _icon: {fileID: 21300000, guid: e611dee8b588b46b6a2f538ac6b66d30, type: 3}
+    _levels:
+    - _value: 4
+      price:
+        _itemId: Coin
+        count: 0
+    - _value: 5
+      price:
+        _itemId: Coin
+        count: 10
+    - _value: 6
+      price:
+        _itemId: Coin
+        count: 20
+  - _name: stat_critical_chance_text
+    _id: 3
+    _icon: {fileID: 21300000, guid: a3cdf772cd0ad4b5c988b19bea67e9a6, type: 3}
+    _levels:
+    - _value: 5
+      price:
+        _itemId: Coin
+        count: 0
+    - _value: 10
+      price:
+        _itemId: Coin
+        count: 10
+    - _value: 15
+      price:
+        _itemId: Coin
+        count: 50
+    - _value: 20
+      price:
+        _itemId: Coin
+        count: 100

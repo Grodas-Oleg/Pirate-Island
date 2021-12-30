@@ -12,7 +12,7 @@ namespace PixelCrew.UI.Windows.PauseMenu
         protected override void Start()
         {
             base.Start();
-            
+
             _defaultTimeScale = Time.timeScale;
             Time.timeScale = 0;
         }
@@ -20,6 +20,11 @@ namespace PixelCrew.UI.Windows.PauseMenu
         public void OnShowSettings()
         {
             WindowUtils.CreateWindow("UI/SettingsWindow");
+        }
+
+        public void OnLanguages()
+        {
+            WindowUtils.CreateWindow("UI/LocalizationWindow");
         }
 
         public void OnExit()

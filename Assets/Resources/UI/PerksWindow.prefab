@@ -277,6 +277,7 @@ GameObject:
   - component: {fileID: 3391135262367252988}
   - component: {fileID: 8360286914016167874}
   - component: {fileID: 8188125775921626722}
+  - component: {fileID: 687168456437352958}
   m_Layer: 5
   m_Name: PerkItem (1)
   m_TagString: Untagged
@@ -414,6 +415,19 @@ MonoBehaviour:
   _isLocked: {fileID: 2841469654161606333}
   _isSelected: {fileID: 6469932531199600657}
   _isUsed: {fileID: 4730060031519532688}
+--- !u!114 &687168456437352958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195659824125947478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c659aede03ff4f568793b31143e055c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: c6c862049097148e7b912585bf396ca0, type: 3}
 --- !u!1 &1340623392840128848
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,6 +589,7 @@ GameObject:
   - component: {fileID: 2157743352163523897}
   - component: {fileID: 8132705236361168513}
   - component: {fileID: 3892024918619946031}
+  - component: {fileID: 7303927153798624421}
   m_Layer: 5
   m_Name: PerkItem
   m_TagString: Untagged
@@ -712,6 +727,19 @@ MonoBehaviour:
   _isLocked: {fileID: 2078185339461038418}
   _isSelected: {fileID: 7402757237995431476}
   _isUsed: {fileID: 9101963892523825219}
+--- !u!114 &7303927153798624421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2356749665496432972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c659aede03ff4f568793b31143e055c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: c6c862049097148e7b912585bf396ca0, type: 3}
 --- !u!1 &2488069942913313911
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,6 +1038,7 @@ GameObject:
   - component: {fileID: 520890229362566788}
   - component: {fileID: 5916841909267198936}
   - component: {fileID: 43114066737578715}
+  - component: {fileID: 75063693511129232}
   m_Layer: 5
   m_Name: PerkItem
   m_TagString: Untagged
@@ -1147,6 +1176,19 @@ MonoBehaviour:
   _isLocked: {fileID: 6922741703862524348}
   _isSelected: {fileID: 3622418135810567868}
   _isUsed: {fileID: 2488069942913313911}
+--- !u!114 &75063693511129232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3498569315499454831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c659aede03ff4f568793b31143e055c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: c6c862049097148e7b912585bf396ca0, type: 3}
 --- !u!1 &3622418135810567868
 GameObject:
   m_ObjectHideFlags: 0
@@ -1643,7 +1685,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: feb4a09e8ab404c4db4bc651733a11d6, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -2292,6 +2334,7 @@ GameObject:
   - component: {fileID: 5411888388617448629}
   - component: {fileID: 5411888388617448616}
   - component: {fileID: 5411888388617448619}
+  - component: {fileID: 2224015937973464406}
   m_Layer: 5
   m_Name: PerkItem
   m_TagString: Untagged
@@ -2429,6 +2472,19 @@ MonoBehaviour:
   _isLocked: {fileID: 5411888388458902394}
   _isSelected: {fileID: 5411888388779478421}
   _isUsed: {fileID: 5411888387619942782}
+--- !u!114 &2224015937973464406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5411888388617448631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c659aede03ff4f568793b31143e055c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: c6c862049097148e7b912585bf396ca0, type: 3}
 --- !u!1 &5411888388713081121
 GameObject:
   m_ObjectHideFlags: 0
@@ -2588,8 +2644,9 @@ GameObject:
   - component: {fileID: 5411888388826837133}
   - component: {fileID: 5411888388826837123}
   - component: {fileID: 5411888388826837122}
+  - component: {fileID: 1348057106120593556}
   m_Layer: 5
-  m_Name: Content
+  m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2657,6 +2714,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &1348057106120593556
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5411888388826837132}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5411888388862208623
 GameObject:
   m_ObjectHideFlags: 0

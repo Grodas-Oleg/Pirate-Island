@@ -4,7 +4,7 @@ namespace PixelCrew.Components.Health
 {
     public class HealthChangeComponent : MonoBehaviour
     {
-        [SerializeField] private int _value;
+        [SerializeField] public int _value;
         public void ApplyDamage(GameObject target)
         {
             var healthComponent = target.GetComponent<HealthComponent>();

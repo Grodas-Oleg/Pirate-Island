@@ -12,6 +12,8 @@ TagManager:
   - HudCanvas
   - SimpleDialog
   - PersonalizedDialog
+  - RangeAttack
+  - MeleeAttack
   layers:
   - Default
   - TransparentFX

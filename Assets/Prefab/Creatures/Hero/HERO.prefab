@@ -378,9 +378,10 @@ GameObject:
   - component: {fileID: 6604685114791682668}
   - component: {fileID: 6604685114791682669}
   - component: {fileID: 5579477902398068515}
+  - component: {fileID: 7501175391766459102}
   m_Layer: 16
   m_Name: AttackRange
-  m_TagString: Untagged
+  m_TagString: MeleeAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -474,6 +475,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _value: -10
+--- !u!114 &7501175391766459102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6604685114791682657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d8c9f4485a84a95bfc98527aaa1e2e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageValue: {fileID: 5579477902398068515}
 --- !u!1 &6604685114997779491
 GameObject:
   m_ObjectHideFlags: 0

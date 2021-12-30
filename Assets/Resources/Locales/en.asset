@@ -106,4 +106,14 @@ MonoBehaviour:
   - Key: guide_loked_door_text_1
     Value: "(Sign on the door) Haha! You can't get in! ...\r"
   - Key: guide_loked_door_text_2
-    Value: The key is hidden in a safe place, you will not find it!
+    Value: "The key is hidden in a safe place, you will not find it!\r"
+  - Key: stat_health_text
+    Value: "Health\r"
+  - Key: stat_speed_text
+    Value: "Speed\r"
+  - Key: stat_range_damage_text
+    Value: "Range Damage\r"
+  - Key: stat_critical_chance_text
+    Value: "Critical Chance\r"
+  - Key: stat_damage_text
+    Value: Damage

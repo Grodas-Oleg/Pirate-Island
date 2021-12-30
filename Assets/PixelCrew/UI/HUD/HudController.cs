@@ -1,5 +1,6 @@
 using PixelCrew.Model;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Player;
 using PixelCrew.UI.Widgets;
 using PixelCrew.Utils;
 using PixelCrew.Utils.Disposables;
@@ -38,7 +39,7 @@ namespace PixelCrew.UI.HUD
 
         private void OnHealthChanged(int newValue, int oldValue)
         {
-            var maxHealth = DefsFacade.I.Player.MaxHealth;
+            var maxHealth = _session.StatsModel.GetValue(StatId.Hp);
             var value = (float) newValue / maxHealth;
             _healthBar.SetProgress(value);
         }
@@ -46,6 +47,11 @@ namespace PixelCrew.UI.HUD
         public void OnPause()
         {
             WindowUtils.CreateWindow("UI/PauseMenuWindow");
+        }
+
+        public void OnStat()
+        {
+            WindowUtils.CreateWindow("UI/PlayerStatsWindow");
         }
 
         private void OnDestroy()

@@ -16,11 +16,12 @@ GameObject:
   - component: {fileID: 3254612517874439030}
   - component: {fileID: 1973017770128388879}
   - component: {fileID: 4852906132836095207}
-  - component: {fileID: 1737400391460210214}
   - component: {fileID: 7232053561103482361}
+  - component: {fileID: 1737400391460210214}
+  - component: {fileID: -3605590492610380126}
   m_Layer: 0
   m_Name: SwordProjectile
-  m_TagString: Untagged
+  m_TagString: RangeAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -220,19 +221,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1737400391460210214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 184260941868772573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 039ca686d5f97403a89b3f6bbb6d8799, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _value: -10
 --- !u!114 &7232053561103482361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +262,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1737400391460210214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184260941868772573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 039ca686d5f97403a89b3f6bbb6d8799, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _value: -10
+--- !u!114 &-3605590492610380126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184260941868772573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d8c9f4485a84a95bfc98527aaa1e2e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageValue: {fileID: 1737400391460210214}
 --- !u!1 &3359276069954474840
 GameObject:
   m_ObjectHideFlags: 0

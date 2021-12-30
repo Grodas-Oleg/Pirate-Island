@@ -2,6 +2,7 @@
 using System.Linq;
 using PixelCrew.Components.LevelManagement;
 using PixelCrew.Model.Data;
+using PixelCrew.Model.Definitions.Player;
 using PixelCrew.Model.Models;
 using PixelCrew.Utils.Disposables;
 using UnityEngine;
@@ -20,6 +21,7 @@ namespace PixelCrew.Model
         private readonly CompositeDisposable _trash = new CompositeDisposable();
         public QuickInventoryModel QuickInventory { get; private set; } //public access with private modification
         public PerksModel PerksModel { get; private set; }
+        public StatsModel StatsModel { get; private set; }
 
         private List<string> _checkpoints = new List<string>();
 
@@ -68,6 +70,11 @@ namespace PixelCrew.Model
 
             PerksModel = new PerksModel(_data);
             _trash.Retain(PerksModel);
+            
+            StatsModel = new StatsModel(_data);
+            _trash.Retain(StatsModel);
+
+            _data.HP.Value = (int) StatsModel.GetValue(StatId.Hp);
         }
 
         private void LoadHud()
@@ -78,12 +85,14 @@ namespace PixelCrew.Model
         private GameSession GetExistSession()
         {
             var sessions = FindObjectsOfType<GameSession>();
-            foreach (var gameSession in sessions)
-            {
-                if (gameSession != this) return gameSession;
-            }
-
-            return null;
+            // Rider подсказал
+            // foreach (var gameSession in sessions)
+            // {
+            //     if (gameSession != this) return gameSession;
+            // }
+            //
+            // return null;
+            return sessions.FirstOrDefault(gameSession => gameSession != this);
         }
 
         public void Save()
