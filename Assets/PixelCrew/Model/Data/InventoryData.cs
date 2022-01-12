@@ -5,7 +5,6 @@ using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Repositories;
 using PixelCrew.Model.Definitions.Repositories.Items;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace PixelCrew.Model.Data
 {

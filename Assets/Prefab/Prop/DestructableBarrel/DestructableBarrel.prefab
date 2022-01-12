@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 83061307654937032}
   - component: {fileID: 834481980}
   - component: {fileID: 9137053473728779654}
+  - component: {fileID: 3381790029701337438}
   m_Layer: 8
   m_Name: DestructableBarrel
   m_TagString: Enemy
@@ -333,6 +334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 83061307654937040}
+  _state: {fileID: 3381790029701337438}
 --- !u!114 &83061307654937034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,6 +404,7 @@ MonoBehaviour:
   _onChange:
     m_PersistentCalls:
       m_Calls: []
+  _immune: 0
 --- !u!50 &83061307654937035
 Rigidbody2D:
   serializedVersion: 4
@@ -471,3 +474,16 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: a231f9b1510294920ab6ba3dfdffa704, type: 3}
   - _id: Destroy
     _clip: {fileID: 8300000, guid: 77712f3e7ca334182a8cad4e3bc3087a, type: 3}
+--- !u!114 &3381790029701337438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83061307654937040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034e642392e94362b63ba36570e9fb96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: des-barrel

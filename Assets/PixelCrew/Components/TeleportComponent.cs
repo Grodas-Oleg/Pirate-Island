@@ -9,7 +9,7 @@ namespace PixelCrew.Components
         [SerializeField] private Transform _destTransform;
         [SerializeField] private float _alphaTime = 1;
         [SerializeField] private float _moveTime = 1;
-
+        
         public void Teleport(GameObject target)
         {
             StartCoroutine(AnimateTeleport(target));
@@ -19,15 +19,15 @@ namespace PixelCrew.Components
         {
             var sprite = target.GetComponent<SpriteRenderer>();
             var input = target.GetComponent<PlayerInput>();
-            SetLockInput(input, true);
 
+            SetLockInput(input, true);
+            input.actions.Disable();
             yield return AlphaAnimation(sprite, 0);
-            target.SetActive(false);
 
             yield return MoveAnimation(target);
             
-            target.SetActive(true);
             yield return AlphaAnimation(sprite, 1);
+            input.actions.Enable();
             SetLockInput(input, false);
         }
 

@@ -11,11 +11,18 @@ namespace PixelCrew.Components.Health
         [SerializeField] private UnityEvent _onHeal;
         [SerializeField] public UnityEvent _onDie;
         [SerializeField] public HealthChangeEvent _onChange;
-
+        [SerializeField] private bool _immune;
         public int Health => _health;
+
+        public bool Immune
+        {
+            get => _immune;
+            set => _immune = value;
+        }
 
         public void ApplyDamage(int changeValue)
         {
+            if(changeValue < 0 && Immune) return; 
             if (_health <= 0) return;
 
             _health += changeValue;
@@ -36,7 +43,7 @@ namespace PixelCrew.Components.Health
                 _onDie?.Invoke();
             }
         }
-        
+
 #if UNITY_EDITOR
         [ContextMenu("Update Health")]
         private void UpdateHealth()
@@ -44,7 +51,7 @@ namespace PixelCrew.Components.Health
             _onChange.Invoke(_health);
         }
 #endif
-        
+
         public void SetHealth(int health)
         {
             _health = health;

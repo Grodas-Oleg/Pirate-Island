@@ -13,10 +13,8 @@ namespace PixelCrew.Creatures.Mobs
 
         private void Update()
         {
-            if (_vision.IsTouchingLayer && _cooldown.IsReady)
-            {
-                Shoot();
-            }
+            if (!_vision.IsTouchingLayer || !_cooldown.IsReady) return;
+            Shoot();
         }
 
         public void Shoot()

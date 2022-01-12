@@ -34,6 +34,8 @@ namespace PixelCrew.Model.Definitions.Player
         Speed,
         RangeDamage,
         CriticalChance,
-        Damage
+        CriticalDamage,
+        Damage,
+        CanonDamage
     }
 }

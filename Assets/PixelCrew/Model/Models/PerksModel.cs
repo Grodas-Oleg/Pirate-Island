@@ -2,8 +2,8 @@ using System;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Data.Properties;
 using PixelCrew.Model.Definitions;
-using PixelCrew.Utils;
 using PixelCrew.Utils.Disposables;
+using UnityEngine;
 
 namespace PixelCrew.Model.Models
 {
@@ -30,11 +30,15 @@ namespace PixelCrew.Model.Models
             return new ActionDisposable(() => OnChanged -= call);
         }
 
-        public readonly Cooldown Cooldown = new Cooldown();
-        public string Used => _data.Perks.Used.Value;
-        public bool IsDoubleJumpSupported => _data.Perks.Used.Value == "double-jump";
+        // public readonly Cooldown Cooldown = new Cooldown();
 
-        public bool IsSuperThrowSupported => _data.Perks.Used.Value == "super-throw";
+        public bool IsDoubleJumpSupported => _data.Perks.IsUnlocked("double-jump");
+        public bool IsDashSupported => _data.Perks.IsUnlocked("dash");
+        public bool IsSuperThrowSupported => _data.Perks.IsUnlocked("super-throw");
+        public bool IsShieldSupported => _data.Perks.IsUnlocked("shield");
+
+        public bool IsCannonSupported => _data.Perks.IsUnlocked("cannon");
+        // public bool IsCannonSupported => _data.Perks.Used.Value == "cannon";
         // public bool IsDoubleJumpSupported => _data.Perks.IsUnlocked("double-jump");
 
         public void Unlock(string id)
@@ -42,20 +46,24 @@ namespace PixelCrew.Model.Models
             var def = DefsFacade.I.Perks.Get(id);
             var isEnoughResources = _data.Inventory.IsEnough(def.Price);
 
-            if (isEnoughResources)
-            {
-                _data.Inventory.Remove(def.Price.ItemId, def.Price.Count);
-                _data.Perks.AddPerk(id);
+            if (!isEnoughResources) return;
+            _data.Inventory.Remove(def.Price.ItemId, def.Price.Count);
+            _data.Perks.AddPerk(id);
 
-                OnChanged?.Invoke();
-            }
+            OnChanged?.Invoke();
         }
 
-        public void UsePerk(string selected)
+        public float UsePerk(string perkId)
         {
-            var def = DefsFacade.I.Perks.Get(selected).Cooldown;
-            Cooldown.Value = def;
-            _data.Perks.Used.Value = selected;
+            var def = DefsFacade.I.Perks.Get(perkId).Cooldown;
+            // Cooldown.Value = def;
+            return def;
+        }
+
+        public static Sprite PerkSprite(string id)
+        {
+            var def = DefsFacade.I.Perks.Get(id);
+            return def.Icon;
         }
 
         public bool IsUsed(string perkId)

@@ -22,20 +22,29 @@ MonoBehaviour:
     _tags: 000000000100000002000000
   - _id: Key
     _icon: {fileID: 21300000, guid: 17f9876ded4ca4161bc0b16742ecf0cc, type: 3}
-    _tags: 01000000
+    _tags: 00000000
   - _id: SmallHealtPotion
     _icon: {fileID: 3714227102187029162, guid: e5dc44343cd4047e4b887334ad8811c8, type: 3}
-    _tags: 0300000001000000
+    _tags: 030000000100000000000000
   - _id: PearlProjectile
     _icon: {fileID: 21300000, guid: 3c7310787d9df4c2abc0bcb86337408f, type: 3}
     _tags: 000000000200000001000000
   - _id: MediunHealtPotion
     _icon: {fileID: -839550581718595069, guid: ee8b81ebe79e84355ae5f0f384d13462, type: 3}
-    _tags: 0300000001000000
+    _tags: 030000000100000000000000
   - _id: BigHealtPotion
     _icon: {fileID: -8603437905158598775, guid: 69b986c4eef4f4bf3ac2c21bac8b985f,
       type: 3}
-    _tags: 0300000001000000
+    _tags: 030000000100000000000000
   - _id: SpeedUpPotion
     _icon: {fileID: 2011574832808370117, guid: e5dc44343cd4047e4b887334ad8811c8, type: 3}
     _tags: 030000000100000000000000
+  - _id: BlueGem
+    _icon: {fileID: 1930839287912332762, guid: 5581e4e4b1ffc4c8e8eefae4003e987d, type: 3}
+    _tags: 00000000
+  - _id: GreenGem
+    _icon: {fileID: 5489425550423852611, guid: 5581e4e4b1ffc4c8e8eefae4003e987d, type: 3}
+    _tags: 00000000
+  - _id: RedGem
+    _icon: {fileID: 2271373999398222149, guid: 5581e4e4b1ffc4c8e8eefae4003e987d, type: 3}
+    _tags: 00000000

@@ -41,7 +41,7 @@ namespace PixelCrew.Creatures.Hero
         {
             if (context.started)
             {
-                _hero.StartThrowing();
+                _hero.PerformThrowing();
             }
 
             if (context.canceled)
@@ -55,6 +55,30 @@ namespace PixelCrew.Creatures.Hero
             if (context.performed)
             {
                 _hero.NextItem();
+            }
+        }
+        
+        public void OnPress1(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _hero.UsePerk1();
+            }
+        }
+        
+        public void OnPress2(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _hero.UsePerk2();
+            }
+        }
+        
+        public void OnPress3(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _hero.UsePerk3();
             }
         }
     }

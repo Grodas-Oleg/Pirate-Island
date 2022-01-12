@@ -78,14 +78,14 @@ namespace PixelCrew.Creatures
         protected virtual float CalculateYVelocity()
         {
             var yVelocity = Rigidbody.velocity.y;
-            var _isJumpPressing = Direction.y > 0;
+            var isJumpPressing = Direction.y > 0;
 
             if (IsGrounded)
             {
                 _isJumping = false;
             }
 
-            if (_isJumpPressing)
+            if (isJumpPressing)
             {
                 _isJumping = true;
 
@@ -102,11 +102,9 @@ namespace PixelCrew.Creatures
 
         protected virtual float CalculateJumpVelocity(float yVeloсity)
         {
-            if (IsGrounded)
-            {
-                yVeloсity = _jumpSpeed;
-                DoJumpVFX();
-            }
+            if (!IsGrounded) return yVeloсity;
+            yVeloсity = _jumpSpeed;
+            DoJumpVFX();
 
             return yVeloсity;
         }
@@ -139,21 +137,12 @@ namespace PixelCrew.Creatures
             Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, _damageVelocity);
         }
 
-        public void Dash()
+        public virtual void Dash()
         {
-            if (_dashDelay.IsReady)
-            {
-                if (_xDirection)
-                {
-                    StartCoroutine(Dash(1f));
-                }
-                else
-                {
-                    StartCoroutine(Dash(-1f));
-                }
+            if (!_dashDelay.IsReady) return;
+            StartCoroutine(_xDirection ? Dash(1f) : Dash(-1f));
 
-                _dashDelay.Reset();
-            }
+            _dashDelay.Reset();
         }
 
         IEnumerator Dash(float direction)

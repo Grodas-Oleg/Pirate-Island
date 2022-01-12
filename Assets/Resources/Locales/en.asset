@@ -43,46 +43,96 @@ MonoBehaviour:
   - Key: perk_use_text
     Value: "use\r"
   - Key: double_jump_perk_info
-    Value: "Allows you to double jump\r"
+    Value: "Allows you to double jump (Passive perk).\r"
   - Key: super_throw_perk_info
     Value: "Allows you to super throw. Fires 3 swords in a row. The last sword always
-      remains. Select the sword in quick inventory and hold U.\r"
+      remains. Select the sword in quick inventory and hold U (5 sec cooldown, Active
+      perk).\r"
   - Key: shield_perk_info
-    Value: "Allows to use a shield that makes the hero invulnerable for a short time\r"
-  - Key: start_dialog_text_1
-    Value: "Another island where I can find some treasures...\r"
-  - Key: start_dialog_text_2
-    Value: "I need to look around.\r"
-  - Key: guide_potion_text_1
-    Value: "What's this? Health potion? ..\r"
-  - Key: guide_potion_text_2
-    Value: "I just need some heal.\r"
-  - Key: guide_potion_text_3
-    Value: "Select a potion in the quick inventory and use it by pressing U (small
-      health potion restores 25hp)\r"
+    Value: "Allows to use a shield that makes the hero invulnerable for a 3 sec (10
+      sec cooldown, Active perk).\r"
+  - Key: dash_perk_info
+    Value: "Allows you to dash (Passive perk)\r"
+  - Key: cannon_perk_info
+    Value: "Allows you to shoot from a cannon. The damage can be critical. (15 sec
+      cooldown, Active perk).\r"
+  - Key: stat_health_text
+    Value: "Health\r"
+  - Key: stat_speed_text
+    Value: "Speed\r"
+  - Key: stat_range_damage_text
+    Value: "Range Damage\r"
+  - Key: stat_critical_chance_text
+    Value: "Critical Chance\r"
+  - Key: stat_damage_text
+    Value: "Damage\r"
+  - Key: stat_cannon_damge_text
+    Value: "Cannon Damage\r"
+  - Key: stat_critical_damage_text
+    Value: "Critical Damage\r"
+  - Key: text_shop_green_gem
+    Value: "Green gems allow you to acquire new passive perks.\r"
+  - Key: text_shop_blue_gem
+    Value: "Blue gems allow you to acquire new active perks.\r"
+  - Key: text_shop_red_gem
+    Value: "Red gems allow you to improve hero stats.\r"
+  - Key: text_shop_sword
+    Value: "Basic sword. You can throw one at a time or make super throw.\r"
+  - Key: text_shop_small_hp_potion
+    Value: "Small health potion. Restores 50 hp.\r"
+  - Key: text_shop_big_hp_potion
+    Value: "Big health potion. Restores 100 hp.\r"
+  - Key: text_shop_key
+    Value: "Different locks can be opened with the key\r"
+  - Key: text_shop_speed_potion
+    Value: "Haste potion increases movement speed by 4 for 5 sec.\r"
+  - Key: text_key_wasd
+    Value: "WASD - Movement \r"
+  - Key: text_key_q
+    Value: "Q - Next quick inventorty item\r"
+  - Key: text_key_e
+    Value: "E - Interact\r"
+  - Key: text_key_u
+    Value: "U - Use / Throw quick inventorty item\r"
+  - Key: text_key_j
+    Value: "J - Attack\r"
+  - Key: text_key_l
+    Value: "L - Dash\r"
+  - Key: text_key_1
+    Value: "1 - Use perk Shield\r"
+  - Key: text_key_2
+    Value: "2 - Use perk Super-throw\r"
+  - Key: text_key_3
+    Value: "3 - Use perk Cannon\r"
+  - Key: text_controls_button
+    Value: "controls\r"
+  - Key: text_face_wall_1
+    Value: "This wall looks suspicious ...\r"
+  - Key: text_face_wall_2
+    Value: "I think it can be destroyed.\r"
+  - Key: text_open_chest
+    Value: "Open chest? (Used 1 key)\r"
+  - Key: text_need_key
+    Value: "You don't have a key.\r"
   - Key: guide_switch_door_text_1
     Value: "I need to find how to open the door to go further\r"
   - Key: crabby_perk_text_1
     Value: "Hey! Hey! Looks like you're new to this island...\r"
   - Key: crabby_perk_text_2
-    Value: "I am a master crab. I can teach you different things for a small amount.You
-      can't get through here without a double jump!\r"
+    Value: "I am a master crab. I can teach you different things for a small amount.\r"
+  - Key: crabby_perk_text_3
+    Value: "By the way, you see the guy behind me. He is a little not talkative,
+      but you can buy a lot of useful things in his shop.\r"
   - Key: text_yes
     Value: "Oh sure!\r"
   - Key: text_no
     Value: "No, not now\r"
   - Key: guide_switch_use_text_1
-    Value: "Use the helm?\r"
+    Value: "Use helm?\r"
   - Key: guide_sword_text_1
-    Value: "What's this? Sword?!!!\r"
+    Value: "Oh yeah! Sword!!!\r"
   - Key: guide_sword_text_2
-    Value: "Oh yeah! I can't wait to destroy something!\r"
-  - Key: guide_sword_text_3
-    Value: "Press J to hit\r"
-  - Key: guide_destructive_barrel_text_1
-    Value: "Looks like there is something behind these barrels ...\r"
-  - Key: guide_destructive_barrel_text_2
-    Value: "I'll try my sword on them\r"
+    Value: "Now I can go back and talk with toothy\r"
   - Key: sharky_start_text_1
     Value: "Who are you? What are you doing here?\r"
   - Key: sharky_start_text_2
@@ -93,27 +143,7 @@ MonoBehaviour:
     Value: "I need to get higher to get a better look...\r"
   - Key: guide_move_barrel_text_2
     Value: "I'll try to move this barrel.\r"
-  - Key: guide_palm_platform_text_1
-    Value: "Maybe I can jump on this palm tree...\r"
-  - Key: guide_palm_platform_text_2
-    Value: "This way I can look around even better.\r"
-  - Key: guide_portal_text_1
-    Value: "Ugh, it wasn't easy! It's full of traps ...\r"
-  - Key: guide_portal_text_2
-    Value: "It seems to be a portal. Or another trap!\r"
-  - Key: guide_portal_text_3
-    Value: "I'll try to push the barrel first...\r"
-  - Key: guide_loked_door_text_1
-    Value: "(Sign on the door) Haha! You can't get in! ...\r"
-  - Key: guide_loked_door_text_2
-    Value: "The key is hidden in a safe place, you will not find it!\r"
-  - Key: stat_health_text
-    Value: "Health\r"
-  - Key: stat_speed_text
-    Value: "Speed\r"
-  - Key: stat_range_damage_text
-    Value: "Range Damage\r"
-  - Key: stat_critical_chance_text
-    Value: "Critical Chance\r"
-  - Key: stat_damage_text
-    Value: Damage
+  - Key: crabby_perk_text_4
+    Value: "It's full of traps here\r"
+  - Key: crabby_perk_text_5
+    Value: You better learn how to use a shield

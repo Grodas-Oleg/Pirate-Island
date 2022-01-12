@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb94f4d4d1b4f728c61ecbb3ddc6601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: level1-ckeckpoint1
+  _id: lv1-cp1
   _heroSpawner: {fileID: 5338609451368617746}
   _setCheked:
     m_PersistentCalls:

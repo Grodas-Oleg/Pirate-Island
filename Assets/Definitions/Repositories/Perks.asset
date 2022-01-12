@@ -18,19 +18,33 @@ MonoBehaviour:
     _info: double_jump_perk_info
     _cooldown: 0
     _price:
-      _itemId: Coin
-      count: 10
+      _itemId: GreenGem
+      count: 1
+  - _id: dash
+    _icon: {fileID: 21300000, guid: e611dee8b588b46b6a2f538ac6b66d30, type: 3}
+    _info: dash_perk_info
+    _cooldown: 0
+    _price:
+      _itemId: GreenGem
+      count: 3
   - _id: super-throw
     _icon: {fileID: 21300000, guid: e9f433e69dab649e89b7acd890b5ec9a, type: 3}
     _info: super_throw_perk_info
     _cooldown: 5
     _price:
-      _itemId: Coin
-      count: 15
+      _itemId: BlueGem
+      count: 5
   - _id: shield
     _icon: {fileID: 21300000, guid: d3f1d5fb6655f4ac2971a6463689a13a, type: 3}
     _info: shield_perk_info
-    _cooldown: 5
+    _cooldown: 10
     _price:
-      _itemId: Coin
-      count: 15
+      _itemId: BlueGem
+      count: 3
+  - _id: cannon
+    _icon: {fileID: 21300000, guid: d5def69fdc1c8497a8cddac231912ab0, type: 3}
+    _info: cannon_perk_info
+    _cooldown: 15
+    _price:
+      _itemId: BlueGem
+      count: 10

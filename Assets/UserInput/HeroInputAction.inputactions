@@ -52,6 +52,30 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "UsePerk1",
+                    "type": "Button",
+                    "id": "784aa7a9-899d-4fac-bb7b-1aa14bab9612",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "UsePerk2",
+                    "type": "Button",
+                    "id": "26efeb27-a7fc-42af-aebb-b1d7dd6e0e46",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "UsePerk3",
+                    "type": "Button",
+                    "id": "b51f85c1-60a6-4647-a9ee-617dd251b8bb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -217,6 +241,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "NextItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "edbc51f7-305d-4abf-90f3-b096bf7d44af",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UsePerk1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c81239e3-a48d-40f6-98a0-8f3a4cb33539",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UsePerk2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f7eb5fa4-eefa-4fe9-988a-04d2d2c93ce0",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UsePerk3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

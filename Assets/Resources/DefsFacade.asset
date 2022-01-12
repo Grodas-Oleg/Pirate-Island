@@ -18,3 +18,4 @@ MonoBehaviour:
   _throwableItems: {fileID: 11400000, guid: 931dcbccd6aa14eac9235ecfd1184939, type: 2}
   _player: {fileID: 11400000, guid: 96e5e4d59b0344d529f98bcb9a637a90, type: 2}
   _avatar: {fileID: 11400000, guid: ce0d33e23ce8e4caba620a9995f46ce6, type: 2}
+  _shop: {fileID: 11400000, guid: 01c46d348f35a463a9b116da5dc180fd, type: 2}

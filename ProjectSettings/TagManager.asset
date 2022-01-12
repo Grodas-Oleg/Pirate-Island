@@ -14,6 +14,7 @@ TagManager:
   - PersonalizedDialog
   - RangeAttack
   - MeleeAttack
+  - CannonAttack
   layers:
   - Default
   - TransparentFX
@@ -48,17 +49,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
-  - name: Level
-    uniqueID: 3015010867
-    locked: 0
   - name: Background
     uniqueID: 3622800501
     locked: 0
   - name: TileMap
     uniqueID: 3453459591
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Level
+    uniqueID: 3015010867
     locked: 0
   - name: Creatures
     uniqueID: 1673521467

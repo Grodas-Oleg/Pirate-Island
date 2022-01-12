@@ -65,6 +65,30 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""UsePerk1"",
+                    ""type"": ""Button"",
+                    ""id"": ""784aa7a9-899d-4fac-bb7b-1aa14bab9612"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""UsePerk2"",
+                    ""type"": ""Button"",
+                    ""id"": ""26efeb27-a7fc-42af-aebb-b1d7dd6e0e46"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""UsePerk3"",
+                    ""type"": ""Button"",
+                    ""id"": ""b51f85c1-60a6-4647-a9ee-617dd251b8bb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -232,6 +256,39 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""action"": ""NextItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""edbc51f7-305d-4abf-90f3-b096bf7d44af"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UsePerk1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c81239e3-a48d-40f6-98a0-8f3a4cb33539"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UsePerk2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f7eb5fa4-eefa-4fe9-988a-04d2d2c93ce0"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UsePerk3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -246,6 +303,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         m_Hero_Attack = m_Hero.FindAction("Attack", throwIfNotFound: true);
         m_Hero_Throw = m_Hero.FindAction("Throw", throwIfNotFound: true);
         m_Hero_NextItem = m_Hero.FindAction("NextItem", throwIfNotFound: true);
+        m_Hero_UsePerk1 = m_Hero.FindAction("UsePerk1", throwIfNotFound: true);
+        m_Hero_UsePerk2 = m_Hero.FindAction("UsePerk2", throwIfNotFound: true);
+        m_Hero_UsePerk3 = m_Hero.FindAction("UsePerk3", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -301,6 +361,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     private readonly InputAction m_Hero_Attack;
     private readonly InputAction m_Hero_Throw;
     private readonly InputAction m_Hero_NextItem;
+    private readonly InputAction m_Hero_UsePerk1;
+    private readonly InputAction m_Hero_UsePerk2;
+    private readonly InputAction m_Hero_UsePerk3;
     public struct HeroActions
     {
         private @HeroInputAction m_Wrapper;
@@ -311,6 +374,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         public InputAction @Attack => m_Wrapper.m_Hero_Attack;
         public InputAction @Throw => m_Wrapper.m_Hero_Throw;
         public InputAction @NextItem => m_Wrapper.m_Hero_NextItem;
+        public InputAction @UsePerk1 => m_Wrapper.m_Hero_UsePerk1;
+        public InputAction @UsePerk2 => m_Wrapper.m_Hero_UsePerk2;
+        public InputAction @UsePerk3 => m_Wrapper.m_Hero_UsePerk3;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -338,6 +404,15 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @NextItem.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
                 @NextItem.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
                 @NextItem.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
+                @UsePerk1.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk1;
+                @UsePerk1.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk1;
+                @UsePerk1.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk1;
+                @UsePerk2.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk2;
+                @UsePerk2.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk2;
+                @UsePerk2.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk2;
+                @UsePerk3.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk3;
+                @UsePerk3.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk3;
+                @UsePerk3.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk3;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -360,6 +435,15 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @NextItem.started += instance.OnNextItem;
                 @NextItem.performed += instance.OnNextItem;
                 @NextItem.canceled += instance.OnNextItem;
+                @UsePerk1.started += instance.OnUsePerk1;
+                @UsePerk1.performed += instance.OnUsePerk1;
+                @UsePerk1.canceled += instance.OnUsePerk1;
+                @UsePerk2.started += instance.OnUsePerk2;
+                @UsePerk2.performed += instance.OnUsePerk2;
+                @UsePerk2.canceled += instance.OnUsePerk2;
+                @UsePerk3.started += instance.OnUsePerk3;
+                @UsePerk3.performed += instance.OnUsePerk3;
+                @UsePerk3.canceled += instance.OnUsePerk3;
             }
         }
     }
@@ -372,5 +456,8 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
         void OnNextItem(InputAction.CallbackContext context);
+        void OnUsePerk1(InputAction.CallbackContext context);
+        void OnUsePerk2(InputAction.CallbackContext context);
+        void OnUsePerk3(InputAction.CallbackContext context);
     }
 }

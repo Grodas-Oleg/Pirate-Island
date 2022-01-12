@@ -12,7 +12,7 @@ namespace PixelCrew.Animations
         [SerializeField] private UnityEvent<string> _onComplete;
         [SerializeField] private AnimationClip[] _clips;
 
-        private SpriteRenderer _rendeder;
+        private SpriteRenderer _renderer;
 
         private float _secPerFrame;
         private float _nextFrameTime;
@@ -23,7 +23,7 @@ namespace PixelCrew.Animations
 
         private void Start()
         {
-            _rendeder = GetComponent<SpriteRenderer>();
+            _renderer = GetComponent<SpriteRenderer>();
             _secPerFrame = 1f / _frameRate;
 
             StartAnimation();
@@ -91,7 +91,7 @@ namespace PixelCrew.Animations
                 return;
             }
 
-            _rendeder.sprite = clip.Sprites[_currentFrame];
+            _renderer.sprite = clip.Sprites[_currentFrame];
             _nextFrameTime += _secPerFrame;
             _currentFrame++;
         }

@@ -1,4 +1,3 @@
-using System;
 using PixelCrew.Model;
 using PixelCrew.Model.Definitions.Repositories;
 using PixelCrew.UI.Widgets;

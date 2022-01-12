@@ -20,8 +20,10 @@ namespace PixelCrew.Model
 
         private readonly CompositeDisposable _trash = new CompositeDisposable();
         public QuickInventoryModel QuickInventory { get; private set; } //public access with private modification
+        public BigInventoryModel BigInventory { get; private set; } //public access with private modification
         public PerksModel PerksModel { get; private set; }
         public StatsModel StatsModel { get; private set; }
+        public ShopModel ShopModel { get; private set; }
 
         private List<string> _checkpoints = new List<string>();
 
@@ -68,11 +70,17 @@ namespace PixelCrew.Model
             QuickInventory = new QuickInventoryModel(_data);
             _trash.Retain(QuickInventory);
 
+            BigInventory = new BigInventoryModel(_data);
+            _trash.Retain(BigInventory);
+
             PerksModel = new PerksModel(_data);
             _trash.Retain(PerksModel);
-            
+
             StatsModel = new StatsModel(_data);
             _trash.Retain(StatsModel);
+
+            ShopModel = new ShopModel(_data);
+            _trash.Retain(ShopModel);
 
             _data.HP.Value = (int) StatsModel.GetValue(StatId.Hp);
         }
@@ -85,13 +93,6 @@ namespace PixelCrew.Model
         private GameSession GetExistSession()
         {
             var sessions = FindObjectsOfType<GameSession>();
-            // Rider подсказал
-            // foreach (var gameSession in sessions)
-            // {
-            //     if (gameSession != this) return gameSession;
-            // }
-            //
-            // return null;
             return sessions.FirstOrDefault(gameSession => gameSession != this);
         }
 
@@ -120,6 +121,19 @@ namespace PixelCrew.Model
                 Save();
                 _checkpoints.Add(id);
             }
+        }
+
+        private readonly List<string> _removedItems = new List<string>();
+
+        public bool RestoreState(string Id)
+        {
+            return _removedItems.Contains(Id);
+        }
+
+        public void StoreState(string state)
+        {
+            if (!_removedItems.Contains(state))
+                _removedItems.Add(state);
         }
 
         private void OnDestroy()

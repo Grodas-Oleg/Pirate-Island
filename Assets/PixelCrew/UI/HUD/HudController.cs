@@ -1,5 +1,4 @@
 using PixelCrew.Model;
-using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Player;
 using PixelCrew.UI.Widgets;
 using PixelCrew.Utils;
@@ -11,7 +10,6 @@ namespace PixelCrew.UI.HUD
     public class HudController : MonoBehaviour
     {
         [SerializeField] private ProgressBarWidget _healthBar;
-        [SerializeField] private ActivePerkWidget _activePerk;
 
         private GameSession _session;
         private readonly CompositeDisposable _trash = new CompositeDisposable();
@@ -20,21 +18,6 @@ namespace PixelCrew.UI.HUD
         {
             _session = FindObjectOfType<GameSession>();
             _trash.Retain(_session.Data.HP.SubscribeAndInvoke(OnHealthChanged));
-            _trash.Retain(_session.PerksModel.Subscribe(OnPerkChanged));
-
-            OnPerkChanged();
-        }
-
-        private void OnPerkChanged()
-        {
-            var usedPerkId = _session.PerksModel.Used;
-            var hasPerk = !string.IsNullOrEmpty(usedPerkId);
-            if (hasPerk)
-            {
-                _activePerk.Set(DefsFacade.I.Perks.Get(usedPerkId));
-            }
-
-            _activePerk.gameObject.SetActive(hasPerk);
         }
 
         private void OnHealthChanged(int newValue, int oldValue)
@@ -52,6 +35,16 @@ namespace PixelCrew.UI.HUD
         public void OnStat()
         {
             WindowUtils.CreateWindow("UI/PlayerStatsWindow");
+        }
+        
+        public void OnControlsGuide()
+        {
+            WindowUtils.CreateWindow("UI/ControlsGuideWindow");
+        }
+
+        public void OnInventory()
+        {
+            WindowUtils.CreateWindow("UI/BigInventoryWindow");
         }
 
         private void OnDestroy()
