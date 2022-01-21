@@ -54,6 +54,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Light",
+                    "type": "Button",
+                    "id": "4701e776-8da7-4e90-a127-b57ec56b3772",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "UsePerk1",
                     "type": "Button",
                     "id": "784aa7a9-899d-4fac-bb7b-1aa14bab9612",
@@ -274,6 +282,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "UsePerk3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "27e04db0-a86e-4cd6-b9bb-d750a251eb86",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Light",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

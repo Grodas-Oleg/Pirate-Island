@@ -28,6 +28,7 @@ namespace PixelCrew.Creatures.Hero
         [SerializeField] private ProbabilityDropComponent _hitDrop;
         [SerializeField] private ShieldPerk _shield;
         [SerializeField] private SpawnComponent _canonSpawner;
+        [SerializeField] private GameObject _light;
 
         private bool _isOnWall;
         private static readonly int ThrowKey = Animator.StringToHash("throw");
@@ -341,6 +342,11 @@ namespace PixelCrew.Creatures.Hero
                 _canonSpawner.Spawn();
                 _cannonCooldown.Reset();
             }
+        }
+
+        public void SwitchLight()
+        {
+            _light.SetActive(!_light.activeInHierarchy);
         }
     }
 }

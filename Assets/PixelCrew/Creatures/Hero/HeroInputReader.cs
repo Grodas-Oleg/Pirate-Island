@@ -49,6 +49,14 @@ namespace PixelCrew.Creatures.Hero
                 _hero.UseInventory();
             }
         }
+        
+        public void OnLight(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                _hero.SwitchLight();
+            }
+        }
 
         public void OnNextItem(InputAction.CallbackContext context)
         {

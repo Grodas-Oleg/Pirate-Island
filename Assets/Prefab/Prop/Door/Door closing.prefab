@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 5690804351107269106}
   - component: {fileID: 5690804351107269109}
   - component: {fileID: 5690804351107269110}
+  - component: {fileID: 9113951220078808464}
+  - component: {fileID: 9113951220078808465}
   m_Layer: 10
   m_Name: Door closing
   m_TagString: Interactable
@@ -53,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -200,3 +202,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneName: Level1
+--- !u!114 &9113951220078808464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5690804351107269107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eb94f4d4d1b4f728c61ecbb3ddc6601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: lvl2-cp1
+  _heroSpawner: {fileID: 9113951220078808465}
+  _setCheked:
+    m_PersistentCalls:
+      m_Calls: []
+  _setUncheked:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &9113951220078808465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5690804351107269107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f659d1f2fa594e51ac602c9f8046565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 5690804351107269111}
+  _prefab: {fileID: 6604685115016147725, guid: 54b62fe4564d543369c21ef22bed753e, type: 3}

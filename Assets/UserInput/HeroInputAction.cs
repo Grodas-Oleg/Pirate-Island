@@ -67,6 +67,14 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""Light"",
+                    ""type"": ""Button"",
+                    ""id"": ""4701e776-8da7-4e90-a127-b57ec56b3772"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""UsePerk1"",
                     ""type"": ""Button"",
                     ""id"": ""784aa7a9-899d-4fac-bb7b-1aa14bab9612"",
@@ -289,6 +297,17 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""action"": ""UsePerk3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""27e04db0-a86e-4cd6-b9bb-d750a251eb86"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Light"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -303,6 +322,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         m_Hero_Attack = m_Hero.FindAction("Attack", throwIfNotFound: true);
         m_Hero_Throw = m_Hero.FindAction("Throw", throwIfNotFound: true);
         m_Hero_NextItem = m_Hero.FindAction("NextItem", throwIfNotFound: true);
+        m_Hero_Light = m_Hero.FindAction("Light", throwIfNotFound: true);
         m_Hero_UsePerk1 = m_Hero.FindAction("UsePerk1", throwIfNotFound: true);
         m_Hero_UsePerk2 = m_Hero.FindAction("UsePerk2", throwIfNotFound: true);
         m_Hero_UsePerk3 = m_Hero.FindAction("UsePerk3", throwIfNotFound: true);
@@ -361,6 +381,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     private readonly InputAction m_Hero_Attack;
     private readonly InputAction m_Hero_Throw;
     private readonly InputAction m_Hero_NextItem;
+    private readonly InputAction m_Hero_Light;
     private readonly InputAction m_Hero_UsePerk1;
     private readonly InputAction m_Hero_UsePerk2;
     private readonly InputAction m_Hero_UsePerk3;
@@ -374,6 +395,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         public InputAction @Attack => m_Wrapper.m_Hero_Attack;
         public InputAction @Throw => m_Wrapper.m_Hero_Throw;
         public InputAction @NextItem => m_Wrapper.m_Hero_NextItem;
+        public InputAction @Light => m_Wrapper.m_Hero_Light;
         public InputAction @UsePerk1 => m_Wrapper.m_Hero_UsePerk1;
         public InputAction @UsePerk2 => m_Wrapper.m_Hero_UsePerk2;
         public InputAction @UsePerk3 => m_Wrapper.m_Hero_UsePerk3;
@@ -404,6 +426,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @NextItem.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
                 @NextItem.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
                 @NextItem.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
+                @Light.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnLight;
+                @Light.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnLight;
+                @Light.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnLight;
                 @UsePerk1.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk1;
                 @UsePerk1.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk1;
                 @UsePerk1.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk1;
@@ -435,6 +460,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @NextItem.started += instance.OnNextItem;
                 @NextItem.performed += instance.OnNextItem;
                 @NextItem.canceled += instance.OnNextItem;
+                @Light.started += instance.OnLight;
+                @Light.performed += instance.OnLight;
+                @Light.canceled += instance.OnLight;
                 @UsePerk1.started += instance.OnUsePerk1;
                 @UsePerk1.performed += instance.OnUsePerk1;
                 @UsePerk1.canceled += instance.OnUsePerk1;
@@ -456,6 +484,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
         void OnNextItem(InputAction.CallbackContext context);
+        void OnLight(InputAction.CallbackContext context);
         void OnUsePerk1(InputAction.CallbackContext context);
         void OnUsePerk2(InputAction.CallbackContext context);
         void OnUsePerk3(InputAction.CallbackContext context);
