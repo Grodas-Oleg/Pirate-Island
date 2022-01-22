@@ -146,4 +146,12 @@ MonoBehaviour:
   - Key: crabby_perk_text_4
     Value: "It's full of traps here\r"
   - Key: crabby_perk_text_5
-    Value: You better learn how to use a shield
+    Value: "You better learn how to use a shield\r"
+  - Key: boos_start_dialog_text_1
+    Value: "You will die!\r"
+  - Key: boos_start_dialog_text_2
+    Value: "No, you!\r"
+  - Key: boos_end_dialog_text_1
+    Value: "NOOOO!!!!!!!\r"
+  - Key: boos_end_dialog_text_2
+    Value: As i say!

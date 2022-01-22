@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 291638221691658154}
   - component: {fileID: 291638221691658164}
   - component: {fileID: 291638221691658155}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Blicks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 291638222164979709}
   - component: {fileID: 291638222164979704}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 291638222228404054}
   - component: {fileID: 291638222228404053}
   - component: {fileID: 7347096743835435342}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Candle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

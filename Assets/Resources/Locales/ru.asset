@@ -213,4 +213,12 @@ MonoBehaviour:
   - Key: crabby_perk_text_5
     Value: "\u0422\u0435\u0431\u0435 \u043D\u0435 \u043F\u043E\u043C\u0435\u0448\u0430\u0435\u0442
       \u043D\u0430\u0443\u0447\u0438\u0442\u0441\u044F \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C
-      \u0449\u0438\u0442"
+      \u0449\u0438\u0442\r"
+  - Key: boos_start_dialog_text_1
+    Value: "\u0422\u044B \u0443\u043C\u0440\u0435\u0448\u044C!\r"
+  - Key: boos_start_dialog_text_2
+    Value: "\u041D\u0435\u0442, \u0442\u044B!\r"
+  - Key: boos_end_dialog_text_1
+    Value: "\u041D\u0415\u0415\u0415\u0415\u0415\u0415\u0415\u0415\u0422\u0422\u0422!!!!!\r"
+  - Key: boos_end_dialog_text_2
+    Value: "\u041A\u0430\u043A \u044F \u0438 \u0433\u043E\u0432\u043E\u0440\u0438\u043B!"
