@@ -23,7 +23,7 @@ namespace PixelCrew.Creatures.Mobs.Patrolling
                     _direction = -_direction;
                     _creature.SetDirection(new Vector2(_direction, 0));
                 }
-
+                
                 yield return null;
             }   
         }

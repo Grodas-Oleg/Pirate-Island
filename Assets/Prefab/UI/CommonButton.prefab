@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 8018397851286538896}
   - component: {fileID: 3769644235908250437}
   m_Layer: 5
-  m_Name: CommonButon
+  m_Name: CommonButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

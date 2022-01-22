@@ -1,6 +1,7 @@
 using System.Collections;
 using PixelCrew.Components;
 using PixelCrew.Components.ColliderBased;
+using PixelCrew.Components.Effects.CameraRelated;
 using PixelCrew.Components.GoBased;
 using PixelCrew.Components.Health;
 using PixelCrew.Model;
@@ -55,6 +56,7 @@ namespace PixelCrew.Creatures.Hero
             }
         }
 
+        private CameraShakeEffect _cameraShake;
         private GameSession _session;
         private HealthComponent _health;
         private AttackManager _attackManager;
@@ -67,6 +69,7 @@ namespace PixelCrew.Creatures.Hero
 
         private void Start()
         {
+            _cameraShake = FindObjectOfType<CameraShakeEffect>();
             _session = FindObjectOfType<GameSession>();
             _health = GetComponent<HealthComponent>();
             _attackManager = GetComponent<AttackManager>();
@@ -155,6 +158,8 @@ namespace PixelCrew.Creatures.Hero
             base.TakeDamage();
             if (CoinsCount > 0)
                 SpawnCoins();
+
+            _cameraShake?.Shake();
         }
 
         private void SpawnCoins()
