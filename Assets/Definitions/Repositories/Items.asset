@@ -18,7 +18,7 @@ MonoBehaviour:
       type: 3}
     _tags: 00000000
   - _id: Sword
-    _icon: {fileID: 21300000, guid: 5be5d5659eb5e43d68220a830d6bbc8a, type: 3}
+    _icon: {fileID: 21300000, guid: 63e04c607ad1a4ddb88696d14c3c104e, type: 3}
     _tags: 000000000100000002000000
   - _id: Key
     _icon: {fileID: 21300000, guid: 17f9876ded4ca4161bc0b16742ecf0cc, type: 3}
