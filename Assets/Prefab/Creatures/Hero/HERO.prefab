@@ -1044,6 +1044,7 @@ GameObject:
   - component: {fileID: 1941696586}
   - component: {fileID: 627727123}
   - component: {fileID: 1548032775134589833}
+  - component: {fileID: 2998474565610396637}
   m_Layer: 13
   m_Name: HERO
   m_TagString: Player
@@ -1498,7 +1499,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _immune: 0
 --- !u!114 &1013021409267742315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1574,6 +1574,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CountAttack: 0
+--- !u!114 &2998474565610396637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6604685115016147725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f14dca0db82b4b36b513e73fd1ca03d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  immuneTime: 1
 --- !u!1 &7257079251524928636
 GameObject:
   m_ObjectHideFlags: 0

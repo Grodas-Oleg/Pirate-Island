@@ -22,7 +22,7 @@ namespace PixelCrew.Components.Effects.CameraRelated
         {
             _overScale = _overlay.localScale - Vector3.one;
             _animator = GetComponent<Animator>();
-            _session = FindObjectOfType<GameSession>();
+            _session = GameSession.Instance;
             _trash.Retain(_session.Data.HP.SubscribeAndInvoke(OnHpChanged));
         }
 

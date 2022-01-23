@@ -9,13 +9,8 @@ namespace PixelCrew.UI.Widgets
         [SerializeField] private GameObject _container;
         [SerializeField] private Text _value;
 
-        private int CoinsCount => _session.Data.Inventory.Count("Coin");
+        private int CoinsCount => GameSession.Instance.Data.Inventory.Count("Coin");
         private GameSession _session;
-
-        private void Start()
-        {
-            _session = FindObjectOfType<GameSession>();
-        }
 
         private void Update()
         {

@@ -25,7 +25,7 @@ namespace PixelCrew.UI.Windows.Shop
             base.Start();
 
             _dataGroup = new PredefinedDataGroup<ShopDef, ShopWidget>(_itemsContainer);
-            _session = FindObjectOfType<GameSession>();
+            _session = GameSession.Instance;
             
             _trash.Retain(_session.ShopModel.Subscribe(OnItemChanged));
             _trash.Retain(_buyButton.onClick.Subscribe(OnBuy));

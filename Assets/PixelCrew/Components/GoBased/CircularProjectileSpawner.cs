@@ -8,7 +8,7 @@ namespace PixelCrew.Components.GoBased
 {
     public class CircularProjectileSpawner : MonoBehaviour
     {
-        [SerializeField] private CircularProjectileSettings[] _settings;
+        [SerializeField] private ProjectileSequence[] _settings;
         public int Stage { get; set; }
 
         [ContextMenu("Spawn!")]
@@ -19,20 +19,34 @@ namespace PixelCrew.Components.GoBased
 
         private IEnumerator SpawnProjectiles()
         {
-            var settings = _settings[Stage];
-            var sectorStep = 2 * Mathf.PI / settings.BursCount;
-            for (int i = 0; i < settings.BursCount; i++)
+            var sequence = _settings[Stage];
+            foreach (var settings in sequence.Sequence)
             {
-                var angle = sectorStep * i;
-                var direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+                var sectorStep = 2 * Mathf.PI / settings.BursCount;
+                for (int i = 0, burstCount = 1; i < settings.BursCount; i++)
+                {
+                    var angle = sectorStep * i;
+                    var direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
 
-                var instance = SpawnUtils.Spawn(settings.Prefab.gameObject, transform.position);
-                var projectile = instance.GetComponent<DirectionalProjectile>();
-                projectile.Launch(direction);
+                    var instance = SpawnUtils.Spawn(settings.Prefab.gameObject, transform.position);
+                    var projectile = instance.GetComponent<DirectionalProjectile>();
+                    projectile.Launch(direction);
 
-                yield return new WaitForSeconds(settings.Delay);
+                    if (burstCount < settings.ItemPerBurst) continue;
+
+                    burstCount = 0;
+                    yield return new WaitForSeconds(settings.Delay);
+                }
             }
         }
+    }
+
+    [Serializable]
+    public struct ProjectileSequence
+    {
+        [SerializeField] private CircularProjectileSettings[] _sequence;
+
+        public CircularProjectileSettings[] Sequence => _sequence;
     }
 
     [Serializable]
@@ -40,10 +54,13 @@ namespace PixelCrew.Components.GoBased
     {
         [SerializeField] private GameObject prefab;
         [SerializeField] private int _bursCount;
+        [SerializeField] private int _itemPerBurst;
         [SerializeField] private float _delay;
 
         public GameObject Prefab => prefab;
         public int BursCount => _bursCount;
+
+        public int ItemPerBurst => _itemPerBurst;
         public float Delay => _delay;
     }
 }

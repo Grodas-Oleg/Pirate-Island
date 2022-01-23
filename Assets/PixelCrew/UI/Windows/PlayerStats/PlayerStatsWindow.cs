@@ -23,7 +23,7 @@ namespace PixelCrew.UI.Windows.PlayerStats
         {
             base.Start();
 
-            _session = FindObjectOfType<GameSession>();
+            _session = GameSession.Instance;
             _session.StatsModel.InterfaceSelectedStat.Value = DefsFacade.I.Player.Stats[0].ID;
 
             _dataGroup = new DataGroup<StatDef, StatWidget>(_prefab, _statContainer);

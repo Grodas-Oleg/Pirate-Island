@@ -20,7 +20,7 @@ namespace PixelCrew.UI.Windows.BigInventory
         {
             base.Start();
             _dataGroup = new DataGroup<InventoryItemData, BigInventoryItemWidget>(_prefab, _container);
-            _session = FindObjectOfType<GameSession>();
+            _session = GameSession.Instance;
             _trash.Retain(_session.BigInventory.Subscribe(Rebuild));
             Rebuild();
         }
