@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 1087797018}
   _prefab: {fileID: 184260941868772573, guid: e2b3a412d94cd43a79e7032ec1a9143f, type: 3}
+  _usePool: 0
 --- !u!1 &1105496019
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,6 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 2799476175001403945}
   _prefab: {fileID: 0}
+  _usePool: 0
 --- !u!1 &629494559587092635
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,6 +322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 2488485264860663662}
   _prefab: {fileID: 184260941868772573, guid: 12385c549876d4f33b94b3cdda4e33aa, type: 3}
+  _usePool: 1
 --- !u!1 &3078294374535215380
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,6 +513,7 @@ GameObject:
   - component: {fileID: 3078294375072207338}
   - component: {fileID: 3078294375072207339}
   - component: {fileID: 3078294375072207336}
+  - component: {fileID: 4627799012096642032}
   m_Layer: 0
   m_Name: Candle
   m_TagString: Untagged
@@ -610,6 +614,20 @@ MonoBehaviour:
     _onComplete:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &4627799012096642032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3078294375072207337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe0e8482a1e4996af5c1f749d94f22c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _consumePerSecond: 1
+  _light: {fileID: 3078294375026608453}
 --- !u!1 &3869242474482080097
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,6 +797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 3294160906877559555}
   _prefab: {fileID: 817946952850608833, guid: 4ea3f71a31d704bfcb17096e17209faa, type: 3}
+  _usePool: 0
 --- !u!1 &6604685113957586249
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,6 +843,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 6604685113957586294}
   _prefab: {fileID: 184260941868772573, guid: d2981ee5f66ce49ce9cfab46f9d501ca, type: 3}
+  _usePool: 1
 --- !u!1 &6604685114743705818
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 6604685114743705819}
   _prefab: {fileID: 184260941868772573, guid: 98f0c50dd41724aca94df02eb4da9cdd, type: 3}
+  _usePool: 1
 --- !u!1 &6604685114791682657
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,6 +970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 6604685114791682670}
   _prefab: {fileID: 184260941868772573, guid: e360cc2056fe84a64bf70987aa4007a0, type: 3}
+  _usePool: 0
 --- !u!58 &6604685114791682669
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1023,6 +1045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 6604685114997779488}
   _prefab: {fileID: 184260941868772573, guid: 0da2f071c118f413c8a138444acfc942, type: 3}
+  _usePool: 1
 --- !u!1 &6604685115016147725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,7 +1241,7 @@ MonoBehaviour:
   _hitDrop: {fileID: 1390284390}
   _shield: {fileID: 1783653149992131102}
   _canonSpawner: {fileID: 4893968731002735320}
-  _light: {fileID: 3078294375072207337}
+  _light: {fileID: 4627799012096642032}
 --- !u!114 &6604685115016147766
 MonoBehaviour:
   m_ObjectHideFlags: 0

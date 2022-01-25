@@ -13,8 +13,15 @@ namespace PixelCrew.Model.Data
 
         public int GetLevel(StatId id)
         {
-            var progresses = _progresses.FirstOrDefault(x => x.Id == id);
-            return progresses?.Level ?? 0;
+            foreach (var levelProgresses in _progresses)
+            {
+                if (levelProgresses.Id == id)
+                {
+                    return levelProgresses.Level;
+                }
+            }
+
+            return 0;
         }
 
         public void LevelUp(StatId id)

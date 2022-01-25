@@ -6,7 +6,7 @@ namespace PixelCrew.Utils
     {
         private const string ContainerName = "### SPAWNED ##";
 
-        public static GameObject Spawn(GameObject prefab, Vector3 position)
+        public static GameObject Spawn(GameObject prefab, Vector3 position, string containerName = ContainerName)
         {
             var container = GameObject.Find(ContainerName);
             if (container == null)

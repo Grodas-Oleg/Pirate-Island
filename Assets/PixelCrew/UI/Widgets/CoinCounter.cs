@@ -6,20 +6,19 @@ namespace PixelCrew.UI.Widgets
 {
     public class CoinCounter : MonoBehaviour
     {
-        [SerializeField] private GameObject _container;
         [SerializeField] private Text _value;
 
-        private int CoinsCount => GameSession.Instance.Data.Inventory.Count("Coin");
-        private GameSession _session;
-
-        private void Update()
+        private void Awake()
         {
-            Count();
+            _value.text = $"x{GameSession.Instance.Data.Inventory.Count("Coin")}";
+            GameSession.Instance.Data.Inventory.OnChanged += Count;
         }
 
-        private void Count()
+        private void Count(string id, int value)
         {
-            _value.text = $"x{CoinsCount.ToString()}";
+            if (!string.Equals(id, "Coin")) return;
+
+            _value.text = $"x{value}";
         }
     }
 }

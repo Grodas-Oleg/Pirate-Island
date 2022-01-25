@@ -4,6 +4,7 @@ using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.Effects.CameraRelated;
 using PixelCrew.Components.GoBased;
 using PixelCrew.Components.Health;
+using PixelCrew.Creatures.Hero.Features;
 using PixelCrew.Model;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Player;
@@ -29,7 +30,7 @@ namespace PixelCrew.Creatures.Hero
         [SerializeField] private ProbabilityDropComponent _hitDrop;
         [SerializeField] private ShieldPerk _shield;
         [SerializeField] private SpawnComponent _canonSpawner;
-        [SerializeField] private GameObject _light;
+        [SerializeField] private HeroFlashLight _light;
 
         private bool _isOnWall;
         private static readonly int ThrowKey = Animator.StringToHash("throw");
@@ -351,7 +352,7 @@ namespace PixelCrew.Creatures.Hero
 
         public void SwitchLight()
         {
-            _light.SetActive(!_light.activeInHierarchy);
+            _light.gameObject.SetActive(!_light.gameObject.activeInHierarchy);
         }
     }
 }

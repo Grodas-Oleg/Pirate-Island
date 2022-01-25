@@ -59,7 +59,6 @@ namespace PixelCrew.Components.GoBased
 
         public GameObject Prefab => prefab;
         public int BursCount => _bursCount;
-
         public int ItemPerBurst => _itemPerBurst;
         public float Delay => _delay;
     }

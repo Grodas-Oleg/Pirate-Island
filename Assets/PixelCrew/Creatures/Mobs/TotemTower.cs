@@ -11,7 +11,7 @@ namespace PixelCrew.Creatures.Mobs
     {
         [SerializeField] private List<ShootingTrapAI> _traps;
         [SerializeField] private Cooldown _cooldown;
-        
+
         private int _currentTrap;
 
         private void Start()
@@ -28,10 +28,10 @@ namespace PixelCrew.Creatures.Mobs
         {
             var index = _traps.LastIndexOf(shootingTrapAI);
             _traps.Remove(shootingTrapAI);
-            if (index < _currentTrap)
-            {
-                _currentTrap--;
-            }
+
+            if (index >= _currentTrap) return;
+
+            _currentTrap--;
         }
 
         private void Update()
@@ -41,16 +41,26 @@ namespace PixelCrew.Creatures.Mobs
                 enabled = false;
                 Destroy(gameObject, 1f);
             }
-            var hasAnyTarget = _traps.Any(x => x._vision.IsTouchingLayer);
-            if (hasAnyTarget)
+
+            var hasAnyTarget = HasAnyTarget();
+
+            if (!hasAnyTarget) return;
+            if (!_cooldown.IsReady) return;
+
+            _traps[_currentTrap].Shoot();
+            _cooldown.Reset();
+            _currentTrap = (int) Mathf.Repeat(_currentTrap + 1, _traps.Count);
+        }
+
+        private bool HasAnyTarget()
+        {
+            foreach (var shootingTrapAI in _traps)
             {
-                if (_cooldown.IsReady)
-                {
-                    _traps[_currentTrap].Shoot();
-                    _cooldown.Reset();
-                    _currentTrap = (int)Mathf.Repeat(_currentTrap + 1, _traps.Count);
-                }
+                if (shootingTrapAI._vision.IsTouchingLayer)
+                    return true;
             }
+
+            return false;
         }
     }
 }

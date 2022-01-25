@@ -15,7 +15,7 @@ namespace PixelCrew.Model.Data
 
         public delegate void OnInventoryChanged(string id, int value);
 
-        public OnInventoryChanged OnChanged;
+        public event Action<string, int> OnChanged;
 
         public void Add(string id, int value)
         {
