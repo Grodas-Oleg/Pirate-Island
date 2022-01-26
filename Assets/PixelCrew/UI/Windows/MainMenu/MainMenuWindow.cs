@@ -27,10 +27,9 @@ namespace PixelCrew.UI.Windows.MainMenu
         public void OnLanguages()
         {
             WindowUtils.CreateWindow("UI/LocalizationWindow");
-
         }
 
-    public void OnExit()
+        public void OnExit()
         {
             _closeAction = () =>
             {
@@ -40,10 +39,11 @@ namespace PixelCrew.UI.Windows.MainMenu
                 UnityEditor.EditorApplication.isPlaying = false;
 #endif
             };
-            Close();;
+            Close();
+            ;
         }
 
-    protected override void OnCloseAnimationComplete()
+        protected override void OnCloseAnimationComplete()
         {
             base.OnCloseAnimationComplete();
             _closeAction?.Invoke();

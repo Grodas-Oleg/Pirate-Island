@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using PixelCrew.Components;
 using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.Effects.CameraRelated;
@@ -11,8 +12,8 @@ using PixelCrew.Model.Definitions.Player;
 using PixelCrew.Model.Definitions.Repositories;
 using PixelCrew.Model.Definitions.Repositories.Items;
 using PixelCrew.Utils;
-using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 namespace PixelCrew.Creatures.Hero
 {
@@ -21,8 +22,8 @@ namespace PixelCrew.Creatures.Hero
         [SerializeField] private CheckCircleOverlap _interactionCheck;
         [SerializeField] private ColliderCheck _wallCheck;
         [SerializeField] private Cooldown _throwCooldown;
-        [SerializeField] private AnimatorController _armed;
-        [SerializeField] private AnimatorController _disarmed;
+        [SerializeField] private RuntimeAnimatorController _armed;
+        [SerializeField] private RuntimeAnimatorController _disarmed;
 
         [SerializeField] private int _superThrowParticles;
         [SerializeField] private float _superThrowDelay;
@@ -300,6 +301,7 @@ namespace PixelCrew.Creatures.Hero
         }
 
         private readonly Cooldown _shieldCooldown = new Cooldown();
+        private int _shieldUseCount;
 
         public void UsePerk1()
         {
@@ -309,10 +311,17 @@ namespace PixelCrew.Creatures.Hero
             {
                 _shield.Use();
                 _shieldCooldown.Reset();
+
+                AnalyticsEvent.Custom("use-shield", new Dictionary<string, object>
+                {
+                    {"count", _shieldUseCount},
+                    {"level", _session.LevelIndex}
+                });
             }
         }
 
         private readonly Cooldown _superThrowCooldown = new Cooldown();
+        private int _superThrowCount;
 
         public void UsePerk2()
         {
@@ -325,6 +334,13 @@ namespace PixelCrew.Creatures.Hero
                 StartCoroutine(DoSuperThrow(numThrows));
                 Animator.SetTrigger(ThrowKey);
                 _superThrowCooldown.Reset();
+                _superThrowCount++;
+
+                AnalyticsEvent.Custom("use-super-throw", new Dictionary<string, object>
+                {
+                    {"count", _superThrowCount},
+                    {"level", _session.LevelIndex}
+                });
             }
         }
 
@@ -339,6 +355,8 @@ namespace PixelCrew.Creatures.Hero
 
         private readonly Cooldown _cannonCooldown = new Cooldown();
 
+        private int _cannonUseCount;
+
         public void UsePerk3()
         {
             var cooldown = _session.PerksModel.UsePerk("cannon");
@@ -347,6 +365,12 @@ namespace PixelCrew.Creatures.Hero
             {
                 _canonSpawner.Spawn();
                 _cannonCooldown.Reset();
+
+                AnalyticsEvent.Custom("use-cannon", new Dictionary<string, object>
+                {
+                    {"count", _cannonUseCount},
+                    {"level", _session.LevelIndex}
+                });
             }
         }
 

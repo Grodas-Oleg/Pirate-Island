@@ -56,8 +56,8 @@ namespace PixelCrew.Components.Movement
                 _positions[i] = containerPosition + pos;
             }
         }
-#if UNITY_EDITOR
 
+#if UNITY_EDITOR
         private void OnValidate()
         {
             UpdateComponent();
@@ -73,6 +73,6 @@ namespace PixelCrew.Components.Movement
         {
             UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, _radius);
         }
-    }
 #endif
+    }
 }
