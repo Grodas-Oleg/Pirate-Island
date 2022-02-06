@@ -9,7 +9,7 @@ namespace PixelCrew.Components
         [SerializeField] private Transform _destTransform;
         [SerializeField] private float _alphaTime = 1;
         [SerializeField] private float _moveTime = 1;
-        
+
         public void Teleport(GameObject target)
         {
             StartCoroutine(AnimateTeleport(target));
@@ -25,7 +25,7 @@ namespace PixelCrew.Components
             yield return AlphaAnimation(sprite, 0);
 
             yield return MoveAnimation(target);
-            
+
             yield return AlphaAnimation(sprite, 1);
             input.actions.Enable();
             SetLockInput(input, false);
@@ -46,8 +46,9 @@ namespace PixelCrew.Components
             {
                 moveTime += Time.deltaTime;
                 var progress = moveTime / _alphaTime;
-                target.transform.position = Vector3.Lerp(target.transform.position, _destTransform.transform.position, progress);
-                
+                target.transform.position =
+                    Vector3.Lerp(target.transform.position, _destTransform.transform.position, progress);
+
                 yield return null;
             }
         }
@@ -65,7 +66,7 @@ namespace PixelCrew.Components
                 var color = sprite.color;
                 color.a = tmpAlpha;
                 sprite.color = color;
-                
+
                 yield return null;
             }
         }

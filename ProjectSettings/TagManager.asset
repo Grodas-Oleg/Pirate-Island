@@ -15,6 +15,12 @@ TagManager:
   - RangeAttack
   - MeleeAttack
   - CannonAttack
+  - FuelBar
+  - DefaultButton
+  - StartButton
+  - PauseButton
+  - ContinueButton
+  - PauseMenu
   layers:
   - Default
   - TransparentFX

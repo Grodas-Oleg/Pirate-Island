@@ -7,8 +7,8 @@ namespace PixelCrew.Model.Definitions.Localization
 {
     public class LocalizationManager
     {
-        public readonly static LocalizationManager I;
-        private StringPersistantProperty _keyLocale = new StringPersistantProperty("en", "localization/current");
+        public static readonly LocalizationManager I;
+        private readonly StringPersistantProperty _keyLocale = new StringPersistantProperty("en", "localization/current");
         private Dictionary<string, string> _localization;
         public string LocaleKey => _keyLocale.Value;
         
@@ -19,7 +19,7 @@ namespace PixelCrew.Model.Definitions.Localization
             I = new LocalizationManager();
         }
 
-        public LocalizationManager()
+        private LocalizationManager()
         {
             LoadLocale(_keyLocale.Value);
         }

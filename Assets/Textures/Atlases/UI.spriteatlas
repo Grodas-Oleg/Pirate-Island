@@ -47,6 +47,7 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: cae0c8706cde84dfc83735ff7b369c63, type: 3}
+  - {fileID: 21300000, guid: 6cd373c06147746c0abc6c65745b143d, type: 3}
   - {fileID: 21300000, guid: bb814a418a07e4e49a4b8673d77c5b54, type: 3}
   - {fileID: 21300000, guid: 42dfce910584843c08aedcd7160636b8, type: 3}
   - {fileID: 21300000, guid: fafbbfb12217441f5880bb8016d77930, type: 3}
@@ -56,6 +57,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: a3cdf772cd0ad4b5c988b19bea67e9a6, type: 3}
   - {fileID: 21300000, guid: 6dd2beb25904e443a933f21e83e2c7d2, type: 3}
   - {fileID: 21300000, guid: 7c0fa1d26642c4bffba1b614107ab7d7, type: 3}
+  - {fileID: 21300000, guid: 380c94d2dc5b94e7c932efc7d61832bd, type: 3}
   - {fileID: 21300000, guid: 8f4422436547345faae4de5edfc87be3, type: 3}
   - {fileID: 21300000, guid: 48eebd53231304f91b1f662b36af469e, type: 3}
   - {fileID: -1569397932696023768, guid: 140da163e3d4a4f58b660a04913fb2dd, type: 3}
@@ -164,6 +166,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 7117c17cd86164e77835178b6bc98cf5, type: 3}
   - {fileID: 21300000, guid: 1553dc7ca0bf34874901530298397bdf, type: 3}
   - {fileID: 21300000, guid: 7fe9248cbc2744824bcc86ed58bf89f4, type: 3}
+  - {fileID: 21300000, guid: 2625126df882a4924b85f5c20e3e62d2, type: 3}
   - {fileID: 21300000, guid: d76f7b6d6691d4ad8b631ff0e15831d2, type: 3}
   - {fileID: 21300000, guid: 44b6d2bd115434597a93323208b65e54, type: 3}
   - {fileID: 21300000, guid: 4a08c6cd403f8420f8a0b1d179f61263, type: 3}
@@ -176,6 +179,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: d5def69fdc1c8497a8cddac231912ab0, type: 3}
   m_PackedSpriteNamesToIndex:
   - papper
+  - Stamina
   - inventory-wide
   - crabbu-face
   - item-small
@@ -185,6 +189,7 @@ SpriteAtlas:
   - I_Clover
   - menu
   - red
+  - Status-bar
   - blue
   - S_Bow13
   - keyboard_31
@@ -293,6 +298,7 @@ SpriteAtlas:
   - yellow-box-wide
   - common-button-selected
   - green-button
+  - FuelBar
   - I_Clock
   - yellow
   - SmallBar

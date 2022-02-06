@@ -427,7 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 128516b12f084d2585f5bc0cfe24c561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: button_exti
+  _key: button_exit
   _capitalize: 1
 --- !u!1 &7413969776497794449
 GameObject:
@@ -1067,7 +1067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 128516b12f084d2585f5bc0cfe24c561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: button_exti
+  _key: button_exit
   _capitalize: 1
 --- !u!1 &7413969777125244044
 GameObject:

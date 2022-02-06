@@ -5,7 +5,6 @@ using UnityEngine.Events;
 namespace PixelCrew.Animations
 {
     [RequireComponent(typeof(SpriteRenderer))]
-
     public class SpriteAnimation : MonoBehaviour
     {
         [SerializeField] [Range(0, 30)] private int _frameRate = 10;
@@ -33,7 +32,7 @@ namespace PixelCrew.Animations
         {
             enabled = _isPlaying;
         }
-        
+
         private void OnBecameInvisible()
         {
             enabled = false;
@@ -88,6 +87,7 @@ namespace PixelCrew.Animations
                         _currentClip = (int) Mathf.Repeat(_currentClip + 1, _clips.Length);
                     }
                 }
+
                 return;
             }
 
@@ -96,7 +96,7 @@ namespace PixelCrew.Animations
             _currentFrame++;
         }
     }
-    
+
     [Serializable]
     public class AnimationClip
     {
@@ -110,6 +110,5 @@ namespace PixelCrew.Animations
         public bool Loop => _loop;
         public bool AllowNextClip => _allowNextClip;
         public UnityEvent OnComplete => _onComplete;
-    } 
+    }
 }
-

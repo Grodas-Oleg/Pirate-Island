@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 817946952850608834}
   - component: {fileID: 3057547818896523825}
   - component: {fileID: 5857333162972876511}
-  m_Layer: 13
+  m_Layer: 9
   m_Name: CanonPerk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,6 +309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 817946953693337453}
   _prefab: {fileID: 1561957801104775241, guid: 9d638d1f2349e48d1b437ae1861ffd6e, type: 3}
+  _usePool: 0
 --- !u!1 &6540561249443306717
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,3 +355,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 5678154608101380330}
   _prefab: {fileID: 184260941868772573, guid: af411ae397c024abcbb03f6aff3fe744, type: 3}
+  _usePool: 0

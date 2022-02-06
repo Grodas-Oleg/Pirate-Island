@@ -10,10 +10,10 @@ namespace PixelCrew.Creatures
     public class Creature : MonoBehaviour
     {
         [Header("Params")] [SerializeField] private bool _invertScale;
-        [SerializeField] protected float _speed;
+        [SerializeField] private float _speed;
         [SerializeField] protected float _jumpSpeed;
         [SerializeField] private float _damageVelocity;
-        [SerializeField] private float _dashDistance;
+        [SerializeField] protected float _dashDistance;
         [SerializeField] protected Cooldown _dashDelay;
 
 
@@ -23,13 +23,13 @@ namespace PixelCrew.Creatures
         [SerializeField] protected SpawnListComponent _particles;
 
         protected Rigidbody2D Rigidbody;
-        protected Vector2 Direction;
+        private Vector2 _direction;
         protected Animator Animator;
         protected PlaySoundsComponent Sounds;
         protected bool IsGrounded;
         private bool _isJumping;
         protected bool IsDashing = false;
-        private bool _xDirection;
+        protected bool XDirection;
 
         private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
         private static readonly int IsRunning = Animator.StringToHash("is-running");
@@ -47,7 +47,7 @@ namespace PixelCrew.Creatures
 
         public void SetDirection(Vector2 direction)
         {
-            Direction = direction;
+            _direction = direction;
         }
 
         protected virtual void Update()
@@ -57,17 +57,17 @@ namespace PixelCrew.Creatures
 
         protected virtual void FixedUpdate()
         {
-            var xVelocity = Direction.x * CalculateSpeed();
+            var xVelocity = _direction.x * CalculateSpeed();
             var yVelocity = CalculateYVelocity();
-            
+
             if (!IsDashing) Rigidbody.velocity = new Vector2(xVelocity, yVelocity);
 
-            Animator.SetBool(IsRunning, Direction.x != 0);
+            Animator.SetBool(IsRunning, _direction.x != 0);
             Animator.SetBool(IsGroundKey, IsGrounded);
             Animator.SetFloat(VerticalVelocity, Rigidbody.velocity.y);
             Animator.SetBool(Dashing, IsDashing);
 
-            UpdateSpriteDirection(Direction);
+            UpdateSpriteDirection(_direction);
         }
 
         protected virtual float CalculateSpeed()
@@ -78,7 +78,7 @@ namespace PixelCrew.Creatures
         protected virtual float CalculateYVelocity()
         {
             var yVelocity = Rigidbody.velocity.y;
-            var isJumpPressing = Direction.y > 0;
+            var isJumpPressing = _direction.y > 0;
 
             if (IsGrounded)
             {
@@ -88,7 +88,6 @@ namespace PixelCrew.Creatures
             if (isJumpPressing)
             {
                 _isJumping = true;
-
                 var isFalling = Rigidbody.velocity.y <= 0.001f;
                 yVelocity = isFalling ? CalculateJumpVelocity(yVelocity) : yVelocity;
             }
@@ -120,12 +119,12 @@ namespace PixelCrew.Creatures
             var multiplayer = _invertScale ? -1 : 1;
             if (direction.x > 0)
             {
-                _xDirection = true;
+                XDirection = true;
                 transform.localScale = new Vector3(multiplayer, 1, 1);
             }
             else if (direction.x < 0)
             {
-                _xDirection = false;
+                XDirection = false;
                 transform.localScale = new Vector3(-1 * multiplayer, 1, 1);
             }
         }
@@ -140,12 +139,11 @@ namespace PixelCrew.Creatures
         public virtual void Dash()
         {
             if (!_dashDelay.IsReady) return;
-            StartCoroutine(_xDirection ? Dash(1f) : Dash(-1f));
-
+            StartCoroutine(XDirection ? Dash(1f) : Dash(-1f));
             _dashDelay.Reset();
         }
 
-        IEnumerator Dash(float direction)
+        private IEnumerator Dash(float direction)
         {
             IsDashing = true;
             Sounds.Play("Dash");

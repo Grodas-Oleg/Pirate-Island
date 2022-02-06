@@ -108,8 +108,8 @@ namespace PixelCrew.Model
 
         private void LoadUIs()
         {
-            SceneManager.LoadScene("Hud", LoadSceneMode.Additive);
             LoadOnScreenControls();
+            SceneManager.LoadScene("Hud", LoadSceneMode.Additive);
         }
 
         [Conditional("USE_ONSCREEN_CONTROLS")]

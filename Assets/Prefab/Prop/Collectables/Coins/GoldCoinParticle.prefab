@@ -7,10 +7,95 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2051234450825019122, guid: 183f3169945ae475e8eb2500219b95f3,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -2051234450825019122, guid: 183f3169945ae475e8eb2500219b95f3,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2051234450825019122, guid: 183f3169945ae475e8eb2500219b95f3,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -2051234450825019122, guid: 183f3169945ae475e8eb2500219b95f3,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2051234450825019122, guid: 183f3169945ae475e8eb2500219b95f3,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -2051234450825019122, guid: 183f3169945ae475e8eb2500219b95f3,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5316479555656846100}
+    - target: {fileID: -2051234450825019122, guid: 183f3169945ae475e8eb2500219b95f3,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 7800764215390133761}
+    - target: {fileID: -2051234450825019122, guid: 183f3169945ae475e8eb2500219b95f3,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1248323693577354274}
+    - target: {fileID: -2051234450825019122, guid: 183f3169945ae475e8eb2500219b95f3,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 7800764215390133771}
+    - target: {fileID: -2051234450825019122, guid: 183f3169945ae475e8eb2500219b95f3,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -2051234450825019122, guid: 183f3169945ae475e8eb2500219b95f3,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Add
+      objectReference: {fileID: 0}
+    - target: {fileID: -2051234450825019122, guid: 183f3169945ae475e8eb2500219b95f3,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetClip
+      objectReference: {fileID: 0}
+    - target: {fileID: -2051234450825019122, guid: 183f3169945ae475e8eb2500219b95f3,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: -2051234450825019122, guid: 183f3169945ae475e8eb2500219b95f3,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
+    - target: {fileID: -2051234450825019122, guid: 183f3169945ae475e8eb2500219b95f3,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: destroy
+      objectReference: {fileID: 0}
+    - target: {fileID: -2051234450825019122, guid: 183f3169945ae475e8eb2500219b95f3,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1059606601317756497, guid: 183f3169945ae475e8eb2500219b95f3,
         type: 3}
       propertyPath: m_Name
       value: GoldCoinParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059606601317756498, guid: 183f3169945ae475e8eb2500219b95f3,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1059606601317756499, guid: 183f3169945ae475e8eb2500219b95f3,
         type: 3}
@@ -114,3 +199,45 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 183f3169945ae475e8eb2500219b95f3, type: 3}
+--- !u!58 &7800764215390133771 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1059606601317756498, guid: 183f3169945ae475e8eb2500219b95f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7130776208020369497}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7800764215390133761 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1059606601317756504, guid: 183f3169945ae475e8eb2500219b95f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7130776208020369497}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d72f8772729b14d4597c46cc7b54d79f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5316479555656846100 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3112680939622366029, guid: 183f3169945ae475e8eb2500219b95f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7130776208020369497}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9656c8260af14535aa60411cf1c649f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1248323693577354274 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -889613864491168645, guid: 183f3169945ae475e8eb2500219b95f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7130776208020369497}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91184e791aa5467bba84e34c4ee32d8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

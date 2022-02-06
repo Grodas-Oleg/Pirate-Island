@@ -619,7 +619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039ca686d5f97403a89b3f6bbb6d8799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _value: -10
+  _value: -5
 --- !u!114 &367056159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,7 +634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 6604685115016147723}
   _prefab: {fileID: 184260941868772573, guid: 87a96d778fb204e4dbaa225690c44ef4, type: 3}
-  _usePool: 0
+  _usePool: 1
 --- !u!1 &6604685115016147725
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,7 +725,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1673521467
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 111eed453044647e1b8c959f0dd7b710, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -805,7 +805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e27af91caffb479aaf9e79ecdd64196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 20
+  _health: 50
   _onDamage:
     m_PersistentCalls:
       m_Calls:

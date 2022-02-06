@@ -10,6 +10,7 @@ namespace PixelCrew.Creatures.Hero
     public class StatsModifyDamageComponent : MonoBehaviour
     {
         [SerializeField] private HealthChangeComponent _damageValue;
+        private bool _critical;
 
         private readonly CompositeDisposable _trash = new CompositeDisposable();
 
@@ -20,7 +21,7 @@ namespace PixelCrew.Creatures.Hero
         {
             _session = GameSession.Instance;
 
-            _damageValue._value = -(int) ModifyDamage();
+            _damageValue.SetDelta((int) -ModifyDamage(), _critical);
 
             _trash.Retain(_session.StatsModel.Subscribe(SetDamage));
             SetDamage();
@@ -28,7 +29,7 @@ namespace PixelCrew.Creatures.Hero
 
         private void SetDamage()
         {
-            _damageValue._value = -(int) ModifyDamage();
+            _damageValue.SetDelta((int) -ModifyDamage(), _critical);
         }
 
         private float ModifyDamage()
@@ -48,7 +49,11 @@ namespace PixelCrew.Creatures.Hero
                     break;
             }
 
-            return Random.value * 100 <= perkCriticalChance ? _damage *= perkCriticalDamage : _damage;
+            if (!(Random.value * 100 <= perkCriticalChance)) return _damage;
+            _damage *= perkCriticalDamage;
+            _critical = true;
+
+            return _damage;
         }
 
         private void OnDestroy()

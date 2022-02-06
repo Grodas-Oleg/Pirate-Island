@@ -38,6 +38,8 @@ MonoBehaviour:
     Value: "music:\r"
   - Key: perk_price_text
     Value: "Price:\r"
+  - Key: amount_text
+    Value: "Has:\r"
   - Key: perk_buy_text
     Value: "buy\r"
   - Key: perk_use_text
@@ -58,6 +60,8 @@ MonoBehaviour:
       cooldown, Active perk).\r"
   - Key: stat_health_text
     Value: "Health\r"
+  - Key: stat_stamina_text
+    Value: "Endurance\r"
   - Key: stat_speed_text
     Value: "Speed\r"
   - Key: stat_range_damage_text
@@ -154,4 +158,8 @@ MonoBehaviour:
   - Key: boos_end_dialog_text_1
     Value: "NOOOO!!!!!!!\r"
   - Key: boos_end_dialog_text_2
-    Value: As i say!
+    Value: "As i say!\r"
+  - Key: crystal_guide_text_1
+    Value: "This is a crystal of memory, it will help to remember what is forgotten.\r"
+  - Key: crystal_guide_text_2
+    Value: Some text

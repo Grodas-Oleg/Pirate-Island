@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 namespace PixelCrew.UI.HUD.QuickInventory
 {
-    public class InventoryItemWidget : MonoBehaviour, IItemRenderer<InventoryItemData>
+    public class QuickInventoryItemWidget : MonoBehaviour, IItemRenderer<InventoryItemData>
     {
         [SerializeField] private Image _icon;
         [SerializeField] private GameObject _selection;

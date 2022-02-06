@@ -1,4 +1,3 @@
-using System;
 using PixelCrew.Model;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Localization;
@@ -14,12 +13,15 @@ namespace PixelCrew.UI.Windows.Perks
     {
         [SerializeField] private Button _buyButton;
         [SerializeField] private ItemWidget _price;
+        [SerializeField] private ItemWidget _amount;
         [SerializeField] private Text _info;
         [SerializeField] private Transform _perksContainer;
 
         private PredefinedDataGroup<PerkDef, PerkWidget> _dataGroup;
         private readonly CompositeDisposable _trash = new CompositeDisposable();
         private GameSession _session;
+
+        private PerkDef _def;
 
         protected override void Start()
         {
@@ -32,20 +34,23 @@ namespace PixelCrew.UI.Windows.Perks
             _trash.Retain(_buyButton.onClick.Subscribe(OnBuy));
 
             OnPerksChanged();
+
+            _amount.SetAmount(_session.Data.Inventory.Count(_def.Price.ItemId).ToString());
         }
 
         private void OnPerksChanged()
         {
             _dataGroup.SetData(DefsFacade.I.Perks.All);
             var selected = _session.PerksModel.InterfaceSelection.Value;
-
             _buyButton.gameObject.SetActive(!_session.PerksModel.IsUnlocked(selected));
             _buyButton.interactable = _session.PerksModel.CanBuy(selected);
 
-            var def = DefsFacade.I.Perks.Get(selected);
-            _price.SetData(def.Price);
+            _def = DefsFacade.I.Perks.Get(selected);
+            _price.SetData(_def.Price);
 
-            _info.text = LocalizationManager.I.Localize(def.Info);
+            _amount.SetAmount(_session.Data.Inventory.Count(_def.Price.ItemId).ToString());
+
+            _info.text = LocalizationManager.I.Localize(_def.Info);
         }
 
         private void OnBuy()

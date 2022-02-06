@@ -23,10 +23,8 @@ namespace PixelCrew.Creatures.Hero
                 _animator.SetInteger(AttackType, 1);
             }
 
-            if (CountAttack >= 5)
-            {
-                ResetAttack();
-            }
+            if (CountAttack < 10) return;
+            ResetAttack();
         }
 
         public void CheckAttackCombo()

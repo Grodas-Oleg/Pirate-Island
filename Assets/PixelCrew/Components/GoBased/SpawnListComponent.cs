@@ -7,7 +7,7 @@ namespace PixelCrew.Components.GoBased
     public class SpawnListComponent : MonoBehaviour
     {
         [SerializeField] private SpawnData[] _spawners;
-
+        
         public void SpawnAll()
         {
             foreach (var spawnData in _spawners)

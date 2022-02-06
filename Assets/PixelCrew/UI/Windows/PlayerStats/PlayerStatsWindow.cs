@@ -14,6 +14,7 @@ namespace PixelCrew.UI.Windows.PlayerStats
         [SerializeField] private StatWidget _prefab;
         [SerializeField] private Button _upgardeButton;
         [SerializeField] private ItemWidget _price;
+        [SerializeField] private ItemWidget _currencyAmount;
 
         private DataGroup<StatDef, StatWidget> _dataGroup;
         private GameSession _session;
@@ -30,6 +31,8 @@ namespace PixelCrew.UI.Windows.PlayerStats
 
             _trash.Retain(_session.StatsModel.Subscribe(OnStatChanged));
             _trash.Retain(_upgardeButton.onClick.Subscribe(OnUpgrade));
+
+            _currencyAmount.SetAmount(_session.Data.Inventory.Count("RedGem").ToString());
 
             OnStatChanged();
         }
@@ -50,6 +53,7 @@ namespace PixelCrew.UI.Windows.PlayerStats
 
             var def = _session.StatsModel.GetLevelDef(selected, nextLevel);
             _price.SetData(def.Price);
+            _currencyAmount.SetAmount(_session.Data.Inventory.Count("RedGem").ToString());
 
             _price.gameObject.SetActive(def.Price.Count != 0);
             _upgardeButton.gameObject.SetActive(def.Price.Count != 0);

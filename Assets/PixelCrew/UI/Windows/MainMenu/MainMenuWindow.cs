@@ -8,7 +8,7 @@ namespace PixelCrew.UI.Windows.MainMenu
     public class MainMenuWindow : AnimatedWindow
     {
         private Action _closeAction;
-
+        
         public void OnShowSettings()
         {
             WindowUtils.CreateWindow("UI/SettingsWindow");

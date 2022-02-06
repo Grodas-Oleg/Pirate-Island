@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 2191689596064160223}
   _prefab: {fileID: 184260941868772573, guid: 3c33fffe9953c4cd1aa9ef3b5360197d, type: 3}
+  _usePool: 0
 --- !u!1 &310455326376969934
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,6 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 6417313836895281770}
   _prefab: {fileID: 184260941868772573, guid: c903e0c2aea7e4d24b7cdefcb8dadc2e, type: 3}
+  _usePool: 0
 --- !u!1 &2646343132508697957
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,6 +409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 6604685113957586294}
   _prefab: {fileID: 184260941868772573, guid: d2981ee5f66ce49ce9cfab46f9d501ca, type: 3}
+  _usePool: 0
 --- !u!1 &6604685114743705818
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,6 +455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 6604685114743705819}
   _prefab: {fileID: 184260941868772573, guid: 98f0c50dd41724aca94df02eb4da9cdd, type: 3}
+  _usePool: 0
 --- !u!1 &6604685114791682657
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,6 +585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 6604685115016147723}
   _prefab: {fileID: 184260941868772573, guid: 0ff049874397441c6aad10f0f2e6ce1f, type: 3}
+  _usePool: 0
 --- !u!1 &6604685115016147725
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,7 +675,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1673521467
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 1f1b1c1ae46694f0db313b134a5cad78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -840,7 +845,6 @@ MonoBehaviour:
   _onChange:
     m_PersistentCalls:
       m_Calls: []
-  _immune: 0
 --- !u!114 &1013021409267742315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -939,7 +943,9 @@ MonoBehaviour:
   _groundCheck: {fileID: 4167631688282415284}
   _obstacleCheck: {fileID: 129109188}
   _direction: 1
-  _creature: {fileID: 5970328060605476116}
+  _onChangeDirection:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5832101584611977050
 MonoBehaviour:
   m_ObjectHideFlags: 0

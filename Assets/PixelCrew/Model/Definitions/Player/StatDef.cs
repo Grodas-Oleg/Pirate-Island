@@ -31,6 +31,7 @@ namespace PixelCrew.Model.Definitions.Player
     public enum StatId
     {
         Hp,
+        Stamina,
         Speed,
         RangeDamage,
         CriticalChance,

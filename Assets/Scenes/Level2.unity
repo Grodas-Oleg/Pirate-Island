@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -26067,11 +26067,19 @@ MonoBehaviour:
   _levelIndex: 2
   _data:
     _inventory:
-      _inventory: []
+      _inventory:
+      - Id: Coin
+        Value: 200
+      - Id: Sword
+        Value: 100
+      - Id: Key
+        Value: 10
     HP:
       _value: 100
     Fuel:
-      _value: 0
+      _value: 100
+    Stamina:
+      _value: 100
     Perks:
       _used:
         _value: 
@@ -29077,7 +29085,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204037490}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.5770226, y: 0.64278007, z: -10}
+  m_LocalPosition: {x: 2.9860806, y: 0.64278007, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 97379515}
@@ -32297,6 +32305,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6027063122570913913, guid: 9ae18b3274f9847b7965601bcc1f553a,
+        type: 3}
+      propertyPath: _sceneName
+      value: Level3
       objectReference: {fileID: 0}
     - target: {fileID: 6027063122570913914, guid: 9ae18b3274f9847b7965601bcc1f553a,
         type: 3}
@@ -38901,9 +38914,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _traps:
-  - {fileID: 480190868}
-  - {fileID: 889716875}
   - {fileID: 1947366144}
+  - {fileID: 889716875}
+  - {fileID: 480190868}
   _cooldown:
     _value: 2
 --- !u!1001 &2128010653

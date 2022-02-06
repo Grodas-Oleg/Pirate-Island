@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace PixelCrew.Utils
 {
-    public class SpawnUtils
+    public static class SpawnUtils
     {
-        private const string ContainerName = "### SPAWNED ##";
+        private const string ContainerName = "### SPAWNED ###";
 
         public static GameObject Spawn(GameObject prefab, Vector3 position, string containerName = ContainerName)
         {
@@ -13,7 +13,7 @@ namespace PixelCrew.Utils
             {
                 container = new GameObject(ContainerName);
             }
-            
+
             return Object.Instantiate(prefab, position, Quaternion.identity, container.transform);
         }
     }

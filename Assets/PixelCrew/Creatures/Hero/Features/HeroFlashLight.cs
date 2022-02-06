@@ -10,19 +10,21 @@ namespace PixelCrew.Creatures.Hero.Features
         [SerializeField] private Light2D _light;
 
         private float _defaultIntensity;
+        private GameSession _session;
 
         private void Start()
         {
-            _light.intensity = _defaultIntensity;
+            _defaultIntensity = _light.intensity;
+            _session = GameSession.Instance;
         }
 
         private void Update()
         {
             var consumed = Time.deltaTime * _consumePerSecond;
-            var currentValue = GameSession.Instance.Data.Fuel.Value;
+            var currentValue = _session.Data.Fuel.Value;
             var nextValue = currentValue - consumed;
             nextValue = Mathf.Max(nextValue, 0);
-            GameSession.Instance.Data.Fuel.Value = nextValue;
+            _session.Data.Fuel.Value = nextValue;
 
             var progress = Mathf.Clamp(nextValue / 20, 0, 1);
             _light.intensity = _defaultIntensity * progress;

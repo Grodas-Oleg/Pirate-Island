@@ -32,9 +32,9 @@ namespace PixelCrew.Creatures.Mobs
 
                 yield return null;
             }
-
+            
             yield return base.GoToHero();
-            StartCoroutine(Patrol.DoPatrol());
+            // StartCoroutine(Patrol.DoPatrol());
         }
 
 

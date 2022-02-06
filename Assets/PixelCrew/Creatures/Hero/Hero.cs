@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using PixelCrew.Components;
@@ -14,13 +15,13 @@ using PixelCrew.Model.Definitions.Repositories.Items;
 using PixelCrew.Utils;
 using UnityEngine;
 using UnityEngine.Analytics;
+using Random = UnityEngine.Random;
 
 namespace PixelCrew.Creatures.Hero
 {
     public class Hero : Creature
     {
         [SerializeField] private CheckCircleOverlap _interactionCheck;
-        [SerializeField] private ColliderCheck _wallCheck;
         [SerializeField] private Cooldown _throwCooldown;
         [SerializeField] private RuntimeAnimatorController _armed;
         [SerializeField] private RuntimeAnimatorController _disarmed;
@@ -33,18 +34,29 @@ namespace PixelCrew.Creatures.Hero
         [SerializeField] private SpawnComponent _canonSpawner;
         [SerializeField] private HeroFlashLight _light;
 
-        private bool _isOnWall;
         private static readonly int ThrowKey = Animator.StringToHash("throw");
 
-        private static readonly int IsOnWall = Animator.StringToHash("is-on-wall");
+        public event Action<string, Cooldown> OnPerkUsed;
 
         private bool _allowDoubleJump;
         private float _defaultGravityScale;
-
+        private float _additionalSpeed;
         private const string SwordId = "Sword";
+
         private int CoinsCount => _session.Data.Inventory.Count("Coin");
         private int SwordsCount => _session.Data.Inventory.Count(SwordId);
         private string SelectedItemId => _session.QuickInventory.SelectedItem.Id;
+
+        private readonly int _dashCost = 10, _attackCost = 15;
+
+        // private int _superThrowCount;
+        // private int _cannonUseCount;
+        // private int _shieldUseCount;
+
+        private readonly Cooldown _cannonCooldown = new Cooldown();
+        private readonly Cooldown _superThrowCooldown = new Cooldown();
+        private readonly Cooldown _shieldCooldown = new Cooldown();
+        private readonly Cooldown _speedUpCooldown = new Cooldown();
 
         private bool CanThrow
         {
@@ -58,6 +70,7 @@ namespace PixelCrew.Creatures.Hero
             }
         }
 
+        private HeroStaminaController _stamina;
         private CameraShakeEffect _cameraShake;
         private GameSession _session;
         private HealthComponent _health;
@@ -66,19 +79,28 @@ namespace PixelCrew.Creatures.Hero
         protected override void Awake()
         {
             base.Awake();
+
+            _cameraShake = FindObjectOfType<CameraShakeEffect>();
+            _session = GameSession.Instance;
+            _health = GetComponent<HealthComponent>();
+            _attackManager = GetComponent<AttackManager>();
+            _stamina = GetComponent<HeroStaminaController>();
+
             _defaultGravityScale = Rigidbody.gravityScale;
         }
 
         private void Start()
         {
-            _cameraShake = FindObjectOfType<CameraShakeEffect>();
-            _session = GameSession.Instance;
-            _health = GetComponent<HealthComponent>();
-            _attackManager = GetComponent<AttackManager>();
+            // Управление PlayerInput 
+            // var input = GetComponent<PlayerInput>();
+            // input.actions["123"].ReadValue<Vector2>();
+            // input.actions["123"].triggered;
+
             _session.Data.Inventory.OnChanged += OnInventoryChanged;
             _session.StatsModel.OnUpgrade += OnHeroUpgraded;
 
             _health.SetHealth(_session.Data.HP.Value);
+            _stamina.SetStamina(_session.Data.Stamina.Value);
             UpdateHeroWeapon();
         }
 
@@ -90,6 +112,11 @@ namespace PixelCrew.Creatures.Hero
                     var health = (int) _session.StatsModel.GetValue(statId);
                     _session.Data.HP.Value = health;
                     _health.SetHealth(health);
+                    break;
+                case StatId.Stamina:
+                    var stamina = (int) _session.StatsModel.GetValue(statId);
+                    _session.Data.Stamina.Value = stamina;
+                    _stamina.SetStamina(stamina);
                     break;
             }
         }
@@ -113,37 +140,21 @@ namespace PixelCrew.Creatures.Hero
         protected override void Update()
         {
             base.Update();
+            Rigidbody.gravityScale = IsDashing ? 0 : _defaultGravityScale;
 
-            var moveToSameDirection = Direction.x * transform.lossyScale.x > 0;
-            if (_wallCheck.IsTouchingLayer && moveToSameDirection)
-            {
-                _isOnWall = true;
-                Rigidbody.gravityScale = 0;
-                Direction.y = 0;
-            }
-            else
-            {
-                _isOnWall = false;
-                Rigidbody.gravityScale = _defaultGravityScale;
-            }
-
-            Rigidbody.gravityScale = IsDashing || _isOnWall ? 0 : _defaultGravityScale;
-
-            Animator.SetBool(IsOnWall, _isOnWall);
             ModifyDamageByStat();
         }
 
         protected override float CalculateYVelocity()
         {
-            var isJumpPressing = Direction.y > 0;
-            if (IsGrounded || _isOnWall) _allowDoubleJump = true;
-            if (_isOnWall && !isJumpPressing) return 0f;
+            if (IsGrounded) _allowDoubleJump = true;
+
             return base.CalculateYVelocity();
         }
 
         protected override float CalculateJumpVelocity(float yVeloсity)
         {
-            if (IsGrounded || !_allowDoubleJump || !_session.PerksModel.IsDoubleJumpSupported || _isOnWall)
+            if (IsGrounded || !_allowDoubleJump || !_session.PerksModel.IsDoubleJumpSupported)
                 return base.CalculateJumpVelocity(yVeloсity);
             _allowDoubleJump = false;
             DoJumpVFX();
@@ -189,7 +200,7 @@ namespace PixelCrew.Creatures.Hero
         public override void Attack()
         {
             if (SwordsCount <= 0) return;
-
+            if (GameSession.Instance.Data.Stamina.Value < _attackCost) return;
             _attackManager.DoAttack();
         }
 
@@ -202,23 +213,26 @@ namespace PixelCrew.Creatures.Hero
         {
             base.MakeAttack();
             Sounds.Play("Melee");
+            _stamina.UseStamina(_attackCost);
         }
 
         private void ModifyDamageByStat()
         {
+            var critical = false;
             var dmgModify = GameObject.FindGameObjectWithTag("MeleeAttack").GetComponent<HealthChangeComponent>();
-            var modifyValue = (int) _session.StatsModel.GetValue(StatId.Damage);
-            modifyValue = (int) ModifyByCrit(modifyValue);
+            var modifyValue = _session.StatsModel.GetValue(StatId.Damage);
 
-            dmgModify.SetDelta(-modifyValue);
-        }
-
-        private float ModifyByCrit(float damage)
-        {
             var perkCriticalChance = _session.StatsModel.GetValue(StatId.CriticalChance);
             var perkCriticalDamage = _session.StatsModel.GetValue(StatId.CriticalDamage);
 
-            return Random.value * 100 <= perkCriticalChance ? damage *= perkCriticalDamage : damage;
+            if (Random.value * 100 <= perkCriticalChance)
+            {
+                modifyValue *= perkCriticalDamage;
+                critical = true;
+            }
+
+
+            dmgModify.SetDelta((int) -modifyValue, critical);
         }
 
         private void UpdateHeroWeapon()
@@ -239,7 +253,21 @@ namespace PixelCrew.Creatures.Hero
         public override void Dash()
         {
             if (!_session.PerksModel.IsDashSupported) return;
-            base.Dash();
+            if (!_dashDelay.IsReady) return;
+            if (GameSession.Instance.Data.Stamina.Value < _dashCost) return;
+            StartCoroutine(XDirection ? Dash(1f) : Dash(-1f));
+            _dashDelay.Reset();
+        }
+
+        IEnumerator Dash(float direction)
+        {
+            IsDashing = true;
+            Sounds.Play("Dash");
+            Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, 0f);
+            Rigidbody.AddForce(new Vector2(_dashDistance * direction, 0f), ForceMode2D.Impulse);
+            yield return new WaitForSeconds(.2f);
+            IsDashing = false;
+            _stamina.UseStamina(_dashCost);
         }
 
         public void UseInventory()
@@ -270,8 +298,6 @@ namespace PixelCrew.Creatures.Hero
             _session.Data.Inventory.Remove(potion.Id, 1);
         }
 
-        private readonly Cooldown _speedUpCooldown = new Cooldown();
-        private float _additionalSpeed;
 
         protected override float CalculateSpeed()
         {
@@ -290,6 +316,7 @@ namespace PixelCrew.Creatures.Hero
         public void PerformThrowing()
         {
             if (!_throwCooldown.IsReady || !CanThrow) return;
+
             Animator.SetTrigger(ThrowKey);
             ThrowAndRemoveFromInventory();
             _throwCooldown.Reset();
@@ -300,48 +327,46 @@ namespace PixelCrew.Creatures.Hero
             _session.QuickInventory.SetNextItem();
         }
 
-        private readonly Cooldown _shieldCooldown = new Cooldown();
-        private int _shieldUseCount;
-
         public void UsePerk1()
         {
-            var cooldown = _session.PerksModel.UsePerk("shield");
+            var cooldown = _session.PerksModel.PerkCooldown("shield");
             _shieldCooldown.Value = cooldown;
-            if (_session.PerksModel.IsShieldSupported && _shieldCooldown.IsReady)
-            {
-                _shield.Use();
-                _shieldCooldown.Reset();
+            if (!_session.PerksModel.IsShieldSupported || !_shieldCooldown.IsReady) return;
 
-                AnalyticsEvent.Custom("use-shield", new Dictionary<string, object>
-                {
-                    {"count", _shieldUseCount},
-                    {"level", _session.LevelIndex}
-                });
-            }
+            _shield.Use();
+            _shieldCooldown.Reset();
+
+            // _shieldUseCount++;
+            // AnalyticsEvent.Custom("use-shield", new Dictionary<string, object>
+            // {
+            //     {"count", _shieldUseCount},
+            //     {"level", _session.LevelIndex}
+            // });
+
+            OnPerkUsed?.Invoke("shield", _shieldCooldown);
         }
-
-        private readonly Cooldown _superThrowCooldown = new Cooldown();
-        private int _superThrowCount;
 
         public void UsePerk2()
         {
-            var cooldown = _session.PerksModel.UsePerk("super-throw");
+            var cooldown = _session.PerksModel.PerkCooldown("super-throw");
             _superThrowCooldown.Value = cooldown;
-            if (_session.PerksModel.IsSuperThrowSupported && _superThrowCooldown.IsReady && SwordsCount > 1)
-            {
-                var possibleCount = SwordsCount - 1;
-                var numThrows = Mathf.Min(_superThrowParticles, possibleCount);
-                StartCoroutine(DoSuperThrow(numThrows));
-                Animator.SetTrigger(ThrowKey);
-                _superThrowCooldown.Reset();
-                _superThrowCount++;
 
-                AnalyticsEvent.Custom("use-super-throw", new Dictionary<string, object>
-                {
-                    {"count", _superThrowCount},
-                    {"level", _session.LevelIndex}
-                });
-            }
+            if (!_session.PerksModel.IsSuperThrowSupported || !_superThrowCooldown.IsReady || SwordsCount <= 1) return;
+
+            var possibleCount = SwordsCount - 1;
+            var numThrows = Mathf.Min(_superThrowParticles, possibleCount);
+            StartCoroutine(DoSuperThrow(numThrows));
+            Animator.SetTrigger(ThrowKey);
+            _superThrowCooldown.Reset();
+
+            // _superThrowCount++;
+            // AnalyticsEvent.Custom("use-super-throw", new Dictionary<string, object>
+            // {
+            //     {"count", _superThrowCount},
+            //     {"level", _session.LevelIndex}
+            // });
+
+            OnPerkUsed?.Invoke("super-throw", _superThrowCooldown);
         }
 
         private IEnumerator DoSuperThrow(int numThrows)
@@ -353,30 +378,30 @@ namespace PixelCrew.Creatures.Hero
             }
         }
 
-        private readonly Cooldown _cannonCooldown = new Cooldown();
-
-        private int _cannonUseCount;
-
         public void UsePerk3()
         {
-            var cooldown = _session.PerksModel.UsePerk("cannon");
+            var cooldown = _session.PerksModel.PerkCooldown("cannon");
             _cannonCooldown.Value = cooldown;
-            if (_session.PerksModel.IsCannonSupported && _cannonCooldown.IsReady)
-            {
-                _canonSpawner.Spawn();
-                _cannonCooldown.Reset();
+            if (!_session.PerksModel.IsCannonSupported || !_cannonCooldown.IsReady) return;
 
-                AnalyticsEvent.Custom("use-cannon", new Dictionary<string, object>
-                {
-                    {"count", _cannonUseCount},
-                    {"level", _session.LevelIndex}
-                });
-            }
+            _canonSpawner.Spawn();
+            _cannonCooldown.Reset();
+
+            // _cannonUseCount++;
+            // AnalyticsEvent.Custom("use-cannon", new Dictionary<string, object>
+            // {
+            //     {"count", _cannonUseCount},
+            //     {"level", _session.LevelIndex}
+            // });
+
+            OnPerkUsed?.Invoke("cannon", _cannonCooldown);
         }
 
         public void SwitchLight()
         {
             _light.gameObject.SetActive(!_light.gameObject.activeInHierarchy);
+            var fuel = GameObject.FindWithTag("FuelBar").GetComponent<CanvasGroup>();
+            fuel.alpha = fuel.alpha == 1f ? .5f : 1f;
         }
     }
 }

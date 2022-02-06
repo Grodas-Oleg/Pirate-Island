@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: PlayerDef
   m_EditorClassIdentifier: 
   _inventorySize: 10
-  _maxHealth: 50
   _stats:
   - _name: stat_damage_text
-    _id: 5
+    _id: 6
     _icon: {fileID: 21300000, guid: a1fc52e60e96b4e6a96b395030eb1931, type: 3}
     _levels:
     - _value: 10
@@ -36,7 +35,7 @@ MonoBehaviour:
         _itemId: RedGem
         count: 5
   - _name: stat_range_damage_text
-    _id: 2
+    _id: 3
     _icon: {fileID: 21300000, guid: 48eebd53231304f91b1f662b36af469e, type: 3}
     _levels:
     - _value: 10
@@ -79,8 +78,24 @@ MonoBehaviour:
       price:
         _itemId: RedGem
         count: 10
-  - _name: stat_speed_text
+  - _name: stat_stamina_text
     _id: 1
+    _icon: {fileID: 21300000, guid: 6cd373c06147746c0abc6c65745b143d, type: 3}
+    _levels:
+    - _value: 100
+      price:
+        _itemId: RedGem
+        count: 0
+    - _value: 150
+      price:
+        _itemId: RedGem
+        count: 2
+    - _value: 200
+      price:
+        _itemId: RedGem
+        count: 5
+  - _name: stat_speed_text
+    _id: 2
     _icon: {fileID: 21300000, guid: e611dee8b588b46b6a2f538ac6b66d30, type: 3}
     _levels:
     - _value: 4
@@ -96,7 +111,7 @@ MonoBehaviour:
         _itemId: RedGem
         count: 3
   - _name: stat_cannon_damge_text
-    _id: 6
+    _id: 7
     _icon: {fileID: 21300000, guid: 75e52e8d0a8b649a39467ad1151a81bc, type: 3}
     _levels:
     - _value: 10
@@ -120,7 +135,7 @@ MonoBehaviour:
         _itemId: RedGem
         count: 10
   - _name: stat_critical_chance_text
-    _id: 3
+    _id: 4
     _icon: {fileID: 21300000, guid: a3cdf772cd0ad4b5c988b19bea67e9a6, type: 3}
     _levels:
     - _value: 10
@@ -140,7 +155,7 @@ MonoBehaviour:
         _itemId: RedGem
         count: 10
   - _name: stat_critical_damage_text
-    _id: 4
+    _id: 5
     _icon: {fileID: 21300000, guid: 128af64438b7c44ec9d40f5a41df4735, type: 3}
     _levels:
     - _value: 2

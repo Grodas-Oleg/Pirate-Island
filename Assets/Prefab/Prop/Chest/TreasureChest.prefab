@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 3053228454102870330}
   _prefab: {fileID: 3053228455420597828}
+  _usePool: 0
 --- !u!1 &3053228455420597828
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +149,6 @@ GameObject:
   - component: {fileID: 3053228455017194869}
   - component: {fileID: 6094050494996373455}
   - component: {fileID: 3132298397198652288}
-  - component: {fileID: 3132298397198652314}
   - component: {fileID: 3132298397198652315}
   - component: {fileID: 3132298397198652291}
   - component: {fileID: 1499216830400518017}
@@ -342,6 +342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 3132298397198652293}
   _prefab: {fileID: 6178968532101525923, guid: bfa6f6d85b72c429c84b92954fbff64c, type: 3}
+  _usePool: 0
 --- !u!114 &3053228455017194869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,8 +392,8 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3132298397198652314}
-        m_MethodName: Show
+      - m_Target: {fileID: 3132298397198652315}
+        m_MethodName: Check
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -402,40 +403,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3132298397198652314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3132298397198652313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3579adb7ee814befa4aee76b10deaeae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _dialogText: text_open_chest
-    Options:
-    - _text: text_yes
-      OnSelect:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 3132298397198652315}
-            m_MethodName: Check
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    - _text: text_no
-      OnSelect:
-        m_PersistentCalls:
-          m_Calls: []
 --- !u!114 &3132298397198652315
 MonoBehaviour:
   m_ObjectHideFlags: 0

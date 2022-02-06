@@ -11,7 +11,6 @@ namespace PixelCrew.UI.Windows.Perks
         [SerializeField] private Image _icon;
         [SerializeField] private GameObject _isLocked;
         [SerializeField] private GameObject _isSelected;
-        [SerializeField] private GameObject _isUsed;
 
         private GameSession _session;
         private PerkDef _data;
@@ -19,6 +18,7 @@ namespace PixelCrew.UI.Windows.Perks
         private void Start()
         {
             _session = GameSession.Instance;
+            
             UpdateView();
         }
 
@@ -33,7 +33,6 @@ namespace PixelCrew.UI.Windows.Perks
         private void UpdateView()
         {
             _icon.sprite = _data.Icon;
-            _isUsed.SetActive(_session.PerksModel.IsUsed(_data.Id));
             _isSelected.SetActive(_session.PerksModel.InterfaceSelection.Value == _data.Id);
             _isLocked.SetActive(!_session.PerksModel.IsUnlocked(_data.Id));
         }

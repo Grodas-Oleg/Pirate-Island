@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1121,7 +1121,9 @@ MonoBehaviour:
     HP:
       _value: 50
     Fuel:
-      _value: 0
+      _value: 100
+    Stamina:
+      _value: 100
     Perks:
       _used:
         _value: 
@@ -10492,7 +10494,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2142858013}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.7881384, y: 3.6510506, z: -10}
+  m_LocalPosition: {x: 7.1973143, y: 3.642693, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1166729610}

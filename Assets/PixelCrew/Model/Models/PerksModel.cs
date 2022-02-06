@@ -30,8 +30,6 @@ namespace PixelCrew.Model.Models
             return new ActionDisposable(() => OnChanged -= call);
         }
 
-        // public readonly Cooldown Cooldown = new Cooldown();
-
         public bool IsDoubleJumpSupported => _data.Perks.IsUnlocked("double-jump");
         public bool IsDashSupported => _data.Perks.IsUnlocked("dash");
         public bool IsSuperThrowSupported => _data.Perks.IsUnlocked("super-throw");
@@ -53,10 +51,9 @@ namespace PixelCrew.Model.Models
             OnChanged?.Invoke();
         }
 
-        public float UsePerk(string perkId)
+        public float PerkCooldown(string perkId)
         {
             var def = DefsFacade.I.Perks.Get(perkId).Cooldown;
-            // Cooldown.Value = def;
             return def;
         }
 
@@ -64,11 +61,6 @@ namespace PixelCrew.Model.Models
         {
             var def = DefsFacade.I.Perks.Get(id);
             return def.Icon;
-        }
-
-        public bool IsUsed(string perkId)
-        {
-            return _data.Perks.Used.Value == perkId;
         }
 
         public bool IsUnlocked(string perkId)

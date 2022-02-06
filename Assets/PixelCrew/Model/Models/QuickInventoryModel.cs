@@ -3,6 +3,7 @@ using PixelCrew.Model.Data;
 using PixelCrew.Model.Data.Properties;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Repositories.Items;
+using PixelCrew.UI.HUD.QuickInventory;
 using PixelCrew.Utils.Disposables;
 using UnityEngine;
 

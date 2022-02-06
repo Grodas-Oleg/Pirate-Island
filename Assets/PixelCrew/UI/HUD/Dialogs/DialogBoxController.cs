@@ -1,5 +1,4 @@
 using System.Collections;
-using PixelCrew.Creatures.Hero;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Utils;
@@ -21,6 +20,7 @@ namespace PixelCrew.UI.HUD.Dialogs
         [SerializeField] private AudioClip _close;
 
         [Space] [SerializeField] protected DialogContent _content;
+        [SerializeField] private InputAction _continueButton;
 
         private static readonly int IsOpen = Animator.StringToHash("IsOpen");
 
@@ -31,10 +31,11 @@ namespace PixelCrew.UI.HUD.Dialogs
         private GameObject _hero;
         private UnityEvent _onComplete;
 
-        protected Sentence CurreSentence => _data.Sentences[_currentSentence];
+        protected Sentence CurrentSentence => _data.Sentences[_currentSentence];
 
         private void Start()
         {
+            _continueButton.Enable();
             _hero = GameObject.FindWithTag("Player");
             _sfxSource = AudioUtils.FindSfxSource();
         }
@@ -49,12 +50,21 @@ namespace PixelCrew.UI.HUD.Dialogs
             _container.SetActive(true);
             _sfxSource.PlayOneShot(_open);
             _animator.SetBool(IsOpen, true);
+
+            _continueButton.Enable();
+            _continueButton.performed += _ =>
+            {
+                if (_typingRoutine != null)
+                    OnSkip();
+                else
+                    OnContinue();
+            };
         }
 
         private IEnumerator TypeDialogText()
         {
             CurrentContent.Text.text = string.Empty;
-            var sentence = CurreSentence;
+            var sentence = CurrentSentence;
             var avatar = DefsFacade.I.Avatar.Get(sentence.Icon).Icon;
             CurrentContent.TrySetIcon(avatar);
             foreach (var letter in sentence.Value)
@@ -99,6 +109,7 @@ namespace PixelCrew.UI.HUD.Dialogs
             _animator.SetBool(IsOpen, false);
             _sfxSource.PlayOneShot(_close);
             _hero.GetComponent<PlayerInput>().actions.Enable();
+            _continueButton.Disable();
         }
 
         private void StopTypeAnimation()

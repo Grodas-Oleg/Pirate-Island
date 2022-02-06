@@ -13,9 +13,15 @@ namespace PixelCrew.UI.Widgets
         public void SetData(ItemWithCount price)
         {
             var def = DefsFacade.I.Items.Get(price.ItemId);
-            _icon.sprite = def.Icon;
-        
+            if (_icon != null)
+                _icon.sprite = def.Icon;
+
             _value.text = price.Count.ToString();
+        }
+
+        public void SetAmount(string amount)
+        {
+            _value.text = amount;
         }
     }
 }

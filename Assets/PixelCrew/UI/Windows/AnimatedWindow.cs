@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Analytics;
+using UnityEngine.EventSystems;
 
 namespace PixelCrew.UI.Windows
 {
@@ -26,6 +27,20 @@ namespace PixelCrew.UI.Windows
         protected virtual void OnCloseAnimationComplete()
         {
             Destroy(gameObject);
+
+            var button = GameObject.FindWithTag("StartButton");
+            var buttonPause = GameObject.FindWithTag("PauseButton");
+
+            if (buttonPause != null)
+            {
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(buttonPause);
+            }
+            else if (button != null)
+            {
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(button);
+            }
         }
     }
 }
