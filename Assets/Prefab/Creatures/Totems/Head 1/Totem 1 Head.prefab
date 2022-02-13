@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1629751962, guid: d15987b3de0204479a03fe40a57b2b9d, type: 3}
+      propertyPath: _state
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2031042110, guid: d15987b3de0204479a03fe40a57b2b9d, type: 3}
       propertyPath: _gos.Array.data[0]
       value: 
@@ -189,7 +193,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 968f77ba969294c84be8b745711d03ca,
         type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7717469491124716189, guid: d15987b3de0204479a03fe40a57b2b9d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d15987b3de0204479a03fe40a57b2b9d, type: 3}
 --- !u!114 &8731597749741740802 stripped
 MonoBehaviour:

@@ -19,7 +19,6 @@ TagManager:
   - DefaultButton
   - StartButton
   - PauseButton
-  - ContinueButton
   - PauseMenu
   layers:
   - Default

@@ -13,6 +13,11 @@ namespace PixelCrew.UI.Windows.MainMenu
         {
             WindowUtils.CreateWindow("UI/SettingsWindow");
         }
+        
+        public void OnShowBindings()
+        {
+            WindowUtils.CreateWindow("UI/RebindWindow");
+        }
 
         public void OnStartGame()
         {

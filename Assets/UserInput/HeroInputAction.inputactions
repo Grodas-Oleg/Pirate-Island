@@ -38,7 +38,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Throw",
+                    "name": "Use Item",
                     "type": "Button",
                     "id": "7b0c6ac6-7144-4a7b-8c3a-a59437e263d4",
                     "expectedControlType": "Button",
@@ -46,7 +46,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "NextItem",
+                    "name": "Next Item",
                     "type": "Button",
                     "id": "05ff5dd7-86b9-4fb9-a8c3-8d3a294ab818",
                     "expectedControlType": "Button",
@@ -62,7 +62,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "UsePerk1",
+                    "name": "Use Perk 1",
                     "type": "Button",
                     "id": "784aa7a9-899d-4fac-bb7b-1aa14bab9612",
                     "expectedControlType": "Button",
@@ -70,7 +70,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "UsePerk2",
+                    "name": "Use Perk 2",
                     "type": "Button",
                     "id": "26efeb27-a7fc-42af-aebb-b1d7dd6e0e46",
                     "expectedControlType": "Button",
@@ -78,7 +78,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "UsePerk3",
+                    "name": "Use Perk 3",
                     "type": "Button",
                     "id": "b51f85c1-60a6-4647-a9ee-617dd251b8bb",
                     "expectedControlType": "Button",
@@ -270,7 +270,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Throw",
+                    "action": "Use Item",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -281,7 +281,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Throw",
+                    "action": "Use Item",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -292,7 +292,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "NextItem",
+                    "action": "Next Item",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -303,7 +303,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "NextItem",
+                    "action": "Next Item",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -314,7 +314,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "UsePerk1",
+                    "action": "Use Perk 1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -325,7 +325,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "UsePerk2",
+                    "action": "Use Perk 2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -336,7 +336,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "UsePerk3",
+                    "action": "Use Perk 3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

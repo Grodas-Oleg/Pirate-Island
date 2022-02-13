@@ -22,6 +22,11 @@ namespace PixelCrew.UI.Windows.PauseMenu
             WindowUtils.CreateWindow("UI/SettingsWindow");
         }
 
+        public void OnShowBindings()
+        {
+            WindowUtils.CreateWindow("UI/RebindWindow");
+        }
+
         public void OnLanguages()
         {
             WindowUtils.CreateWindow("UI/LocalizationWindow");

@@ -1,13 +1,15 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 ////TODO: localization support
 
 ////TODO: deal with composites that have parts bound in different control schemes
 
-namespace UnityEngine.InputSystem.Samples.RebindUI
+namespace Samples.Input_System._1._0._2.Rebinding_UI
 {
     /// <summary>
     /// A reusable component with a self-contained UI for rebinding a single action.

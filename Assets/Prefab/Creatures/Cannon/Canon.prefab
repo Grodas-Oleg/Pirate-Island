@@ -19,7 +19,6 @@ GameObject:
   - component: {fileID: 3057547818896523825}
   - component: {fileID: 192131185097993008}
   - component: {fileID: 5857333162972876511}
-  - component: {fileID: 5976684370773297082}
   m_Layer: 14
   m_Name: Canon
   m_TagString: Enemy
@@ -227,7 +226,6 @@ MonoBehaviour:
   _onChange:
     m_PersistentCalls:
       m_Calls: []
-  _immune: 0
 --- !u!114 &817946952850608835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 817946952850608833}
-  _state: {fileID: 5976684370773297082}
+  _state: {fileID: 0}
 --- !u!114 &3057547818896523825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 817946952850608862}
   _prefab: {fileID: 184260941868772573, guid: 8369da916a8b344f59a82d2be5d1b5e4, type: 3}
+  _usePool: 0
 --- !u!114 &5857333162972876511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,19 +407,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &5976684370773297082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 817946952850608833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 034e642392e94362b63ba36570e9fb96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _id: cannon
 --- !u!1 &817946953590033647
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,6 +529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 817946953693337453}
   _prefab: {fileID: 1561957801104775241, guid: 7878d71d661e7477b9b2a2db9dbaef15, type: 3}
+  _usePool: 0
 --- !u!1 &1413901524288185061
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,6 +738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 5678154608101380330}
   _prefab: {fileID: 184260941868772573, guid: af411ae397c024abcbb03f6aff3fe744, type: 3}
+  _usePool: 0
 --- !u!1 &6936425226341732415
 GameObject:
   m_ObjectHideFlags: 0

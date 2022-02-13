@@ -51,7 +51,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Throw"",
+                    ""name"": ""UseItem"",
                     ""type"": ""Button"",
                     ""id"": ""7b0c6ac6-7144-4a7b-8c3a-a59437e263d4"",
                     ""expectedControlType"": ""Button"",
@@ -283,7 +283,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Throw"",
+                    ""action"": ""UseItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -294,7 +294,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Throw"",
+                    ""action"": ""UseItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -375,7 +375,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         m_Hero_Interact = m_Hero.FindAction("Interact", throwIfNotFound: true);
         m_Hero_Dash = m_Hero.FindAction("Dash", throwIfNotFound: true);
         m_Hero_Attack = m_Hero.FindAction("Attack", throwIfNotFound: true);
-        m_Hero_Throw = m_Hero.FindAction("Throw", throwIfNotFound: true);
+        m_Hero_UseItem = m_Hero.FindAction("UseItem", throwIfNotFound: true);
         m_Hero_NextItem = m_Hero.FindAction("NextItem", throwIfNotFound: true);
         m_Hero_Light = m_Hero.FindAction("Light", throwIfNotFound: true);
         m_Hero_UsePerk1 = m_Hero.FindAction("UsePerk1", throwIfNotFound: true);
@@ -434,7 +434,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     private readonly InputAction m_Hero_Interact;
     private readonly InputAction m_Hero_Dash;
     private readonly InputAction m_Hero_Attack;
-    private readonly InputAction m_Hero_Throw;
+    private readonly InputAction m_Hero_UseItem;
     private readonly InputAction m_Hero_NextItem;
     private readonly InputAction m_Hero_Light;
     private readonly InputAction m_Hero_UsePerk1;
@@ -448,7 +448,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         public InputAction @Interact => m_Wrapper.m_Hero_Interact;
         public InputAction @Dash => m_Wrapper.m_Hero_Dash;
         public InputAction @Attack => m_Wrapper.m_Hero_Attack;
-        public InputAction @Throw => m_Wrapper.m_Hero_Throw;
+        public InputAction @UseItem => m_Wrapper.m_Hero_UseItem;
         public InputAction @NextItem => m_Wrapper.m_Hero_NextItem;
         public InputAction @Light => m_Wrapper.m_Hero_Light;
         public InputAction @UsePerk1 => m_Wrapper.m_Hero_UsePerk1;
@@ -475,9 +475,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @Attack.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnAttack;
-                @Throw.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnThrow;
-                @Throw.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnThrow;
-                @Throw.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnThrow;
+                @UseItem.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseItem;
+                @UseItem.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseItem;
+                @UseItem.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseItem;
                 @NextItem.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
                 @NextItem.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
                 @NextItem.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
@@ -509,9 +509,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
-                @Throw.started += instance.OnThrow;
-                @Throw.performed += instance.OnThrow;
-                @Throw.canceled += instance.OnThrow;
+                @UseItem.started += instance.OnUseItem;
+                @UseItem.performed += instance.OnUseItem;
+                @UseItem.canceled += instance.OnUseItem;
                 @NextItem.started += instance.OnNextItem;
                 @NextItem.performed += instance.OnNextItem;
                 @NextItem.canceled += instance.OnNextItem;
@@ -537,7 +537,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
-        void OnThrow(InputAction.CallbackContext context);
+        void OnUseItem(InputAction.CallbackContext context);
         void OnNextItem(InputAction.CallbackContext context);
         void OnLight(InputAction.CallbackContext context);
         void OnUsePerk1(InputAction.CallbackContext context);

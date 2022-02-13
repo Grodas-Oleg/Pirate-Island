@@ -96,11 +96,11 @@ MonoBehaviour:
     Probability: 75
   - Drop: {fileID: 7800764215390133768, guid: 39e3dffeaf2f34d74b8a815e40a55f9a, type: 3}
     Probability: 10
-  - Drop: {fileID: 1170033279074257801, guid: 7c64e6410eb064704a8489ce7479ada3, type: 3}
+  - Drop: {fileID: 5811490634455097, guid: 26943b623e6cb40ea84c306d267da43f, type: 3}
     Probability: 5
   - Drop: {fileID: 5786703770963779868, guid: b58055e7430284be59db9b835e3b59bd, type: 3}
     Probability: 5
-  - Drop: {fileID: 5811490634455097, guid: 26943b623e6cb40ea84c306d267da43f, type: 3}
+  - Drop: {fileID: 1170033279074257801, guid: 7c64e6410eb064704a8489ce7479ada3, type: 3}
     Probability: 5
   _onDropCalculated:
     m_PersistentCalls:

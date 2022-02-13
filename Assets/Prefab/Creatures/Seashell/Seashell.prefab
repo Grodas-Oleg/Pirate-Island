@@ -322,6 +322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 2578937468423414655}
   _prefab: {fileID: 1561957801104775241, guid: 8237203ba1bd9413f86aa9a373ccdc85, type: 3}
+  _usePool: 0
 --- !u!1 &2578937468523227190
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,10 +413,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e70c5f99280044ed985a8d666806b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tag: Player
+  _tag: 
   _layer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8192
   _action:
     m_PersistentCalls:
       m_Calls: []
@@ -550,7 +551,6 @@ GameObject:
   - component: {fileID: 1629751962}
   - component: {fileID: 8865341274526349019}
   - component: {fileID: 7689115994064182927}
-  - component: {fileID: 1156107547589463006}
   m_Layer: 14
   m_Name: Seashell
   m_TagString: Enemy
@@ -780,7 +780,6 @@ MonoBehaviour:
   _onChange:
     m_PersistentCalls:
       m_Calls: []
-  _immune: 0
 --- !u!114 &1629751962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -794,7 +793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 2578937469159728300}
-  _state: {fileID: 1156107547589463006}
+  _state: {fileID: 0}
 --- !u!114 &8865341274526349019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -809,6 +808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 2578937469159728303}
   _prefab: {fileID: 6359436415115529886, guid: 6d95cb3138fb64f499aa96e04e261232, type: 3}
+  _usePool: 0
 --- !u!114 &7689115994064182927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -826,16 +826,3 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: a231f9b1510294920ab6ba3dfdffa704, type: 3}
   - _id: Destroy
     _clip: {fileID: 8300000, guid: 77712f3e7ca334182a8cad4e3bc3087a, type: 3}
---- !u!114 &1156107547589463006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2578937469159728300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 034e642392e94362b63ba36570e9fb96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _id: seashell

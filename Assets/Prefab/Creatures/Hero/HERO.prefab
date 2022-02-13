@@ -626,7 +626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe0e8482a1e4996af5c1f749d94f22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _consumePerSecond: 1
+  _consumePerSecond: 4
   _light: {fileID: 3078294375026608453}
 --- !u!1 &3869242474482080097
 GameObject:
@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 8590122658323816052}
   - component: {fileID: 6695092697956189731}
   - component: {fileID: 1783653149992131102}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1123,7 +1123,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 86fd7537cb8124e1aac7ab09da54e7dc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1579,7 +1579,7 @@ MonoBehaviour:
   - _id: Hurt
     _clip: {fileID: 8300000, guid: 50a2563ef9b854352a13b12092409d50, type: 3}
   - _id: Use
-    _clip: {fileID: 8300000, guid: c6c862049097148e7b912585bf396ca0, type: 3}
+    _clip: {fileID: 8300000, guid: 7b2b5ca878c6147de9ea882cd83f4459, type: 3}
   - _id: Die
     _clip: {fileID: 8300000, guid: 78e6f8bf39a3a44b1955c71a2b3779fc, type: 3}
   - _id: Dash

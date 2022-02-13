@@ -42,7 +42,7 @@ MonoBehaviour:
     _info: text_shop_key
     _price:
       _itemId: Coin
-      count: 10
+      count: 5
   - _id: SmallHealtPotion
     _icon: {fileID: 3714227102187029162, guid: e5dc44343cd4047e4b887334ad8811c8, type: 3}
     _info: text_shop_small_hp_potion
@@ -61,4 +61,4 @@ MonoBehaviour:
     _info: text_shop_speed_potion
     _price:
       _itemId: Coin
-      count: 10
+      count: 5

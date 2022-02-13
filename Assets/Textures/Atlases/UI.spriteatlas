@@ -52,6 +52,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 42dfce910584843c08aedcd7160636b8, type: 3}
   - {fileID: 21300000, guid: fafbbfb12217441f5880bb8016d77930, type: 3}
   - {fileID: 21300000, guid: 51356bf18aff841d2bc983a5de6320a5, type: 3}
+  - {fileID: 21300000, guid: c780ebf1e489c492699e71431c323254, type: 3}
   - {fileID: 21300000, guid: 80050c429e3c545d0a4dd9094c229076, type: 3}
   - {fileID: 21300000, guid: accdd27286e5244228b0817d3a5c7f75, type: 3}
   - {fileID: 21300000, guid: a3cdf772cd0ad4b5c988b19bea67e9a6, type: 3}
@@ -184,6 +185,7 @@ SpriteAtlas:
   - crabbu-face
   - item-small
   - 750px-Flag_of_Spain.svg
+  - knight
   - pirate-face
   - inventory-small
   - I_Clover

@@ -15,9 +15,6 @@ namespace PixelCrew.Creatures.Weapon
             var mod = _invertX ? -1 : 1;
             Direction = mod * transform.lossyScale.x > 0 ? 1 : -1;
             Rigidbody = GetComponent<Rigidbody2D>();
-
-            var force = new Vector2(Direction * _speed, 0);
-            Rigidbody.AddForce(force, ForceMode2D.Impulse);
         }
     }
 }

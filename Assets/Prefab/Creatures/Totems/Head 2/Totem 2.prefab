@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 2578937468423414655}
   _prefab: {fileID: 1561957801104775241, guid: 492849eb9e74847b6a054cd976efea06, type: 3}
+  _usePool: 0
 --- !u!1 &2578937468523227190
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +249,6 @@ GameObject:
   - component: {fileID: 1629751962}
   - component: {fileID: 2863040266419732113}
   - component: {fileID: 376267028783227459}
-  - component: {fileID: 6858220292106902467}
   m_Layer: 17
   m_Name: Totem 2
   m_TagString: Enemy
@@ -455,7 +455,6 @@ MonoBehaviour:
   _onChange:
     m_PersistentCalls:
       m_Calls: []
-  _immune: 0
 --- !u!114 &1629751962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,7 +468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 2578937469159728300}
-  _state: {fileID: 6858220292106902467}
+  _state: {fileID: 0}
 --- !u!114 &2863040266419732113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -581,16 +580,3 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: a231f9b1510294920ab6ba3dfdffa704, type: 3}
   - _id: Destroy
     _clip: {fileID: 8300000, guid: 77712f3e7ca334182a8cad4e3bc3087a, type: 3}
---- !u!114 &6858220292106902467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2578937469159728300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 034e642392e94362b63ba36570e9fb96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _id: totem-2

@@ -281,11 +281,13 @@ namespace PixelCrew.Creatures.Hero
         private void UsePotion()
         {
             var potion = DefsFacade.I.Potions.Get(SelectedItemId);
+            Sounds.Play("Use");
 
             switch (potion.Effect)
             {
                 case Effect.AddHp:
-                    var health = _session.Data.HP.Value += (int) potion.Value;
+                    var valueToPercent = (_session.StatsModel.GetValue(StatId.Hp) / 100) * potion.Value;
+                    var health = _session.Data.HP.Value += (int) valueToPercent;
                     _health.SetHealth(health);
                     break;
                 case Effect.SpeedUp:

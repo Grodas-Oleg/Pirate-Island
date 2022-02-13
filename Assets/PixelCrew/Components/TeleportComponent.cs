@@ -21,13 +21,13 @@ namespace PixelCrew.Components
             var input = target.GetComponent<PlayerInput>();
 
             SetLockInput(input, true);
-            input.actions.Disable();
             yield return AlphaAnimation(sprite, 0);
+            input.actions.Disable();
 
             yield return MoveAnimation(target);
 
-            yield return AlphaAnimation(sprite, 1);
             input.actions.Enable();
+            yield return AlphaAnimation(sprite, 1);
             SetLockInput(input, false);
         }
 

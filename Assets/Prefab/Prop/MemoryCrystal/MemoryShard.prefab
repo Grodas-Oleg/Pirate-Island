@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 4485180776198879547}
   - component: {fileID: 4485180776198879544}
   - component: {fileID: 4485180776198879545}
-  - component: {fileID: 4485180776198879550}
   - component: {fileID: 4485180776198879546}
   m_Layer: 15
   m_Name: MemoryShard
@@ -234,20 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 4485180776198879488}
-  _state: {fileID: 4485180776198879550}
---- !u!114 &4485180776198879550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4485180776198879488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 034e642392e94362b63ba36570e9fb96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _id: MemoryShard
+  _state: {fileID: 0}
 --- !u!114 &4485180776198879546
 MonoBehaviour:
   m_ObjectHideFlags: 0

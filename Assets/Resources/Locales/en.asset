@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _url: https://docs.google.com/spreadsheets/d/e/2PACX-1vRrPLDLPYihFzL9rnPLck-DMmqugi9xApNldR5rEvmEVvlLIiUuDgz3lk_vhpOGu_VVP4IRI3_mryNr/pub?gid=0&single=true&output=tsv
   _localeItems:
+  - Key: '### UI ###'
+    Value: "123\r"
   - Key: menu_title
     Value: "menu\r"
   - Key: pause_menu_title
@@ -34,6 +36,8 @@ MonoBehaviour:
     Value: "restart\r"
   - Key: button_continue
     Value: "Continue\r"
+  - Key: button_bidings
+    Value: "controls\r"
   - Key: sider_music
     Value: "music:\r"
   - Key: perk_price_text
@@ -110,6 +114,34 @@ MonoBehaviour:
     Value: "3 - Use perk Cannon\r"
   - Key: text_controls_button
     Value: "controls\r"
+  - Key: '### CONTROLS ###'
+    Value: "123\r"
+  - Key: button_binding_reset
+    Value: "reset\r"
+  - Key: button_bindings_reset_all
+    Value: "reset all\r"
+  - Key: rebind_movement
+    Value: "Move\r"
+  - Key: rebind_interact
+    Value: "Use\r"
+  - Key: rebind_next_item
+    Value: "Next Item\r"
+  - Key: rebind_use_item
+    Value: "Use Item\r"
+  - Key: rebind_light
+    Value: "Light\r"
+  - Key: rebind_attack
+    Value: "Attack\r"
+  - Key: rebind_dash
+    Value: "Dash\r"
+  - Key: rebind_perk_1
+    Value: "Shield\r"
+  - Key: rebind_perk_2
+    Value: "Super Throw\r"
+  - Key: rebind_perk_3
+    Value: "Cannon\r"
+  - Key: '### DIALOGS ###'
+    Value: "123\r"
   - Key: text_face_wall_1
     Value: "This wall looks suspicious ...\r"
   - Key: text_face_wall_2

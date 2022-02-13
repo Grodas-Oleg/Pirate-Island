@@ -33,6 +33,20 @@ namespace PixelCrew.Components.Effects.CameraRelated
             StopAnimation();
         }
 
+        public void SetShake(float animationTime, float intensity)
+        {
+            if (_coroutine != null)
+                StopAnimation();
+            _coroutine = StartCoroutine(StartAnimation(animationTime, intensity));
+        }
+
+        private IEnumerator StartAnimation(float animationTime, float intensity)
+        {
+            _cameraNoise.m_FrequencyGain = intensity;
+            yield return new WaitForSeconds(animationTime);
+            StopAnimation();
+        }
+
         private void StopAnimation()
         {
             _cameraNoise.m_FrequencyGain = 0;

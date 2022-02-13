@@ -15,11 +15,11 @@ MonoBehaviour:
   _collection:
   - _id: SmallHealtPotion
     _effect: 0
-    _value: 50
+    _value: 25
     _time: 1
   - _id: BigHealtPotion
     _effect: 0
-    _value: 100
+    _value: 50
     _time: 1
   - _id: SpeedUpPotion
     _effect: 1

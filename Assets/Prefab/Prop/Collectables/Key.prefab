@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 1583298650857028532}
   - component: {fileID: 1583298650857028533}
   - component: {fileID: 1583298650857028535}
-  - component: {fileID: 8132557490399775825}
   - component: {fileID: 6642905051370751696}
   m_Layer: 15
   m_Name: Key
@@ -245,20 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 1583298650857028494}
-  _state: {fileID: 8132557490399775825}
---- !u!114 &8132557490399775825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1583298650857028494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 034e642392e94362b63ba36570e9fb96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _id: key
+  _state: {fileID: 0}
 --- !u!114 &6642905051370751696
 MonoBehaviour:
   m_ObjectHideFlags: 0

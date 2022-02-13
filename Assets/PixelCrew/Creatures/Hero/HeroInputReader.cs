@@ -49,7 +49,7 @@ namespace PixelCrew.Creatures.Hero
                 _hero.UseInventory();
             }
         }
-        
+
         public void OnLight(InputAction.CallbackContext context)
         {
             if (context.started)
@@ -65,7 +65,7 @@ namespace PixelCrew.Creatures.Hero
                 _hero.NextItem();
             }
         }
-        
+
         public void OnPress1(InputAction.CallbackContext context)
         {
             if (context.performed)
@@ -73,7 +73,7 @@ namespace PixelCrew.Creatures.Hero
                 _hero.UsePerk1();
             }
         }
-        
+
         public void OnPress2(InputAction.CallbackContext context)
         {
             if (context.performed)
@@ -81,7 +81,7 @@ namespace PixelCrew.Creatures.Hero
                 _hero.UsePerk2();
             }
         }
-        
+
         public void OnPress3(InputAction.CallbackContext context)
         {
             if (context.performed)

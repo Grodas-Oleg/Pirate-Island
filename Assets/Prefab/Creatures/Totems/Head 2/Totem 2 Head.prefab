@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1629751962, guid: 3af038b13d2324c7bbdad73dd2a0d044, type: 3}
+      propertyPath: _state
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2031042110, guid: 3af038b13d2324c7bbdad73dd2a0d044, type: 3}
       propertyPath: _gos.Array.data[0]
       value: 
@@ -165,5 +169,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 100744512e2954132a4b9eef4c52b4fa,
         type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6858220292106902467, guid: 3af038b13d2324c7bbdad73dd2a0d044, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3af038b13d2324c7bbdad73dd2a0d044, type: 3}
